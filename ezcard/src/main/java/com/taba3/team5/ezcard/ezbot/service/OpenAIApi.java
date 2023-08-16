@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OpenAIApi {
-    private static final String API_KEY = "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";
+    private static final String API_KEY = "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";
 
     private List<String> extractCardNames(String gptResponse) {
         List<String> cardNames = new ArrayList<>();
