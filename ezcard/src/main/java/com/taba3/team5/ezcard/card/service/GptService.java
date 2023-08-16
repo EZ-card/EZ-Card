@@ -1,14 +1,18 @@
-package com.taba3.team5.ezcard.ezbot.service;
+package com.taba3.team5.ezcard.card.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class GptService {
+    @Autowired
     private final  OpenAIApi openAIApi;
 
-    public GptService(){
-        this.openAIApi = new OpenAIApi();
+    @Autowired
+    public GptService(OpenAIApi openAIApi) {
+        this.openAIApi = openAIApi;
     }
+
 
     public String ezbot(String prompt) {
         try {

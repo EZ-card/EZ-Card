@@ -1,5 +1,6 @@
 package com.taba3.team5.ezcard.card.entity;
 
+import com.taba3.team5.ezcard.card.dto.CardDTO;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -39,4 +40,31 @@ public class CardEntity {
     public enum CardType {
         CREDIT, DEBIT
     }
+
+    public static CardEntity fromCardDTO(CardDTO cardDTO) {
+        CardEntity cardEntity = new CardEntity();
+        cardEntity.setCardSeq(cardDTO.getCardSeq());
+        cardEntity.setCardName(cardDTO.getCardName());
+        cardEntity.setCardBank(cardDTO.getCardBank());
+        cardEntity.setCardMembership(cardDTO.getCardMembership());
+        cardEntity.setCardRecord(cardDTO.getCardRecord());
+        cardEntity.setCardSummary(cardDTO.getCardSummary());
+        cardEntity.setCardImage(cardDTO.getCardImage());
+        cardEntity.setCardType(cardDTO.getCardType());
+        return cardEntity;
+    }
+
+    public static CardDTO toCardDTO(CardEntity cardEntity) {
+        CardDTO cardDTO = new CardDTO();
+        cardDTO.setCardSeq(cardEntity.getCardSeq());
+        cardDTO.setCardName(cardEntity.getCardName());
+        cardDTO.setCardBank(cardEntity.getCardBank());
+        cardDTO.setCardMembership(cardEntity.getCardMembership());
+        cardDTO.setCardRecord(cardEntity.getCardRecord());
+        cardDTO.setCardSummary(cardEntity.getCardSummary());
+        cardDTO.setCardImage(cardEntity.getCardImage());
+        cardDTO.setCardType(cardEntity.getCardType());
+        return cardDTO;
+    }
+
 }
