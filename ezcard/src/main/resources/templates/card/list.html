@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Card List</title>
+</head>
+<body>
+<h2>Card List</h2>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Bank</th>
+    <th>Membership</th>
+    <th>Record</th>
+    <th>Summary</th>
+    <th>상세조회</th>
+    <th>삭제</th>
+  </tr>
+  <tr th:each="card: ${cardList}">
+    <td th:text="${card.cardSeq}"></td>
+    <td th:text="${card.cardName}"></td>
+    <td th:text="${card.cardBank}"></td>
+    <td th:text="${card.cardMembership}"></td>
+    <td th:text="${card.cardRecord}"></td>
+    <td th:text="${card.cardSummary}"></td>
+    <td>
+      <!-- query string /card?id=1
+           rest api /card/1 -->
+      <a th:href="@{|/card/id/${card.cardSeq}|}">조회</a>
+    </td>
+    <td>
+      <a th:href="@{|/card/delete/${card.cardSeq}|}">삭제</a>
+    </td>
+  </tr>
+</table>
+</body>
+</html>
