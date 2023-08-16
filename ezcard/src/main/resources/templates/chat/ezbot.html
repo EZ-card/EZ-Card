@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>E-Zcard</title>
+    <!-- Iner CSS -->
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .message {
+            border-top: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 5px;
+            background-color: #e6e6e6;
+        }
+
+        #chat_container {
+            width: 400px;
+            height: 600px;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #ccc;
+        }
+
+        #chat_messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 10px;
+            display: flex;
+            flex-direction: column-reverse;
+        }
+
+        #user_input {
+            padding: 10px;
+        }
+
+        #user_input form{
+            display: flex;
+        }
+
+        #user_input form input {
+            flex: 1;
+            padding: 10px;
+            outline: none;
+        }
+
+        #user_input form button {
+            border: none;
+            background-color: #1e88e5;
+            color: white;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="chat_container">
+    <div id="chat_messages">
+        <!-- 기존 대화 메시지들을 여기에 추가 -->
+    </div>
+    <div id="user_input">
+        <form id="chat_form">
+            <input type="text" id="user_input_message" placeholder="메시지를 입력하세요..." />
+            <button type="submit">전송</button>
+        </form>
+    </div>
+</div>
+
+<!-- Javascript -->
+<script>
+    const chatForm = document.getElementById('chat_form');
+    const userMessageInput = document.getElementById('user_input_message');
+    const chatMessages = document.getElementById('chat_messages');
+
+    chatForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const userMessage = userMessageInput.value;
+
+        // 사용자 메시지를 채팅 화면에 추가
+        const userChatDiv = document.createElement('div');
+        userChatDiv.classList.add('userChat');
+        userChatDiv.innerHTML = `
+                <p><strong>나 : </strong><span>${userMessage}</span></p>
+            `;
+        chatMessages.appendChild(userChatDiv);
+
+        // GPT에 메시지를 전송하고 응답 받아오기
+        const response = await fetch('/ezbot', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                prompt: userMessage
+            })
+        });
+        const gptResponse = await response.text();
+
+        // GPT 답변을 채팅 화면에 추가
+        const gptChatDiv = document.createElement('div');
+        gptChatDiv.classList.add('answerChat');
+        gptChatDiv.style.background = '#eee';
+
+        // JSON 파싱해서 필요한 정보만 출력
+        const gptResponseObj = JSON.parse(gptResponse);
+        const gptAnswer = gptResponseObj.answer;
+
+        gptChatDiv.innerHTML = `
+            <p><strong>GPT : </strong><span style="color: #444">${gptAnswer}</span></p>
+        `;
+        chatMessages.appendChild(gptChatDiv);
+
+        // 입력창 초기화
+        userMessageInput.value = '';
+
+        // 스크롤 아래로 이동
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    });
+</script>
+</body>
+</html>
+
+
