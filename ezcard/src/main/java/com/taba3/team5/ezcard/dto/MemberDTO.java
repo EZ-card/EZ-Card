@@ -1,6 +1,6 @@
-package com.taba3.team5.ezcard.member.dto;
+package com.taba3.team5.ezcard.dto;
 
-import com.taba3.team5.ezcard.member.entity.MemberEntity;
+import com.taba3.team5.ezcard.entity.MemberEntity;
 import lombok.*;
 
 @Getter

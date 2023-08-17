@@ -1,6 +1,6 @@
-package com.taba3.team5.ezcard.member.repository;
+package com.taba3.team5.ezcard.repository;
 
-import com.taba3.team5.ezcard.member.entity.MemberEntity;
+import com.taba3.team5.ezcard.entity.MemberEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

@@ -1,6 +1,6 @@
-package com.taba3.team5.ezcard.card.controller;
+package com.taba3.team5.ezcard.controller;
 
-import com.taba3.team5.ezcard.card.service.GptService;
+import com.taba3.team5.ezcard.service.GptService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

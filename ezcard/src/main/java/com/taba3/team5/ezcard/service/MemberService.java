@@ -1,9 +1,9 @@
-package com.taba3.team5.ezcard.member.service;
+package com.taba3.team5.ezcard.service;
 
 
-import com.taba3.team5.ezcard.member.dto.MemberDTO;
-import com.taba3.team5.ezcard.member.entity.MemberEntity;
-import com.taba3.team5.ezcard.member.repository.MemberRepository;
+import com.taba3.team5.ezcard.dto.MemberDTO;
+import com.taba3.team5.ezcard.entity.MemberEntity;
+import com.taba3.team5.ezcard.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

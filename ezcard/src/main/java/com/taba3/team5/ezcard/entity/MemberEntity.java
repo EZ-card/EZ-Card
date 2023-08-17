@@ -1,6 +1,6 @@
-package com.taba3.team5.ezcard.member.entity;
+package com.taba3.team5.ezcard.entity;
 
-import com.taba3.team5.ezcard.member.dto.MemberDTO;
+import com.taba3.team5.ezcard.dto.MemberDTO;
 import lombok.Getter;
 import lombok.Setter;
 

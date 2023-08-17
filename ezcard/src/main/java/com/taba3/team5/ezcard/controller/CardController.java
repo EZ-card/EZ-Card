@@ -1,15 +1,12 @@
-package com.taba3.team5.ezcard.card.controller;
+package com.taba3.team5.ezcard.controller;
 
-import com.taba3.team5.ezcard.card.dto.CardDTO;
-import com.taba3.team5.ezcard.card.service.CardService;
-import com.taba3.team5.ezcard.member.dto.MemberDTO;
+import com.taba3.team5.ezcard.dto.CardDTO;
+import com.taba3.team5.ezcard.service.CardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 

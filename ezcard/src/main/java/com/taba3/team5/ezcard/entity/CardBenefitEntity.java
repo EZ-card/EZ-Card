@@ -1,4 +1,4 @@
-package com.taba3.team5.ezcard.card.entity;
+package com.taba3.team5.ezcard.entity;
 
 import lombok.Getter;
 import lombok.Setter;

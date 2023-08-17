@@ -1,11 +1,8 @@
-package com.taba3.team5.ezcard.card.service;
+package com.taba3.team5.ezcard.service;
 
-import com.taba3.team5.ezcard.card.dto.CardDTO;
-import com.taba3.team5.ezcard.card.dto.ChatCardDTO;
-import com.taba3.team5.ezcard.card.entity.CardEntity;
-import com.taba3.team5.ezcard.card.repository.CardRepository;
-import com.taba3.team5.ezcard.member.dto.MemberDTO;
-import com.taba3.team5.ezcard.member.entity.MemberEntity;
+import com.taba3.team5.ezcard.dto.CardDTO;
+import com.taba3.team5.ezcard.entity.CardEntity;
+import com.taba3.team5.ezcard.repository.CardRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

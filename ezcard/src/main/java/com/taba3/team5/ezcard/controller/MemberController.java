@@ -1,7 +1,7 @@
-package com.taba3.team5.ezcard.member.controller;
+package com.taba3.team5.ezcard.controller;
 
-import com.taba3.team5.ezcard.member.dto.MemberDTO;
-import com.taba3.team5.ezcard.member.service.MemberService;
+import com.taba3.team5.ezcard.dto.MemberDTO;
+import com.taba3.team5.ezcard.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,8 +26,8 @@ public class MemberController {
 
     @PostMapping("/member/save")
     public String save(@ModelAttribute MemberDTO memberDTO) {
-        System.out.println("MemberController.save");
-        System.out.println("memberDTO = " + memberDTO);
+        //System.out.println("MemberController.save");
+        //System.out.println("memberDTO = " + memberDTO);
         memberService.save(memberDTO);
         return "member/login";
     }

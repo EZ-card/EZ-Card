@@ -32,6 +32,7 @@ dependencies {
 	implementation group: 'org.json', name: 'json', version: '20210307'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation 'mysql:mysql-connector-java:8.0.26'
+	implementation 'com.google.code.gson:gson:2.8.8'
 }
 
 tasks.named('test') {

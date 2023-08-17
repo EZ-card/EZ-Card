@@ -1,4 +1,4 @@
-package com.taba3.team5.ezcard.card.dto;
+package com.taba3.team5.ezcard.dto;
 
 import java.util.List;
 

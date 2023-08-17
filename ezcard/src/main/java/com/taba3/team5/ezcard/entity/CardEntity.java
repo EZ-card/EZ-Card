@@ -1,29 +1,47 @@
-package com.taba3.team5.ezcard.card.dto;
+package com.taba3.team5.ezcard.entity;
 
-import com.taba3.team5.ezcard.card.entity.CardEntity;
-import lombok.*;
+import com.taba3.team5.ezcard.dto.CardDTO;
+import lombok.Getter;
+import lombok.Setter;
 
-import java.util.List;
+import javax.persistence.*;
 
+@Entity
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@ToString
-public class CardDTO {
+@Table(name = "card_table")
+public class CardEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long cardSeq;
+
+    @Column(nullable = false)
     private String cardName;
+
+    @Column(nullable = false)
     private String cardBank;
-   private int cardMembership;
+
+    @Column(nullable = false)
+    private int cardMembership;
+
+    @Column(nullable = false)
     private int cardRecord;
+
+    @Column(nullable = false)
     private String cardSummary;
+
+    @Column(nullable = false)
     private String cardImage;
-    private CardEntity.CardType cardType;
 
-//    private List<String> cardNames;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private CardType cardType;
 
+    public enum CardType {
+        CREDIT, DEBIT
+    }
 
-    public static CardEntity toCardEntity(CardDTO cardDTO) {
+    public static CardEntity fromCardDTO(CardDTO cardDTO) {
         CardEntity cardEntity = new CardEntity();
         cardEntity.setCardSeq(cardDTO.getCardSeq());
         cardEntity.setCardName(cardDTO.getCardName());
@@ -36,7 +54,7 @@ public class CardDTO {
         return cardEntity;
     }
 
-    public static CardDTO fromCardEntity(CardEntity cardEntity) {
+    public static CardDTO toCardDTO(CardEntity cardEntity) {
         CardDTO cardDTO = new CardDTO();
         cardDTO.setCardSeq(cardEntity.getCardSeq());
         cardDTO.setCardName(cardEntity.getCardName());
@@ -48,4 +66,5 @@ public class CardDTO {
         cardDTO.setCardType(cardEntity.getCardType());
         return cardDTO;
     }
+
 }

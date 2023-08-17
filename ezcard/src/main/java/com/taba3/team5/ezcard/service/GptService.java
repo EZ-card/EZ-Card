@@ -1,4 +1,4 @@
-package com.taba3.team5.ezcard.card.service;
+package com.taba3.team5.ezcard.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class GptService {
     @Autowired
-    private final  OpenAIApi openAIApi;
+    private final OpenAIApi openAIApi;
 
     @Autowired
     public GptService(OpenAIApi openAIApi) {

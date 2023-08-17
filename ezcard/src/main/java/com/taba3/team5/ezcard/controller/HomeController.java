@@ -1,4 +1,4 @@
-package com.taba3.team5.ezcard.member.controller;
+package com.taba3.team5.ezcard.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
