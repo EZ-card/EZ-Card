@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/EZ-Backend.iml" filepath="$PROJECT_DIR$/.idea/EZ-Backend.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ezcard.main.iml" filepath="$PROJECT_DIR$/.idea/modules/ezcard.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ezcard.test.iml" filepath="$PROJECT_DIR$/.idea/modules/ezcard.test.iml" />
     </modules>
   </component>
 </project>

@@ -37,6 +37,9 @@ public class CardEntity {
     @Column(nullable = false)
     private CardType cardType;
 
+    public static String get() {
+    }
+
     public enum CardType {
         CREDIT, DEBIT
     }

@@ -1,16 +1,19 @@
 package com.taba3.team5.ezcard.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 @Service
 public class GptService {
-    @Autowired
-    private final OpenAIApi openAIApi;
 
-    @Autowired
-    public GptService(OpenAIApi openAIApi) {
-        this.openAIApi = openAIApi;
+    @Value("${key.gpt")
+    private String API_KEY ;
+
+    private final CardService cardService;
+
+    public GptService(CardService cardService) {
+        this.cardService = cardService;
     }
 
 

@@ -12,7 +12,7 @@ public class CardDTO {
     private Long cardSeq;
     private String cardName;
     private String cardBank;
-   private int cardMembership;
+    private int cardMembership;
     private int cardRecord;
     private String cardSummary;
     private String cardImage;

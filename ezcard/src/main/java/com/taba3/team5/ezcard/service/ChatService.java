@@ -1,8 +1,11 @@
 package com.taba3.team5.ezcard.service;
 
-import com.taba3.team5.ezcard.CardInfo;
+import com.taba3.team5.ezcard.GptApiClient;
+import com.taba3.team5.ezcard.dto.Chat.ChatResponseDto;
+import com.taba3.team5.ezcard.entity.CardEntity;
+import com.taba3.team5.ezcard.model.GptModel;
 import com.taba3.team5.ezcard.dto.CardDTO;
-import com.taba3.team5.ezcard.service.CardService;
+import com.taba3.team5.ezcard.repository.CardRepository;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
@@ -15,16 +18,20 @@ import java.net.http.HttpResponse;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
+
 
 @Service
-public class OpenAIApi {
+public class ChatService {
     @Value("${key.gpt}")
-    private String API_KEY ;
+    private String API_KEY;
 
     private final CardService cardService;
-    public OpenAIApi(CardService cardService) {
+    private final GptApiClient gptApiClient;
+
+    public ChatService(CardService cardService, GptApiClient gptApiClient) {
         this.cardService = cardService;
-        // 생성자에서 cardService를 사용하는 초기화 작업을 진행할 수 있음
+        this.gptApiClient = gptApiClient;
     }
 
     private List<String> extractCardNames(String gptResponse) {
@@ -51,48 +58,23 @@ public class OpenAIApi {
         List<String> responseList = new ArrayList<>();
         String responseBody = "";
 
-        JSONObject jsonBody = new JSONObject();
-        jsonBody.put("messages", new JSONArray()
-                .put(new JSONObject()
-                        .put("role", "system")
-                        .put("content", CardInfo.MESSAGE +
-                                "너는 지금 주어진 카드 중 카드를 2개 추천해주는 상담사야. " +
-                                "형식은 '카드이름 : /카드추천 이유 : '으로 해줘. 추천 이유는 1줄로 짧게 해줘. " +
-                                "카드와 추천이 함께 들어간 문장일때만 카드 추천하고 아닐 때는 그냥 대화해."))
-                .put(new JSONObject()
-                        .put("role", "user")
-                        .put("content", prompt)));
-        jsonBody.put("max_tokens", 2000);
-        jsonBody.put("temperature", 0.0);
-        jsonBody.put("model", "gpt-3.5-turbo");
+        JSONObject jsonBody = GptModel.createJsonBody(prompt);
 
         try {
-            // HttpClient 인스턴스 생성
-            HttpClient client = HttpClient.newHttpClient();
-
-            // HttpRequest 빌드
-            HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create("https://api.openai.com/v1/chat/completions"))
-                    .header("Content-Type", "application/json")
-                    .header("Authorization", "Bearer " + API_KEY)
-                    .POST(HttpRequest.BodyPublishers.ofString(jsonBody.toString()))
-                    .build();
-
-            // 요청 보내고 응답 받아옴
-            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-
-            // 응답 본문 분석하여 처리
-            responseBody = extractAnswer(response.body());
+            String responseFrompt = gptApiClient.getGptResponse(jsonBody);
+            responseBody = extractAnswer(responseFrompt);
             responseList.add(responseBody);
 
             // "카드추천해줘" 문장이 있는 경우, 카드 추천 작업 수행
-            if (prompt.contains("카드")&&prompt.contains("추천")) {
+            if (prompt.contains("카드") && prompt.contains("추천")) {
                 List<String> cardNames = extractCardNames(responseBody); //카드이름이 담겨있는 리스트 받아오기
-                StringBuilder cardInfoMessage = new StringBuilder(); //카드 정보를 담을
+
+                List<ChatResponseDto> chatDots = new ArrayList<>();//카드 정보를 담을
+                List<CardEntity> cardList = CardRepository.findOneByCardName(cardNames);
 
                 for (String cardName : cardNames) {
                     CardDTO cardDTO = cardService.getCardInfoByCardName(cardName);
-                    System.out.println(cardName);
+                    ChatResponseDto responseDto = new ChatResponseDto(cardName);
 
                     if (cardDTO != null) {
                         // 카드 정보를 사용하여 채팅 메시지 생성
@@ -131,4 +113,6 @@ public class OpenAIApi {
             return "API 호출 중 오류가 발생했습니다.";
         }
     }
+
+
 }
