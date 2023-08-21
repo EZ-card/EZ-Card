@@ -66,7 +66,7 @@ public class ChatBotService {
     //gpt답변에서 카드이름 추출
     private String extractCardNames(String gptResponse) {
         // 정규 표현식 패턴 설정
-        String pattern = "카드이름: (.*?)\n";
+        String pattern = "카드이름: (.*?) /";
         Pattern r = Pattern.compile(pattern);
 
         Matcher matcher = r.matcher(gptResponse);
