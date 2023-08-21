@@ -10,11 +10,16 @@ public class CardResponse {
 
     private CardDto cardDto;
     private List<CardBenefitDto> cardBenefitList;
+    private boolean wishCardExists;
 
     public void setCardDto(CardDto cardDto) {
         this.cardDto = cardDto;
     }
     public void setCardBenefitList(List<CardBenefitDto> cardBenefitList) {
         this.cardBenefitList = cardBenefitList;
+    }
+
+    public void setWishCardExists(boolean wishCardExists) {
+        this.wishCardExists = wishCardExists;
     }
 }

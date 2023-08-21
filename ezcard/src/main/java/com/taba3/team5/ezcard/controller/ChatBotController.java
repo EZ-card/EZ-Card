@@ -19,7 +19,7 @@ public class ChatBotController {
         this.chatBotService = chatBotService;
     }
 
-    @PostMapping("/ezbot")
+    @PostMapping(path = "/ezbot", produces = "application/json")
     public ResponseEntity<ChatBotResponse> ezbot(@RequestBody String userinput) {
         ChatBotResponse chatBotResponse = chatBotService.ezbot(userinput);
 
