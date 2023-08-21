@@ -33,6 +33,10 @@ public class User {
     @Column(name = "user_job")
     private String userJob;
 
+    public User() {
+
+    }
+
     // Getters and setters
 }
 

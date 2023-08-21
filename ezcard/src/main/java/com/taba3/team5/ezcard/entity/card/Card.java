@@ -1,8 +1,13 @@
 package com.taba3.team5.ezcard.entity.card;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 @Entity
+@Getter
+@Setter
 @Table(name = "card_tb")
 public class Card {
     @Id
@@ -34,6 +39,5 @@ public class Card {
     @Column(name = "card_link")
     private String cardLink;
 
-    // Getters and setters
 }
 

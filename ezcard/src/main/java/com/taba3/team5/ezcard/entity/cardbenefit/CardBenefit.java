@@ -1,8 +1,12 @@
-package com.taba3.team5.ezcard.entity.card;
+package com.taba3.team5.ezcard.entity.cardbenefit;
+
+import com.taba3.team5.ezcard.entity.card.Card;
+import lombok.Getter;
 
 import javax.persistence.*;
 
 @Entity
+@Getter
 @Table(name = "benefit_tb")
 public class CardBenefit {
     @Id
