@@ -1,9 +1,10 @@
 package com.taba3.team5.ezcard.service;
 
 import com.taba3.team5.ezcard.dto.home.HomeCardDto;
-import com.taba3.team5.ezcard.entity.agecard.AgeCard;
-import com.taba3.team5.ezcard.entity.agecard.AgeCardRepository;
 import com.taba3.team5.ezcard.entity.card.Card;
+import com.taba3.team5.ezcard.entity.user.User;
+import com.taba3.team5.ezcard.entity.user.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -12,7 +13,8 @@ import static com.taba3.team5.ezcard.service.CardService.cardRepository;
 
 @Service
 public class HomeCardService {
-
+    @Autowired
+    private UserRepository userRepository;
     private final Map<String, List<Long>> ageToCardIdsMap = new HashMap<>();
 
     public HomeCardService() {
@@ -52,5 +54,14 @@ public class HomeCardService {
             }
         }
         return homeCardDtoList;
+    }
+
+    public String findUserAgeByEmail(String email) {
+        Optional<User> userOptional = userRepository.findByUserEmail(email);
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+            return user.getUserAge();
+        }
+        return null;
     }
 }
