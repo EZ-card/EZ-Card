@@ -1,8 +1,6 @@
 package com.taba3.team5.ezcard.service;
 
 import com.taba3.team5.ezcard.dto.home.HomeCardDto;
-import com.taba3.team5.ezcard.entity.agecard.AgeCard;
-import com.taba3.team5.ezcard.entity.agecard.AgeCardRepository;
 import com.taba3.team5.ezcard.entity.card.Card;
 import org.springframework.stereotype.Service;
 

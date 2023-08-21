@@ -13,13 +13,4 @@ public class HomeCardDto {
     private String cardBank;
     private String cardSummary;
     private String cardImage;
-
-    public static HomeCardDto fromEntity(Card card) {
-        HomeCardDto homeCardDto = new HomeCardDto();
-        homeCardDto.setCardName(card.getCardName());
-        homeCardDto.setCardBank(card.getCardBank());
-        homeCardDto.setCardSummary(card.getCardSummary());
-
-        return homeCardDto;
-    }
 }

@@ -25,7 +25,7 @@ public class User {
     private String userNickname;
 
     @Column(name = "user_age")
-    private int userAge;
+    private String userAge;
 
     @Column(name = "user_gender")
     private String userGender;

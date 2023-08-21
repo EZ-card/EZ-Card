@@ -25,7 +25,6 @@ public class ChatBotService {
         this.gptApiClient = gptApiClient;
     }
 
-
     public ChatBotResponse ezbot(String userinput) {
         ChatBotResponse chatBotResponse = new ChatBotResponse();
 
@@ -67,7 +66,7 @@ public class ChatBotService {
     //gpt답변에서 카드이름 추출
     private String extractCardNames(String gptResponse) {
         // 정규 표현식 패턴 설정
-        String pattern = "카드이름 : (.*?)\n";
+        String pattern = "카드이름: (.*?)\n";
         Pattern r = Pattern.compile(pattern);
 
         Matcher matcher = r.matcher(gptResponse);
@@ -93,6 +92,4 @@ public class ChatBotService {
             return "API 호출 중 오류가 발생했습니다.";
         }
     }
-
-
 }
