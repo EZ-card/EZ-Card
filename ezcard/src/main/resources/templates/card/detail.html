@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Card Detail</title>
+</head>
+<body>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Bank</th>
+    <th>Membership</th>
+    <th>Record</th>
+    <th>Summary</th>
+    <th>Image</th>
+    <th>Type</th>
+  </tr>
+  <tr>
+    <td th:text="${card.cardSeq}"></td>
+    <td th:text="${card.cardName}"></td>
+    <td th:text="${card.cardBank}"></td>
+    <td th:text="${card.cardMembership}"></td>
+    <td th:text="${card.cardRecord}"></td>
+    <td th:text="${card.cardSummary}"></td>
+    <td th:text="${card.cardImage}"></td>
+    <td th:text="${card.cardType}"></td>
+  </tr>
+</table>
+</body>
+</html>

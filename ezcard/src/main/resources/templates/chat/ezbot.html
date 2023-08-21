@@ -100,29 +100,43 @@
                 prompt: userMessage
             })
         });
-        const gptResponse = await response.text();
+        // 텍스트 형식으로 응답 파싱
+        const responseData = await response.json();
 
-        // GPT 답변을 채팅 화면에 추가
+        // GPT 답변과 카드 정보 출력
+        const gptAnswer = responseData[0];
+        const card1 = responseData[1];
+        const card2 = responseData[2];
+
+
+        // GPT 답변 출력
         const gptChatDiv = document.createElement('div');
         gptChatDiv.classList.add('answerChat');
         gptChatDiv.style.background = '#eee';
-
-        // JSON 파싱해서 필요한 정보만 출력
-        const gptResponseObj = JSON.parse(gptResponse);
-        const gptAnswer = gptResponseObj.answer;
-
-        gptChatDiv.innerHTML = `
-            <p><strong>GPT : </strong><span style="color: #444">${gptAnswer}</span></p>
-        `;
+        gptChatDiv.innerHTML = `<p><strong>GPT : </strong><span style="color: #444">${gptAnswer}</span></p>`;
         chatMessages.appendChild(gptChatDiv);
 
-        // 입력창 초기화
-        userMessageInput.value = '';
+        // 카드 정보 출력
+        const card1ChatDiv = document.createElement('div');
+        card1ChatDiv.classList.add('responseChat');
+        card1ChatDiv.style.background = '#e6e6e6';
+        card1ChatDiv.innerHTML = `<p>${card1}</p>`;
+        chatMessages.appendChild(card1ChatDiv);
+
+        const card2ChatDiv = document.createElement('div');
+        card2ChatDiv.classList.add('responseChat');
+        card2ChatDiv.style.background = '#e6e6e6';
+        card2ChatDiv.innerHTML = `<p>${card2}</p>`;
+        chatMessages.appendChild(card2ChatDiv);
 
         // 스크롤 아래로 이동
         chatMessages.scrollTop = chatMessages.scrollHeight;
+
+        // 입력창 초기화
+        userMessageInput.value = '';
     });
 </script>
+
 </body>
 </html>
 
