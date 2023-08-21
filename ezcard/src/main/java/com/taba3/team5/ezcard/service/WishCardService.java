@@ -15,6 +15,7 @@ import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static com.taba3.team5.ezcard.service.CardService.cardRepository;
 
@@ -32,7 +33,10 @@ public class WishCardService {
     }
 
     public List<WishCardDto> wishCardDtoList(Long userId) {
-        List<WishCard> wishCards = wishCardRepository.findByUserId(userId);
+
+        User userid = userRepository.findById(userId).orElseThrow(() -> new EntityNotFoundException("User not found"));
+
+        List<WishCard> wishCards = wishCardRepository.findByUserId(userid);
         List<WishCardDto> wishCardDtoList = new ArrayList<>();
 
         for (WishCard wishCard : wishCards) {
@@ -40,6 +44,7 @@ public class WishCardService {
 
             // Card 엔티티에서 정보를 추출하여 WishCardDto에 설정
             Card card = wishCard.getCard();
+            wishCardDto.setCardId(card.getCardId());
             wishCardDto.setCardName(card.getCardName());
             wishCardDto.setCardBank(card.getCardBank());
             wishCardDto.setCardImage(card.getCardImage());

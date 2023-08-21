@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 public class WishCardDto {
+    private Long cardId;
     private String cardName;
     private String cardBank;
     private String cardImage;

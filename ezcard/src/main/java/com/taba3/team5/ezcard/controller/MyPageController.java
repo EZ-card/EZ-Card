@@ -30,7 +30,7 @@ public class MyPageController {
         if (myPageResponseDto != null) {
             return ResponseEntity.status(HttpStatus.OK).body(myPageResponseDto);
         } else {
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
     }
 

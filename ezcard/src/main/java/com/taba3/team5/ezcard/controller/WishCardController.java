@@ -2,6 +2,8 @@ package com.taba3.team5.ezcard.controller;
 
 import com.taba3.team5.ezcard.dto.wishcard.WishCardDto;
 import com.taba3.team5.ezcard.dto.wishcard.WishCardResponse;
+import com.taba3.team5.ezcard.entity.user.User;
+import com.taba3.team5.ezcard.service.UserService;
 import com.taba3.team5.ezcard.service.WishCardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,22 +17,25 @@ import java.util.List;
 public class WishCardController {
 
     private final WishCardService wishCardService;
+    private final UserService userService;
 
     @Autowired
-    public WishCardController(WishCardService wishCardService) {
+    public WishCardController(WishCardService wishCardService, UserService userService) {
         this.wishCardService = wishCardService;
+        this.userService = userService;
     }
 
-    @GetMapping("/wish/{userid}")
-    public ResponseEntity<WishCardResponse> wishCardList(@PathVariable Long userid) {
-        List<WishCardDto> wishCardDtoList = wishCardService.wishCardDtoList(userid);
+    @GetMapping("/wish")
+    public ResponseEntity<WishCardResponse> wishCardList(HttpSession session) {
+        Long userId = (Long) session.getAttribute("loginId");
+        List<WishCardDto> wishCardDtoList = wishCardService.wishCardDtoList(userId);
         WishCardResponse wishCardResponse = new WishCardResponse();
         wishCardResponse.setWishCardList(wishCardDtoList);
 
-        if (wishCardDtoList != null) {
+        if (wishCardDtoList.size() > 0) {
             return ResponseEntity.status(HttpStatus.OK).body(wishCardResponse);
         } else {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
         }
     }
 
@@ -38,8 +43,7 @@ public class WishCardController {
     public ResponseEntity<String> wishAdd(@PathVariable Long cardid, HttpSession session) {
         try {
             // 세션에서 userid를 가져옵니다.
-            Long userid = (Long) session.getAttribute("userid");
-
+            Long userid = (Long) session.getAttribute("loginId");
             // 위에서 얻은 userid와 cardid를 사용하여 Wish Card를 추가합니다.
             wishCardService.addWishCard(userid, cardid);
 
@@ -49,12 +53,11 @@ public class WishCardController {
         }
     }
 
-    @DeleteMapping("/wish/{userid}/{cardid}")
-    public ResponseEntity<String> wishDelete(
-            @PathVariable Long userid,
-            @PathVariable Long cardid)
-    {
-        return wishCardService.deleteWishCard(userid, cardid);
+    @DeleteMapping("/wish/{cardid}")
+    public ResponseEntity<String> wishDelete(@PathVariable Long cardid, HttpSession session) {
+        Long userid = (Long) session.getAttribute("loginId");
+        wishCardService.deleteWishCard(userid, cardid);
+        return ResponseEntity.status(HttpStatus.OK).body("OK");
     }
 }
 
