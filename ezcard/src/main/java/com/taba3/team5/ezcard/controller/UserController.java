@@ -38,6 +38,7 @@ public class UserController {
         if (loginResult != null) {
             // login 성공
             session.setAttribute("loginEmail", loginResult.getEmail());
+            session.setAttribute("loginId", loginResult.getId());
             return ResponseEntity.ok(new LoginResponseDto(200, "OK"));
         } else {
             // login 실패

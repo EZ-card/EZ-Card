@@ -9,7 +9,7 @@ import java.util.List;
 
 @Repository
 public interface WishCardRepository extends JpaRepository<WishCard, Long> {
-    List<WishCard> findByUserId(Long userId);
+    List<WishCard> findByUserId(User userId);
 
     WishCard findByCardIdAndUserId(Card cardId, User userId);
 }
