@@ -32,10 +32,10 @@ public class WishCardController {
         WishCardResponse wishCardResponse = new WishCardResponse();
         wishCardResponse.setWishCardList(wishCardDtoList);
 
-        if (wishCardDtoList != null) {
+        if (wishCardDtoList.size() > 0) {
             return ResponseEntity.status(HttpStatus.OK).body(wishCardResponse);
         } else {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
         }
     }
 
@@ -54,9 +54,10 @@ public class WishCardController {
     }
 
     @DeleteMapping("/wish/{cardid}")
-    public ResponseEntity<String> wishDelete(@PathVariable Long cardid,HttpSession session) {
+    public ResponseEntity<String> wishDelete(@PathVariable Long cardid, HttpSession session) {
         Long userid = (Long) session.getAttribute("loginId");
-        return wishCardService.deleteWishCard(userid, cardid);
+        wishCardService.deleteWishCard(userid, cardid);
+        return ResponseEntity.status(HttpStatus.OK).body("OK");
     }
 }
 

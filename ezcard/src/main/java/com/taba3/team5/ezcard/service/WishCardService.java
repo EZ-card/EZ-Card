@@ -44,6 +44,7 @@ public class WishCardService {
 
             // Card 엔티티에서 정보를 추출하여 WishCardDto에 설정
             Card card = wishCard.getCard();
+            wishCardDto.setCardId(card.getCardId());
             wishCardDto.setCardName(card.getCardName());
             wishCardDto.setCardBank(card.getCardBank());
             wishCardDto.setCardImage(card.getCardImage());

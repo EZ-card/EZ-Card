@@ -2,11 +2,11 @@ package com.taba3.team5.ezcard.controller;
 
 import com.taba3.team5.ezcard.dto.user.JoinRequestDto;
 import com.taba3.team5.ezcard.dto.user.LoginRequestDto;
-import com.taba3.team5.ezcard.dto.user.LoginResponseDto;
 import com.taba3.team5.ezcard.dto.user.LoginUserDto;
 import com.taba3.team5.ezcard.entity.user.User;
 import com.taba3.team5.ezcard.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,16 +33,16 @@ public class UserController {
 
     // 2. 로그인
     @PostMapping("/login")
-    public ResponseEntity<LoginResponseDto> login(@RequestBody LoginRequestDto loginRequestDto, HttpSession session) {
+    public ResponseEntity<String> login(@RequestBody LoginRequestDto loginRequestDto, HttpSession session) {
         LoginUserDto loginResult = userService.login(loginRequestDto);
         if (loginResult != null) {
             // login 성공
             session.setAttribute("loginEmail", loginResult.getEmail());
             session.setAttribute("loginId", loginResult.getId());
-            return ResponseEntity.ok(new LoginResponseDto(200, "OK"));
+            return ResponseEntity.status(HttpStatus.OK).build();
         } else {
             // login 실패
-            return ResponseEntity.status(401).body(new LoginResponseDto(401, "Unauthorized"));
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
     }
 
