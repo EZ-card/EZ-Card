@@ -1,5 +1,6 @@
 package com.taba3.team5.ezcard.service;
 
+import com.taba3.team5.ezcard.dto.mypage.MyPageRequestDto;
 import com.taba3.team5.ezcard.dto.mypage.MyPageResponseDto;
 import com.taba3.team5.ezcard.entity.user.User;
 import com.taba3.team5.ezcard.entity.user.UserRepository;
@@ -17,7 +18,7 @@ public class MyPageService {
         this.userRepository = userRepository;
     }
 
-    // 아이디로 회원 정보 찾기
+    // 이메일로 회원 정보 찾기
     public MyPageResponseDto findByEmail(String email) {
         Optional<User> optionalUser = userRepository.findByUserEmail(email);
         if(optionalUser.isPresent()) {
@@ -27,4 +28,20 @@ public class MyPageService {
         }
     }
 
+    // userId로 회원 정보 업데이트
+    public boolean updateUserInformation(Long loginId, MyPageRequestDto myPageRequestDto) {
+        Optional<User> optionalUser = userRepository.findById(loginId);
+        if (optionalUser.isPresent()) {
+            User user = optionalUser.get();
+            user.setUserPwd(myPageRequestDto.getPassword());
+            user.setUserNickname(myPageRequestDto.getNickname());
+            user.setUserAge(myPageRequestDto.getAge());
+            user.setUserGender(myPageRequestDto.getGender());
+            user.setUserJob(myPageRequestDto.getJob());
+            userRepository.save(user);
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
