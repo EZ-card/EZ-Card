@@ -27,9 +27,14 @@ public class Card {
     @Column(name = "card_record")
     private String cardRecord;
 
-    @Column(name = "card_summary")
-    private String cardSummary;
+    @Column(name = "card_summary1")
+    private String cardSummary1;
 
+    @Column(name = "card_summary2")
+    private String cardSummary2;
+
+    @Column(name = "card_summary3")
+    private String cardSummary3;
     @Column(name = "card_image")
     private String cardImage;
 

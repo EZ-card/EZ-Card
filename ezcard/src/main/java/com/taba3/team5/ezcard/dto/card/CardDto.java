@@ -14,7 +14,9 @@ public class CardDto {
     private String cardBank;
     private String cardMembership;
     private String cardRecord;
-    private String cardSummary;
+    private String cardSummary1;
+    private String cardSummary2;
+    private String cardSummary3;
     private String cardImage;
     private String cardType;
     private String cardLink;
@@ -26,7 +28,9 @@ public class CardDto {
         cardDto.setCardBank(card.getCardBank());
         cardDto.setCardMembership(card.getCardMembership());
         cardDto.setCardRecord(card.getCardRecord());
-        cardDto.setCardSummary(card.getCardSummary());
+        cardDto.setCardSummary1(card.getCardSummary1());
+        cardDto.setCardSummary2(card.getCardSummary2());
+        cardDto.setCardSummary3(card.getCardSummary3());
         cardDto.setCardImage(card.getCardImage());
         cardDto.setCardType(card.getCardType());
         cardDto.setCardLink(card.getCardLink());

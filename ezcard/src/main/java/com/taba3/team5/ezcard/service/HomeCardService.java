@@ -47,7 +47,9 @@ public class HomeCardService {
                 HomeCardDto homeCardDto = new HomeCardDto();
                 homeCardDto.setCardName(card.getCardName());
                 homeCardDto.setCardBank(card.getCardBank());
-                homeCardDto.setCardSummary(card.getCardSummary());
+                homeCardDto.setCardSummary(card.getCardSummary1());
+                homeCardDto.setCardSummary(card.getCardSummary2());
+                homeCardDto.setCardSummary(card.getCardSummary3());
                 // 필요한 다른 정보도 추가로 설정
 
                 homeCardDtoList.add(homeCardDto);
