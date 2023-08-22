@@ -1,0 +1,119 @@
+.registerSec{
+    padding: 0px 10px;
+}
+/* .registerSec:nth-child(2){
+    margin-bottom: 150px;
+} */
+
+
+
+.sectionCL h2{
+    font-size: 28px;
+    font-weight: bold;
+    color: #0042EC;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+#registerForm input{
+    width: 100%;
+    height: 48px;
+    padding: 0 10px;
+    margin-top: 5px;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+    border-radius: 6px;
+    border: 1px solid #D0D5DD;
+    background-color: #F8F8F8;
+}
+#registerForm input::placeholder{
+    color: #D2D2D2;
+}
+#registerForm button{
+    width: 100%;
+    height: 55px;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 6px;
+    background-color: #0042EC;
+    margin-top: 20px;
+    cursor: pointer;
+    border: none;
+}
+
+#registerForm label{
+    color: #191D23;
+    font-weight: bold;
+}
+
+.goRg{
+    text-align: center;
+}
+.goRg a{
+    color: #0042EC;
+    font-size: 15px;
+}
+
+
+.registerSec .rsDiv ul{
+    display: flex;
+    margin-bottom: 16px;
+}
+
+.registerSec .rsDiv ul li{
+    width: 48%;
+    height: 45px;
+    line-height: 45px;
+    background-color: #eee;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 5px;
+    border-radius: 6px;
+}
+.registerSec .rsDiv ul li:hover{
+    background-color: #0042EC;
+    color: #fff;
+    transition: background-color 0.6s;
+}
+.registerSec .rsDiv ul li.on{
+    background-color: #0042EC;
+    color: #fff;
+}
+
+
+
+.registerSec .rsDiv ul li:nth-child(1){
+    margin-left: 0;
+}
+
+.registerSec #rsGender li:nth-child(2){
+    margin-right: 0;
+}
+
+
+.registerSec #rsJob ul li{
+    width: 22%;
+}
+
+.registerSec #rsJob ul li:nth-child(4){
+    margin-right: 0px;
+}
+
+
+.registerSec #rsAge ul{
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(3, 1fr); /* 3개의 열을 가진 그리드 */
+    gap: 4%; /* 열 사이의 간격 조절 */
+}
+.registerSec #rsAge ul li{
+    width: 100%;
+}
+
+.registerSec #rsAge ul li:nth-child(4){
+    margin-left: 0;
+}
+.registerSec #rsAge ul li:nth-child(3), li:nth-child(6){
+    margin-right: 0;
+}
+

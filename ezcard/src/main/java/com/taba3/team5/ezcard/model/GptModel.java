@@ -12,8 +12,9 @@ public class GptModel {
 
     public static JSONObject createJsonBody(String userinput) {
         String cardInfo = CardInfo.MESSAGE; // CardInfo 클래스의 정보를 가져옴
-        List<String> cardInfoChunks = splitConversationIntoChunks(cardInfo, 400); // CardInfo 정보를 청크로 분할
+        List<String> cardInfoChunks = splitConversationIntoChunks(cardInfo, 1000); // CardInfo 정보를 청크로 분할
         JSONArray messages = new JSONArray();
+
 
         // CardInfo 정보를 Assistant에 입력
         for (String cardInfoChunk : cardInfoChunks) {
@@ -21,7 +22,6 @@ public class GptModel {
                     .put("role", "assistant")
                     .put("content", cardInfoChunk);
             messages.put(cardInfoMessage);
-
             // system 메시지 추가
             JSONObject systemMessage = new JSONObject()
                     .put("role", "system")
