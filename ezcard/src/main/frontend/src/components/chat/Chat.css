@@ -43,12 +43,12 @@
     white-space: pre-wrap;      /* current browsers */
     /* 좌로 밀착 ! */
     margin-left: auto;
-   }
+}
 .userChat:after {
     border-top:0px solid transparent;
     border-left: 0px solid transparent;
     border-right: 15px solid transparent;
-    border-bottom: 15px solid #EDEDED;
+    border-bottom: 15px solid #007BFF;
     content:"";
     position:absolute;
     top:10px;
@@ -68,7 +68,7 @@
     white-space: pre-wrap;      /* current browsers */
     /* 우로 밀착 ! */
     margin-right: auto;
-   }
+}
 .gptChat:after {
     border-top: 0px solid transparent;
     border-left: 15px solid transparent;
@@ -140,4 +140,31 @@
 .cardRecord{
     margin-top: 5px;
     font-size: 10px;
+}
+
+
+/* CSS 파일에 추가할 스타일 */
+
+/* 기본 스타일 */
+.chatContainer {
+    display: flex;
+    flex-direction: column-reverse; /* 새로운 메시지를 위로 쌓기 */
+}
+
+.chatMessage {
+    padding: 8px;
+    margin: 8px;
+    border-radius: 5px;
+}
+
+.userChat {
+    background-color: #007BFF; /* 사용자 메시지 배경 색상 */
+    color: white; /* 사용자 메시지 텍스트 색상 */
+    align-self: flex-end; /* 오른쪽 정렬 (사용자 메시지) */
+}
+
+.gptChat {
+    background-color: #f0f0f0; /* GPT 메시지 배경 색상 */
+    color: #333; /* GPT 메시지 텍스트 색상 */
+    align-self: flex-start; /* 왼쪽 정렬 (GPT 메시지) */
 }
