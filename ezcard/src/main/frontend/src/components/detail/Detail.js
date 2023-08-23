@@ -23,7 +23,7 @@ import 온라인쇼핑 from '../../assets/icon/온라인쇼핑.png';
 import 교통 from '../../assets/icon/교통.png';
 import 택시 from '../../assets/icon/택시.png';
 import 기차 from '../../assets/icon/기차.png';
-import 주유소 from '../../assets/icon/주유소.png';
+import 주유 from '../../assets/icon/주유.png';
 import 자동차 from '../../assets/icon/자동차.png';
 import 정비 from '../../assets/icon/정비.png';
 import 충전소 from '../../assets/icon/충전소.png';
@@ -120,8 +120,8 @@ const Detail = () => {
           {/* 카드 혜택 출력 */}
           {cardBenefitList.map((benefit, index) => (
               <li key={index}>
-                <div className="detailbox">
-                  <img src={카페} className="detailIcon"></img>
+                <div className="detailBox">
+                  <img src={require(`../../assets/icon/${benefit.benefitCategory}.png`)} className="detailIcon"></img>
                   <p className="detailTitle">{benefit.benefitCategory}</p>
                   <p className="detail">{benefit.benefitSummary}</p>
                 </div>
