@@ -57,14 +57,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 15px;
+  margin-top: 0px;
 }
 
 #myCard ul li .myCardHeart ion-icon{
-  vertical-align: middle;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  margin: 15px;;
+  font-size: 24px;
+  width: 40px;
+  height: 30px;
   color: #F9595F;
 }

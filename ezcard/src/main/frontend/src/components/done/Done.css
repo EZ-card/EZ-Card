@@ -1,4 +1,4 @@
-#button {
+#doneButton {
   background-color: #0042EC;
   color: #ffffff;
   border: none;
@@ -49,5 +49,4 @@
   justify-content: center;
   align-items: center;
 }
-
 
