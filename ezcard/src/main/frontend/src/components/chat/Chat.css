@@ -1,0 +1,143 @@
+.chatSt{
+    color: #0042EC;
+}
+.message {
+    border-top: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 5px;
+    background-color: #e6e6e6;
+}
+
+#chat_container {
+    margin: 20px 0px 50px 0px;
+    min-width: 300px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+}
+
+#chat_messages {
+    width: 100%;
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column-reverse;
+    font-size: 14px;
+}
+
+
+
+/* 채팅 */
+.userChat {
+    position:relative;
+    margin: 5px;
+    width: fit-content;
+    background:#EDEDED;
+    border-radius: 10px;
+    padding: 10px;
+
+    word-wrap: break-word;      /* IE 5.5-7 */
+    white-space: -moz-pre-wrap; /* Firefox 1.0-2.0 */
+    white-space: pre-wrap;      /* current browsers */
+    /* 좌로 밀착 ! */
+    margin-left: auto;
+   }
+.userChat:after {
+    border-top:0px solid transparent;
+    border-left: 0px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid #EDEDED;
+    content:"";
+    position:absolute;
+    top:10px;
+    right:-10px;
+}
+
+.gptChat {
+    position:relative;
+    margin: 10px;
+    width: fit-content;
+    background:#EDEDED;
+    border-radius: 10px;
+    padding: 10px;
+
+    word-wrap: break-word;      /* IE 5.5-7 */
+    white-space: -moz-pre-wrap; /* Firefox 1.0-2.0 */
+    white-space: pre-wrap;      /* current browsers */
+    /* 우로 밀착 ! */
+    margin-right: auto;
+   }
+.gptChat:after {
+    border-top: 0px solid transparent;
+    border-left: 15px solid transparent;
+    border-right: 0px solid transparent;
+    border-bottom: 15px solid #EDEDED;
+    content:"";
+    position:absolute;
+    top:10px;
+    left:-10px;
+}
+
+/* 전송 */
+#user_input {
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+#user_input form{
+    display: flex;
+}
+
+#user_input form input {
+    flex: 0.95;
+    padding: 10px;
+    outline: none;
+    border: 1px solid #0042EC;
+    background-color: #F7F7F7;
+    border-radius: 8px;
+}
+
+#user_input form button {
+    border: none;
+    background-color: #0042EC;
+    color: white;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+/* gpt card recommand */
+.gptChatCr{
+    padding: 15px;
+    display: flex;
+}
+.gptChatCr div:nth-child(1){
+    margin-left: 0;
+    width: 100px;
+}
+.gptChatCr img{
+    width: 125px;
+    position: relative;
+    top: 20%; left: -20px;
+    transform: rotate( 90deg );
+}
+.gptChatCr div strong{
+    font-size: 16px;
+    color: #0042EC;
+}
+.gptChatCr div li{
+    font-size: 13px;
+    font-weight: bold;
+}
+.cardBank{
+    font-size: 12px;
+    color: #706F6F;
+    margin-bottom: 5px;
+}
+.cardRecord{
+    margin-top: 5px;
+    font-size: 10px;
+}
