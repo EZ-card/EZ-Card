@@ -34,7 +34,7 @@ public class HomeCardController {
         if (loginEmail != null) {
             return ResponseEntity.status(HttpStatus.OK).body(homeCardResponse);
         } else {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
         }
     }
 }
