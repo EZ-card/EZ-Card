@@ -48,7 +48,7 @@ const Login = () => {
                     console.log('======================',res.status);
                     alert('로그인 성공');
                     document.location.href = '/';
-                } else if(res.status  === 401){
+                } else if(res.status  === 204){
                     console.log('======================',res.status);
                     alert('아이디 또는 패스워드를 확인해주세요');
                     document.location.href = '/login';
