@@ -1,0 +1,182 @@
+/* 사용자 로그인 시 */
+nav{
+    max-width: 500px;
+    width: 100%;
+    height: 100px;
+    padding: 20px;
+    /* background-color: pink; */
+}
+nav > ul{
+    margin: auto;
+    display: flex;
+}
+nav > ul li{
+    height: 80px;
+    line-height: 80px;
+}
+nav > ul li:nth-child(1) {
+    width: 10%;
+    margin-left: 0;
+}
+nav > ul li:nth-child(1) img{
+    vertical-align: middle;
+}
+nav > ul li p {
+    font-size: 20px;
+    font-weight: bold;
+}
+nav > ul.loginSuccess li p strong{ /*ezcard*/
+    font-size: 22px;
+    padding: 0 0px;
+    color: #005EEC;
+}
+nav > ul.loginSuccess li p span{ /*userName*/
+    font-size: 22px;
+    padding: 0 0px;
+    color: #005EEC;
+}
+nav > ul li.menuBar{
+    margin-right: 0;
+}
+nav > ul li.menuBar span{
+    height: auto;
+    font-size: 32px;
+    --ionicon-stroke-width: 36px;
+    vertical-align: middle;
+}
+nav > ul li.menuBar span ion-icon{
+    cursor: pointer;
+}
+/* 사용자 로그인 시 end */
+
+/* nav > ul.loginYet li p strong{
+    font-size: 18px;
+    padding: 0 10px;
+    color: #005EEC;
+} */
+
+
+/* MenuBar 클릭 시 */
+nav > ul li.openMenu{
+    position: absolute;
+    left: 150%; top: 0;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    height: 100vh;
+    min-height: 500px;
+    transform: translate(-50%);
+    z-index: 9999999999;
+    padding: 20px;
+    transition: all 0.6s;
+    background-color: #fff;
+}
+nav > ul li.show{
+    left: 50%; top: 0;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+li.openMenu .sideMenu{
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+}
+
+li.openMenu .sideMenu > p{
+    height: 65px;
+    line-height: 65px;
+    /* border: 1px solid; */
+    display: flex;
+}
+
+li.openMenu .sideMenu > p strong{
+    font-size: 20px;
+    margin-left: 0px;
+    padding: 0px;
+    color: #005EEC;
+}
+li.openMenu .sideMenu > p span{
+    font-size: 32px;
+    line-height: 65px;
+    margin-right: 0;
+    cursor: pointer;
+}
+
+li.openMenu .sideMenu > ul li{
+    width: 100%;
+    height: auto;
+    line-height: 75px;
+    font-size: 24px;
+    font-family: "noto7";
+    /* border: 1px solid red; */
+}
+li.openMenu .sideMenu > ul li a{
+    font-family: "noto7";
+}
+
+/* nav안 nav */
+.menuDetail > p {
+    font-size: 24px;
+    font-family: "noto7";
+    display: flex;
+}
+.menuDetail > p span{
+    width: 42px;
+    height: 42px;
+    margin-top: 15px;
+    font-size: 16px;
+    margin-right: -10px;
+    color: #232324;
+    vertical-align: middle;
+    cursor: pointer;
+    /* border: 1px solid; */
+    padding:13px;
+    transition: all 0.4s;
+}
+.menuDetail > p span ion-icon{
+    display: block;
+}
+
+/* MY PAGE 토글 클릭 x */
+.menuDetail > div{
+    /* background-color: aquamarine; */
+    margin-left: 24px;
+    /* border: 1px solid pink; */
+}
+.sideMenu .menuDetail > div ul{
+    width: 100%;
+    /* border: 1px solid blue; */
+    max-height: 0px;
+    color: #6c6d6f;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height .4s,opacity .6s;
+}
+.sideMenu .menuDetail > div ul li{
+    height: initial;
+    line-height:16px;
+    margin-bottom: 16px;
+}
+.sideMenu .menuDetail > div ul li:last-child{
+    margin-bottom: 32px;
+}
+.menuDetail > div ul li a{
+    font-size: 16px;
+    color: #6c6d6f;
+}
+
+/* MY PAGE 토글 클릭 o */
+.sideMenu .menuDetail.clicked div ul{
+    max-height: 170px;
+    opacity: 1;
+}
+.sideMenu .menuDetail.clicked p span{
+    transform: rotate(180deg);
+}
+
+
+
+/* logout */
+.logout{
+    cursor: pointer;
+}

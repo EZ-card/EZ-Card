@@ -26,15 +26,16 @@ public class HomeCardController {
     public ResponseEntity<HomeCardResponse> homecard(HttpSession session) {
         String loginEmail = (String) session.getAttribute("loginEmail");
         String age = homeCardService.findUserAgeByEmail(loginEmail);
+        String nickname = homeCardService.findUserNickname(loginEmail);
 
         List<HomeCardDto> homeCardDtoList = homeCardService.homeCard(age);
         HomeCardResponse homeCardResponse = new HomeCardResponse();
-        homeCardResponse.setHomeCardDtoList(homeCardDtoList);
+        homeCardResponse.setHomeCardDtoList(homeCardDtoList, nickname);
 
         if (loginEmail != null) {
             return ResponseEntity.status(HttpStatus.OK).body(homeCardResponse);
         } else {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
         }
     }
 }

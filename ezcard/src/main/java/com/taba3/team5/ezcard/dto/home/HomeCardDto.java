@@ -11,6 +11,8 @@ import lombok.NoArgsConstructor;
 public class HomeCardDto {
     private String cardName;
     private String cardBank;
-    private String cardSummary;
+    private String cardSummary1;
+    private String cardSummary2;
+    private String cardSummary3;
     private String cardImage;
 }

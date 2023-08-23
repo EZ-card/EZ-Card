@@ -47,9 +47,9 @@ public class HomeCardService {
                 HomeCardDto homeCardDto = new HomeCardDto();
                 homeCardDto.setCardName(card.getCardName());
                 homeCardDto.setCardBank(card.getCardBank());
-                homeCardDto.setCardSummary(card.getCardSummary1());
-                homeCardDto.setCardSummary(card.getCardSummary2());
-                homeCardDto.setCardSummary(card.getCardSummary3());
+                homeCardDto.setCardSummary1(card.getCardSummary1());
+                homeCardDto.setCardSummary2(card.getCardSummary2());
+                homeCardDto.setCardSummary3(card.getCardSummary3());
                 // 필요한 다른 정보도 추가로 설정
 
                 homeCardDtoList.add(homeCardDto);
@@ -63,6 +63,15 @@ public class HomeCardService {
         if (userOptional.isPresent()) {
             User user = userOptional.get();
             return user.getUserAge();
+        }
+        return null;
+    }
+
+    public String findUserNickname(String email) {
+        Optional<User> userOptional = userRepository.findByUserEmail(email);
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+            return user.getUserNickname();
         }
         return null;
     }

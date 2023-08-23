@@ -9,8 +9,10 @@ import java.util.List;
 @NoArgsConstructor
 public class HomeCardResponse {
     private List<HomeCardDto> homeCardDtoList;
+    private String nickname;
 
-    public void setHomeCardDtoList(List<HomeCardDto> homeCardDtoList) {
+    public void setHomeCardDtoList(List<HomeCardDto> homeCardDtoList, String nickname) {
         this.homeCardDtoList = homeCardDtoList;
+        this.nickname = nickname;
     }
 }
