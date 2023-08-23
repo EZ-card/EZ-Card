@@ -66,4 +66,13 @@ public class HomeCardService {
         }
         return null;
     }
+
+    public String findUserNickname(String email) {
+        Optional<User> userOptional = userRepository.findByUserEmail(email);
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+            return user.getUserNickname();
+        }
+        return null;
+    }
 }
