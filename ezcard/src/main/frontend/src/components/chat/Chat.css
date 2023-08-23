@@ -48,7 +48,7 @@
     border-top:0px solid transparent;
     border-left: 0px solid transparent;
     border-right: 15px solid transparent;
-    border-bottom: 15px solid #007BFF;
+    border-bottom: 15px solid #0042EC;
     content:"";
     position:absolute;
     top:10px;
@@ -87,12 +87,14 @@
     width: 100%;
 }
 
-#user_input form{
+#user_input form {
     display: flex;
+    align-items: flex-end; /* 입력 창과 버튼을 아래로 정렬 */
 }
 
 #user_input form input {
     flex: 0.95;
+    height: 40px; /* 입력 창과 버튼의 높이를 동일하게 설정 */
     padding: 10px;
     outline: none;
     border: 1px solid #0042EC;
@@ -101,6 +103,9 @@
 }
 
 #user_input form button {
+    flex: 0.2;
+    height: 40px; /* 입력 창과 버튼의 높이를 동일하게 설정 */
+    margin-left: 5px; /* 버튼과 입력 창 사이의 간격 설정 */
     border: none;
     background-color: #0042EC;
     color: white;
@@ -108,6 +113,7 @@
     cursor: pointer;
     border-radius: 8px;
 }
+
 
 /* gpt card recommand */
 .gptChatCr{
@@ -158,7 +164,7 @@
 }
 
 .userChat {
-    background-color: #007BFF; /* 사용자 메시지 배경 색상 */
+    background-color: #0042EC; /* 사용자 메시지 배경 색상 */
     color: white; /* 사용자 메시지 텍스트 색상 */
     align-self: flex-end; /* 오른쪽 정렬 (사용자 메시지) */
 }
