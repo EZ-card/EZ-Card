@@ -100,7 +100,7 @@ const Nav = () => {
                         <div className="sideMenu">
                             <p><strong>EZ:card</strong> <span onClick={closeMenuFun}><ion-icon name="close-outline"></ion-icon></span></p>
                             <ul>
-                                <li><Link to="/main">HOME</Link></li>
+                                <li><Link to="/">HOME</Link></li>
                                 <li><Link to="/chat">EZ:BOT 카드상담</Link></li>
                                 <li><Link to="/detail">카드 목록</Link></li>
                                 <li className="menuDetail">
@@ -130,7 +130,7 @@ const Nav = () => {
                         <div className="sideMenu">
                             <p><strong>EZ:card</strong> <span onClick={closeMenuFun}><ion-icon name="close-outline"></ion-icon></span></p>
                             <ul>
-                                <li><Link to="/main">HOME</Link></li>
+                                <li><Link to="/">HOME</Link></li>
                                 <li><Link to="/chat">EZ:BOT 카드상담</Link></li>
                                 <li><Link to="/detail">카드 목록</Link></li>
                                 <li><Link to="/login">로그인</Link></li>
