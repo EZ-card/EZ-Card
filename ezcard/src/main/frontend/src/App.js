@@ -27,7 +27,7 @@ function App() {
             <Route path="/chat" element={<Chat />}></Route>
             <Route path="/list" element={<List />}></Route>
             <Route path="/mypage" element={<Mypage />}></Route>
-            <Route path="/detail" element={<Detail />}></Route>
+            <Route path="/detail/:id" element={<Detail />}></Route>
             <Route path="/splash" element={<Splash />}></Route>
           </Routes>
         </BrowserRouter>
