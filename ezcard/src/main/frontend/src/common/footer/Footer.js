@@ -1,5 +1,10 @@
 import React from "react";
 import './Footer.css';
+import 김다은 from '../../assets/images/김다은.png'
+import 김민지 from '../../assets/images/김민지.png'
+import 안정민 from '../../assets/images/안정민.png'
+import 이건우 from '../../assets/images/이건우.png'
+import 이명준 from '../../assets/images/이명준.png'
 
 const Footer = () => (
     <div className="footer-dark">
