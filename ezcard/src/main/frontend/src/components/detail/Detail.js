@@ -69,12 +69,12 @@ import 수수료우대 from '../../assets/icon/수수료우대.png';
 
 const Detail = () => {
   const { id } = useParams();
-  const [cardData, setCardData, wishCardExists] = useState({
+  const [cardData, setCardData] = useState({
     cardDto: {},
     cardBenefitList: []
   });
 
-  const [isHeartActive, setIsHeartActive] = useState(false);
+  const [isHeartActive, setIsHeartActive] = useState(null);
 
 
   useEffect(() => {
@@ -88,8 +88,7 @@ const Detail = () => {
             cardBenefitList: data.cardBenefitList,
           });
           // Set the isHeartActive state based on the data.wishCardExists
-          setIsHeartActive(data.wishCardExists === "true");
-          console.log(data.wishCardExists);
+          setIsHeartActive(data.wishCardExists); // 문자열 비교를 하지 않고 데이터 그대로 설정
         } else {
           console.error('Failed to fetch card data');
         }
@@ -104,11 +103,10 @@ const Detail = () => {
 
 
   function toggleHeart() {
-    // 토글된 값을 설정
-    const newWishCardValue = !isHeartActive;
-
-    // API로 업데이트 요청을 보내거나, 다른 상태를 업데이트하는 등의 작업을 수행
-    if (newWishCardValue) {
+    setIsHeartActive((prevIsHeartActive) => !prevIsHeartActive);
+    const newWishCardValue = !isHeartActive; // 문자열이 아닌 boolean 값을 사용
+    console.log(isHeartActive);
+    if (!isHeartActive) { // 문자열 비교를 하지 않고 boolean 값을 사용
       axios.post(`/wish/${cardDto.cardId}`)
           .then(res => {
             console.log(res);
@@ -125,10 +123,9 @@ const Detail = () => {
             console.error(error);
           });
     }
-
-    // 상태 업데이트
-    setIsHeartActive(newWishCardValue); // 상태를 토글된 값으로 업데이트
   }
+
+
 
 
   return (
