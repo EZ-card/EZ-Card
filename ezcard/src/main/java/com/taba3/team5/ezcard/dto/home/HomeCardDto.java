@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @Data
 public class HomeCardDto {
+    private Long cardId;
     private String cardName;
     private String cardBank;
     private String cardSummary1;

@@ -25,8 +25,8 @@ public class GptModel {
             // system 메시지 추가
             JSONObject systemMessage = new JSONObject()
                     .put("role", "system")
-                    .put("content", "카드추천해줘라고 입력받으면 꼭 assistant 대화기록 중에 카드 1개만 골라서 추천해줘 " +
-                            "추천 형식은 카드이름: /추천이유: 로 1줄로 짧게 해줘.");
+                    .put("content", "If you get a \"카드추천해줘\"or\"추천\" input, please recommend one of the cards in the Assistant role " +
+                            "The recommended format is \"카드이름: /추천이유: \", and please shorten the reason for the recommendation.");
             messages.put(systemMessage);
         }
 

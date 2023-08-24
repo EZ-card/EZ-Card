@@ -1,5 +1,7 @@
 package com.taba3.team5.ezcard.controller;
+import com.taba3.team5.ezcard.dto.card.CardDto;
 import com.taba3.team5.ezcard.dto.card.CardResponse;
+import com.taba3.team5.ezcard.entity.card.Card;
 import com.taba3.team5.ezcard.service.CardBenefitService;
 import com.taba3.team5.ezcard.service.CardService;
 import com.taba3.team5.ezcard.service.WishCardService;
@@ -12,7 +14,7 @@ import javax.servlet.http.HttpSession;
 
 
 @RestController
-@RequestMapping("/card")
+@RequestMapping("/cards")
 public class CardController {
 
     private final CardService cardService;

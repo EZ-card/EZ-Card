@@ -1,6 +1,7 @@
-import React from "react";
+import React ,{useState,useEffect} from "react";
 import Nav from '../../common/nav/Nav.js';
 import Footer from '../../common/footer/Footer.js';
+import { useParams } from "react-router-dom";
 
 import './Detail.css';
 
@@ -22,7 +23,7 @@ import 온라인쇼핑 from '../../assets/icon/온라인쇼핑.png';
 import 교통 from '../../assets/icon/교통.png';
 import 택시 from '../../assets/icon/택시.png';
 import 기차 from '../../assets/icon/기차.png';
-import 주유소 from '../../assets/icon/주유소.png';
+import 주유 from '../../assets/icon/주유.png';
 import 자동차 from '../../assets/icon/자동차.png';
 import 정비 from '../../assets/icon/정비.png';
 import 충전소 from '../../assets/icon/충전소.png';
@@ -33,7 +34,7 @@ import 테마파크 from '../../assets/icon/테마파크.png';
 import 골프 from '../../assets/icon/골프.png';
 import 헤어뷰티 from '../../assets/icon/헤어뷰티.png';
 
-import 공항라운지 from '../../assets/icon/공항라운지.png';
+import 항공 from '../../assets/icon/항공.png';
 import 면세점 from '../../assets/icon/면세점.png';
 import 렌탈 from '../../assets/icon/렌탈.png';
 import 해외 from '../../assets/icon/해왜.png';
@@ -55,7 +56,7 @@ import 무이자 from '../../assets/icon/무이자.png';
 import 프리미엄 from '../../assets/icon/프리미엄.png';
 import 무실적 from '../../assets/icon/무실적.png';
 import 할인 from '../../assets/icon/할인.png';
-import 적 from '../../assets/icon/적립.png';
+import 적포 from '../../assets/icon/적립.png';
 import 바우처 from '../../assets/icon/바우처.png';
 import 연회비지원 from '../../assets/icon/연회비지원.png';
 import 국민행복 from '../../assets/icon/국민행복.png';
@@ -64,7 +65,37 @@ import 혜택프로모션 from '../../assets/icon/혜택 프로모션.png';
 import 캐시백 from '../../assets/icon/캐시백.png';
 import 수수료우대 from '../../assets/icon/수수료우대.png';
 
-const Detail = () => (
+const Detail = () => {
+  const { id } = useParams();
+  const [cardData, setCardData] = useState({
+    cardDto: {},
+    cardBenefitList: []
+  });
+
+  useEffect(() => {
+    const fetchCardData = async () => {
+      try {
+        const response = await fetch(`/cards/detail/${id}`);
+        if (response.status === 200) {
+          const data = await response.json();
+          setCardData({
+            cardDto: data.cardDto,
+            cardBenefitList: data.cardBenefitList
+          });
+        } else {
+          console.error('Failed to fetch card data');
+        }
+      } catch (error) {
+        console.error('Error fetching card data:', error);
+      }
+    };
+    fetchCardData();
+  }, [id]);
+
+  const { cardDto, cardBenefitList } = cardData;
+
+
+  return (
   <main>
     <Nav/>
     <section id="sectionCL">
@@ -73,29 +104,33 @@ const Detail = () => (
           <img src={detailImg}></img>
         </div>
         <div className="detailCardInfo">
-          <p className="detailCardName">현대카드 M BOOST</p>
+          <p className="detailCardName">{cardDto.cardName}</p>
           <br></br>
           <ul>
-            <li><img src={benefit1}></img> 월마다<span className="highlight">최대 7만P</span>추첨적립</li>
-            <li><img src={benefit1}></img> 분기마다<span className="highlight">최대 30만P</span>추첨적립</li>
-            <li><img src={benefit2}></img> 온라인 간편결제<span className="highlight">5%</span>할인</li>
+            <li>{cardDto.cardSummary1}</li>
+            <li>{cardDto.cardSummary2}</li>
+            <li>{cardDto.cardSummary3}</li>
           </ul>
         </div>
       </div>
 
-    {/* 주요혜택 */}  
+    {/* 주요혜택 */}
       <p className="mainBenefit">주요혜택</p>
-
-    {/* 외식,푸드 혜택 */}   
-      <div className="detailBox">
-        <img src={푸드} className="detailIcon"></img>
-        <p className="detailTitle">푸드</p>
-        <p className="detail">서브웨이 10% 할인</p>
-      </div>
-
+        <ul>
+          {/* 카드 혜택 출력 */}
+          {cardBenefitList.map((benefit, index) => (
+              <li key={index}>
+                <div className="detailBox">
+                  <img src={require(`../../assets/icon/${benefit.benefitCategory}.png`)} className="detailIcon"></img>
+                  <p className="detailTitle">{benefit.benefitCategory}</p>
+                  <p className="detail">{benefit.benefitSummary}</p>
+                </div>
+              </li>
+          ))}
+        </ul>
     </section>
     <Footer/>
   </main>
-)
+)}
 
 export default Detail
