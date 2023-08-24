@@ -45,11 +45,13 @@ public class HomeCardService {
             if (card != null) {
                 // 필요한 정보만 추출하여 HomeCardDto 생성
                 HomeCardDto homeCardDto = new HomeCardDto();
+                homeCardDto.setCardId(card.getCardId());
                 homeCardDto.setCardName(card.getCardName());
                 homeCardDto.setCardBank(card.getCardBank());
                 homeCardDto.setCardSummary1(card.getCardSummary1());
                 homeCardDto.setCardSummary2(card.getCardSummary2());
                 homeCardDto.setCardSummary3(card.getCardSummary3());
+                homeCardDto.setCardImage(card.getCardImage());
                 // 필요한 다른 정보도 추가로 설정
 
                 homeCardDtoList.add(homeCardDto);
