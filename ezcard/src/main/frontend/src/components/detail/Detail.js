@@ -34,7 +34,7 @@ import 테마파크 from '../../assets/icon/테마파크.png';
 import 골프 from '../../assets/icon/골프.png';
 import 헤어뷰티 from '../../assets/icon/헤어뷰티.png';
 
-import 공항라운지 from '../../assets/icon/공항라운지.png';
+import 항공 from '../../assets/icon/항공.png';
 import 면세점 from '../../assets/icon/면세점.png';
 import 렌탈 from '../../assets/icon/렌탈.png';
 import 해외 from '../../assets/icon/해왜.png';
@@ -56,7 +56,7 @@ import 무이자 from '../../assets/icon/무이자.png';
 import 프리미엄 from '../../assets/icon/프리미엄.png';
 import 무실적 from '../../assets/icon/무실적.png';
 import 할인 from '../../assets/icon/할인.png';
-import 적 from '../../assets/icon/적립.png';
+import 적포 from '../../assets/icon/적립.png';
 import 바우처 from '../../assets/icon/바우처.png';
 import 연회비지원 from '../../assets/icon/연회비지원.png';
 import 국민행복 from '../../assets/icon/국민행복.png';
