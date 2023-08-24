@@ -102,7 +102,7 @@ const Nav = () => {
                             <ul>
                                 <li><Link to="/">HOME</Link></li>
                                 <li><Link to="/chat">EZ:BOT 카드상담</Link></li>
-                                <li><Link to="/detail">카드 목록</Link></li>
+                                <li><Link to="/detail/1">카드 목록</Link></li>
                                 <li className="menuDetail">
                                     <p>MY PAGE <span onClick={openMenuDetailFun}><ion-icon name="chevron-down-outline"></ion-icon></span></p>
                                     <div id="detailDiv1">
@@ -132,7 +132,7 @@ const Nav = () => {
                             <ul>
                                 <li><Link to="/">HOME</Link></li>
                                 <li><Link to="/chat">EZ:BOT 카드상담</Link></li>
-                                <li><Link to="/detail">카드 목록</Link></li>
+                                <li><Link to="/detail/1">카드 목록</Link></li>
                                 <li><Link to="/login">로그인</Link></li>
                                 <Routes>
                                     <Route path="/main" element={<Main />} />
@@ -152,7 +152,6 @@ const Nav = () => {
 // if(element.classList.contains('className')){
 
 // }
-
 
 
 export default Nav;

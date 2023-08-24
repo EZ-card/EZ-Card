@@ -1,4 +1,6 @@
 import React , {useState,useEffect} from "react";
+import { Link } from 'react-router-dom';
+
 import Nav from '../../common/nav/Nav.js';
 import Footer from '../../common/footer/Footer.js';
 
@@ -52,6 +54,7 @@ const List = () => {
             });
     };
 
+
     return (
         <main>
             <Nav />
@@ -67,8 +70,10 @@ const List = () => {
                                     <div><img src={wishCard.cardImage} alt="CardImage" /></div>
                                 </div>
                                 <div className="myCardInfo">
-                                    <p className="myCardName">{wishCard.cardName}</p>
-                                    <p className="myCardName2">{wishCard.cardBank}</p>
+                                    <Link to={`/detail/${wishCard.cardId}`}>
+                                        <p className="myCardName">{wishCard.cardName}</p>
+                                        <p className="myCardName2">{wishCard.cardBank}</p>
+                                    </Link>
                                 </div>
                                 <button
                                     className="myCardHeart"
@@ -88,4 +93,3 @@ const List = () => {
 };
 
 export default List;
-

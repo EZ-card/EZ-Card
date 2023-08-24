@@ -15,6 +15,7 @@ import topCheck3 from '../../assets/images/topCheck3.png';
 import topWelfare1 from '../../assets/images/topWelfare1.png';
 import topWelfare2 from '../../assets/images/topWelfare2.png';
 import topWelfare3 from '../../assets/images/topWelfare3.png';
+import cardRecMain from '../../assets/images/cardRecMain.png';
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -106,18 +107,20 @@ const Main = () => {
                             {/* 카드 데이터 표시 */}
                             {homeCardDtoList.map((card, index) => (
                                 <SwiperSlide key={index}>
-                                    <div className="cardImg cardImg1">
-                                        <div><img src={card.cardImage} alt="CardImage" /></div>
-                                    </div>
-                                    <div className="cardInfo">
-                                        <strong>{card.cardName}</strong>
-                                        <p>{card.cardBank}</p>
-                                        <ul>
-                                            <li><span>1.&nbsp;</span>{card.cardSummary1}</li>
-                                            <li><span>2.&nbsp;</span>{card.cardSummary2}</li>
-                                            <li><span>3.&nbsp;</span>{card.cardSummary3}</li>
-                                        </ul>
-                                    </div>
+                                    <Link to={`/detail/${card.cardId}`}>
+                                        <div className="cardImg cardImg1">
+                                            <div><img src={card.cardImage} alt="CardImage" /></div>
+                                        </div>
+                                        <div className="cardInfo">
+                                            <strong>{card.cardName}</strong>
+                                            <p>{card.cardBank}</p>
+                                            <ul>
+                                                <li><span>1.&nbsp;</span>{card.cardSummary1}</li>
+                                                <li><span>2.&nbsp;</span>{card.cardSummary2}</li>
+                                                <li><span>3.&nbsp;</span>{card.cardSummary3}</li>
+                                            </ul>
+                                        </div>
+                                    </Link>
                                 </SwiperSlide>
                             ))}
                         </Swiper>
@@ -209,6 +212,14 @@ const Main = () => {
                             </div>
                         </div>
                     )}
+                </div>
+
+                {/* 맞춤 카드상담 */}
+                <div className="cardRecMain">
+                    <strong>맞춤 카드상담</strong>
+                    <Link to="/chat">
+                        <img src={cardRecMain}></img>
+                    </Link>
                 </div>
 
                 {/* 오늘의 TOP 3 */}

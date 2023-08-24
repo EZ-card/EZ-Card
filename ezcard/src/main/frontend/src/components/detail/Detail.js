@@ -1,4 +1,6 @@
-import React ,{useState,useEffect} from "react";
+import React ,{useState,useEffect } from "react";
+import axios from 'axios'; // axios import
+
 import Nav from '../../common/nav/Nav.js';
 import Footer from '../../common/footer/Footer.js';
 import { useParams } from "react-router-dom";
@@ -67,10 +69,13 @@ import 수수료우대 from '../../assets/icon/수수료우대.png';
 
 const Detail = () => {
   const { id } = useParams();
-  const [cardData, setCardData] = useState({
+  const [cardData, setCardData, wishCardExists] = useState({
     cardDto: {},
     cardBenefitList: []
   });
+
+  const [isHeartActive, setIsHeartActive] = useState(false);
+
 
   useEffect(() => {
     const fetchCardData = async () => {
@@ -80,8 +85,11 @@ const Detail = () => {
           const data = await response.json();
           setCardData({
             cardDto: data.cardDto,
-            cardBenefitList: data.cardBenefitList
+            cardBenefitList: data.cardBenefitList,
           });
+          // Set the isHeartActive state based on the data.wishCardExists
+          setIsHeartActive(data.wishCardExists === "true");
+          console.log(data.wishCardExists);
         } else {
           console.error('Failed to fetch card data');
         }
@@ -95,42 +103,76 @@ const Detail = () => {
   const { cardDto, cardBenefitList } = cardData;
 
 
-  return (
-  <main>
-    <Nav/>
-    <section id="sectionCL">
-      <div className="detailIntro">
-        <div className="detailCardImg">
-          <div><img src={cardDto.cardImage} alt="CardImage" /></div>
-        </div>
-        <div className="detailCardInfo">
-          <p className="detailCardName">{cardDto.cardName}</p>
-          <br></br>
-          <ul>
-            <li>{cardDto.cardSummary1}</li>
-            <li>{cardDto.cardSummary2}</li>
-            <li>{cardDto.cardSummary3}</li>
-          </ul>
-        </div>
-      </div>
+  function toggleHeart() {
+    // 토글된 값을 설정
+    const newWishCardValue = !isHeartActive;
 
-    {/* 주요혜택 */}
-      <p className="mainBenefit">주요혜택</p>
-        <ul>
-          {/* 카드 혜택 출력 */}
-          {cardBenefitList.map((benefit, index) => (
-              <li key={index}>
-                <div className="detailBox">
-                  <img src={require(`../../assets/icon/${benefit.benefitCategory}.png`)} className="detailIcon"></img>
-                  <p className="detailTitle">{benefit.benefitCategory}</p>
-                  <p className="detail">{benefit.benefitSummary}</p>
-                </div>
-              </li>
-          ))}
-        </ul>
-    </section>
-    <Footer/>
-  </main>
-)}
+    // API로 업데이트 요청을 보내거나, 다른 상태를 업데이트하는 등의 작업을 수행
+    if (newWishCardValue) {
+      axios.post(`/wish/${cardDto.cardId}`)
+          .then(res => {
+            console.log(res);
+          })
+          .catch(error => {
+            console.error(error);
+          });
+    } else {
+      axios.delete(`/wish/${cardDto.cardId}`)
+          .then(res => {
+            console.log(res);
+          })
+          .catch(error => {
+            console.error(error);
+          });
+    }
+
+    // 상태 업데이트
+    setIsHeartActive(newWishCardValue); // 상태를 토글된 값으로 업데이트
+  }
+
+
+  return (
+      <main>
+        <Nav/>
+        <section className="sectionCL">
+          <div className="detailIntro">
+            <div className="detailCardImg">
+              <div><img src={cardDto.cardImage} alt="CardImage" /></div>
+            </div>
+            <div className="detailCardInfo">
+              <p className="detailCardName">{cardDto.cardName}</p>
+              <button
+                  className={`detailHeartOn ${isHeartActive ? 'active' : ''}`}
+                  onClick={toggleHeart}
+              >
+                <ion-icon name="heart" className="heartIcon"></ion-icon>
+              </button>
+              <br></br>
+              <ul>
+                <li>{cardDto.cardSummary1}</li>
+                <li>{cardDto.cardSummary2}</li>
+                <li>{cardDto.cardSummary3}</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* 주요혜택 */}
+          <p className="mainBenefit">주요혜택</p>
+          <ul>
+            {/* 카드 혜택 출력 */}
+            {cardBenefitList.map((benefit, index) => (
+                <li key={index}>
+                  <div className="detailBox">
+                    <img src={require(`../../assets/icon/${benefit.benefitCategory}.png`)} className="detailIcon"></img>
+                    <p className="detailTitle">{benefit.benefitCategory}</p>
+                    <p className="detail">{benefit.benefitSummary}</p>
+                  </div>
+                </li>
+            ))}
+          </ul>
+        </section>
+        <Footer/>
+      </main>
+  )}
 
 export default Detail

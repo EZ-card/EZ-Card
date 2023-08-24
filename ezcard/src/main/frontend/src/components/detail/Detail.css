@@ -3,27 +3,39 @@
   width: 100px;
   height: 140px;
   float: left;
-  margin-left: 15px;
 }
 
 .detailIntro {
   align-items: center;
-  margin-left: 50px;
+  margin-left: 53px;
   margin-top: 15px;
   margin-bottom: 25px;
+}
+.sectionCL > ul li:last-child{
+  margin-bottom:50px;
 }
 
 .detailCardName {
   padding-top: 7px;
   font-size: 18px;
   font-weight: 800;
+  float: left;
+  margin-left: 0px;
+  margin-bottom: 15px;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: right;
+  justify-content: space-between;
 }
 
 .detailCardInfo {
-  margin-left: 150px;
+  margin-left: 140px;
 }
 
 .detailCardInfo li {
+  margin-bottom: 5px;
   margin-bottom: 5px;
 }
 
@@ -35,9 +47,8 @@
 .mainBenefit {
   font-size: 20px;
   font-weight: 800;
-  padding-top: 20px;
-  margin-bottom: 25px;
-  margin-left: 15px;
+  margin-top: 60px;
+  margin-bottom: 30px;
 }
 
 .detailBox {
@@ -47,14 +58,13 @@
   border-radius: 10px;
   margin-bottom: 15px;
   align-items: center;
-  
 }
 
 .detailIcon {
   width: 40px;
   height: 40px;
-  margin-right: 35px;
-  margin-left: 35px;
+  margin-right: 50px;
+  margin-left: 20px;
 }
 
 .detailTitle {
@@ -69,10 +79,33 @@
   flex: 1;
   margin: 0;
   padding-right: 10px;
-  font-size: 10px;
 }
 
 .detailBox p:last-child {
   flex: 1;
-  margin-left: -75px;
+  margin-left: -120px;
+}
+
+.detailHeartOn{
+  border: none;
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #EBEDEF;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin-top: 0px;
+  margin-right: 50px;
+  cursor: pointer;
+}
+
+.detailHeartOn ion-icon{
+  font-size: 24px;
+  color: #B6B6B6;
+}
+
+.active ion-icon {
+  color: #F9595F;
 }
