@@ -9,7 +9,7 @@ import './Chat.css';
 const CardInfoMessage = ({ cardDto }) => {
     return (
         <div className="gptChat gptChatCr">
-            <div><img src={cardTestImg} alt="CardTestImage" /></div>
+            <div><img src={cardDto.cardImage} alt="CardImage" /></div>
             <div>
                 <strong>{cardDto.cardName}</strong>
                 <p className="cardBank">{cardDto.cardBank}</p>

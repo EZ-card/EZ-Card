@@ -64,7 +64,7 @@ const List = () => {
                         {wishCardDtoList.map((wishCard, index) => (
                             <li key={index}>
                                 <div className="myCardImg">
-                                    <img src={myCard1} alt={wishCard.cardName} />
+                                    <div><img src={wishCard.cardImage} alt="CardImage" /></div>
                                 </div>
                                 <div className="myCardInfo">
                                     <p className="myCardName">{wishCard.cardName}</p>

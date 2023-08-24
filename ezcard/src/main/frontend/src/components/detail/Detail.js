@@ -101,7 +101,7 @@ const Detail = () => {
     <section id="sectionCL">
       <div className="detailIntro">
         <div className="detailCardImg">
-          <img src={detailImg}></img>
+          <div><img src={cardDto.cardImage} alt="CardImage" /></div>
         </div>
         <div className="detailCardInfo">
           <p className="detailCardName">{cardDto.cardName}</p>

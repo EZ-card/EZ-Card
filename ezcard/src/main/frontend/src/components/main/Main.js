@@ -107,7 +107,7 @@ const Main = () => {
                             {homeCardDtoList.map((card, index) => (
                                 <SwiperSlide key={index}>
                                     <div className="cardImg cardImg1">
-                                        <img src={card_test_img} alt={card.cardName} />
+                                        <div><img src={card.cardImage} alt="CardImage" /></div>
                                     </div>
                                     <div className="cardInfo">
                                         <strong>{card.cardName}</strong>
