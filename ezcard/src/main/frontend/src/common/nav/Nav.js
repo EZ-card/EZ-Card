@@ -11,7 +11,8 @@ import { Route, Routes } from 'react-router-dom'; // Route와 Routes 컴포넌�
 import Main from '../../components/main/Main'; // Main 컴포넌트를 가져옴
 import Chat from '../../components/chat/Chat'; // Chat 컴포넌트를 가져옴
 import Login from '../../components/login/Login'; // Login 컴포넌트를 가져옴
-import Detail from '../../components/detail/Detail'; // Detail 컴포넌트를 가져옴
+import Detail from '../../components/detail/Detail';
+import Catalog from "../../components/catalog/Catalog"; // Detail 컴포넌트를 가져옴
 
 // 메뉴 열기
 function openMenuFun() {
@@ -102,7 +103,7 @@ const Nav = () => {
                             <ul>
                                 <li><Link to="/">HOME</Link></li>
                                 <li><Link to="/chat">EZ:BOT 카드상담</Link></li>
-                                <li><Link to="/detail/1">카드 목록</Link></li>
+                                <li><Link to="/catalog">카드 목록</Link></li>
                                 <li className="menuDetail">
                                     <p>MY PAGE <span onClick={openMenuDetailFun}><ion-icon name="chevron-down-outline"></ion-icon></span></p>
                                     <div id="detailDiv1">
@@ -132,13 +133,13 @@ const Nav = () => {
                             <ul>
                                 <li><Link to="/">HOME</Link></li>
                                 <li><Link to="/chat">EZ:BOT 카드상담</Link></li>
-                                <li><Link to="/detail/1">카드 목록</Link></li>
+                                <li><Link to="/catalog">카드 목록</Link></li>
                                 <li><Link to="/login">로그인</Link></li>
                                 <Routes>
                                     <Route path="/main" element={<Main />} />
                                     <Route path="/chat" element={<Chat />} />
                                     <Route path="/login" element={<Login />} />
-                                    <Route path="/detail" element={<Detail />} />
+                                    <Route path="/catalog" element={<Catalog />} />
                                 </Routes>
                             </ul>
                         </div>

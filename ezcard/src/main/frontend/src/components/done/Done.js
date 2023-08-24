@@ -11,7 +11,7 @@ const Done = () => (
             <div className="done_box">
                 <div className="done_img"><img src={done}/></div>
                 <p id="text"> 완료되었습니다! </p>
-                <div className="done_button"><button id="doneButton"><Link to="/login" className="done_link">로그인하고 맞춤 추천 받기</Link></button></div>
+                <button id="doneButton" className="done_button"><Link to="/login" className="done_link">로그인하고 맞춤 추천 받기</Link></button>
             </div>
         </section>
 
