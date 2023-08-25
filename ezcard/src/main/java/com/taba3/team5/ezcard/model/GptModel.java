@@ -29,8 +29,10 @@ public class GptModel {
         // system 메시지 추가
         JSONObject systemMessage = new JSONObject()
                 .put("role", "system")
-                .put("content", "If you get a \"카드추천해줘\"or\"추천\" input, please recommend one of the cards in the Assistant role " +
-                        "The recommended format is \"카드이름: /추천이유: \", and please shorten the reason for the recommendation.");
+                .put("content",
+                        "When printing a sentence with a card name, print it out in this form, \"카드이름: /추천이유:\"." +
+                                "If you try to chat in areas other than card recommendations, you'll say, \"저는 ezbot이에요! 여러분의 이야기를 들려주시면 카드를 추천해 드릴게요.\""+
+                                "If the user asks for the reason for the recommendation, please refer to \"assistant role\" and explain the reason.");
         messages.put(systemMessage);
 
         // 사용자 입력 추가
