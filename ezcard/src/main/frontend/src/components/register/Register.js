@@ -81,7 +81,7 @@ const Register = () => {
                if(res.status === 200){
                    console.log('======================',res.status);
                    alert('회원가입 성공');
-                   document.location.href = '/done';
+                   document.location.href = '/login';
                } 
                // 작업 완료 되면 페이지 이동(새로고침)+
                // document.location.href = '/main'

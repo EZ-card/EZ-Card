@@ -11,8 +11,8 @@ import { Route, Routes } from 'react-router-dom'; // Route와 Routes 컴포넌�
 import Main from '../../components/main/Main'; // Main 컴포넌트를 가져옴
 import Chat from '../../components/chat/Chat'; // Chat 컴포넌트를 가져옴
 import Login from '../../components/login/Login'; // Login 컴포넌트를 가져옴
-import Detail from '../../components/detail/Detail';
-import Catalog from "../../components/catalog/Catalog"; // Detail 컴포넌트를 가져옴
+import Detail from '../../components/detail/Detail'; // Detail 컴포넌트를 가져옴
+import Catalog from "../../components/catalog/Catalog";
 
 // 메뉴 열기
 function openMenuFun() {
