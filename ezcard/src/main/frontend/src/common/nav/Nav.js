@@ -1,18 +1,15 @@
-import React, {useEffect, useState} from "react";
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { Route, Routes, Link, useNavigate } from 'react-router-dom';
 
 import profileImage from '../../assets/images/profile.png';
 import profileImage2 from '../../assets/images/profile2.png';
 
 import './Nav.css';
 
-import { Route, Routes } from 'react-router-dom'; // Route와 Routes 컴포넌트를 가져옴
-
 import Main from '../../components/main/Main'; // Main 컴포넌트를 가져옴
 import Chat from '../../components/chat/Chat'; // Chat 컴포넌트를 가져옴
 import Login from '../../components/login/Login'; // Login 컴포넌트를 가져옴
-import Detail from '../../components/detail/Detail'; // Detail 컴포넌트를 가져옴
-import Catalog from "../../components/catalog/Catalog";
+import Catalog from '../../components/catalog/Catalog'; // Catalog 컴포넌트를 가져옴
 
 // 메뉴 열기
 function openMenuFun() {
@@ -24,7 +21,7 @@ function openMenuFun() {
     showMenu.classList.add('show');
     // 메뉴 열릴 시 높이 조절
     const appHeight = document.getElementById('app').clientHeight;
-    showMenu.style.height = appHeight-"400"+"px";
+    showMenu.style.height = appHeight-"250"+"px";
 }
 // 상세메뉴 열기
 function openMenuDetailFun() {
@@ -44,6 +41,7 @@ function closeMenuFun() {
 const Nav = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [nickname, setNickname] = useState('이지카드'); // nickname 상태 추가
+    const navigate = useNavigate(); // navigate 함수 생성
 
     useEffect(() => {
         // 백엔드로부터 로그인 상태와 카드 데이터를 가져오는 함수
@@ -75,7 +73,8 @@ const Nav = () => {
             .then(response => {
                 if (response.status === 200) {
                     setIsLoggedIn(false);
-                    document.location.href = '/';
+                    navigate('/'); // navigate 함수로 경로 이동
+                    window.location.reload();
                 }
             });
     };
@@ -149,10 +148,6 @@ const Nav = () => {
         </nav>
     );
 }
-
-// if(element.classList.contains('className')){
-
-// }
 
 
 export default Nav;

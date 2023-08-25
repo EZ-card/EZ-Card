@@ -4,12 +4,15 @@
   height: 140px;
   float: left;
 }
-
+.detailCardImg{
+  width:100px;
+}
 .detailIntro {
+  display:flex;
   align-items: center;
-  margin-left: 53px;
   margin-top: 15px;
   margin-bottom: 25px;
+  padding:0px 30px
 }
 .sectionCL > ul li:last-child{
   margin-bottom:50px;
@@ -31,7 +34,7 @@
 }
 
 .detailCardInfo {
-  margin-left: 140px;
+  flex-grow: 0.5;
 }
 
 .detailCardInfo li {
@@ -63,16 +66,11 @@
 .detailIcon {
   width: 40px;
   height: 40px;
-  margin-right: 50px;
-  margin-left: 20px;
 }
 
 .detailTitle {
   font-weight: 800;
-  text-align: left;
-  flex: 1;
-  margin: 0;
-  padding-left: 10px;
+  flex: 0.2;
 }
 
 .detail {
@@ -82,8 +80,8 @@
 }
 
 .detailBox p:last-child {
-  flex: 1;
-  margin-left: -120px;
+  flex: 0.3;
+  margin-left: 0px;
 }
 
 .detailHeartOn{
@@ -97,7 +95,7 @@
   align-items: center;
   display: flex;
   margin-top: 0px;
-  margin-right: 50px;
+  margin-right:0px;
   cursor: pointer;
 }
 
@@ -108,4 +106,26 @@
 
 .active ion-icon {
   color: #F9595F;
+}
+
+@media (max-width: 450px) {
+  .detailIntro{
+    padding:10px;
+  }
+  .detailCardInfo {
+    font-size:14px;
+  }
+  .detailCardImg{
+    width:80px;
+  }
+  .detailCardImg img{
+    width:75px;
+    height:auto;
+  }
+  .mainBenefit{
+    margin-top:50px;
+  }
+  .detailBox p:last-child{
+    flex: 0.6 1;
+  }
 }

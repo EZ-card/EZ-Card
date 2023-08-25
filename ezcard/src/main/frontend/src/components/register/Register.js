@@ -1,10 +1,8 @@
 import React from "react";
 import axios from 'axios'; // axios import
 
-import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react'; 
+import { useState } from 'react';
 
-//import { Routes, Route, Link } from 'react-router-dom';
 import Nav from '../../common/nav/Nav.js'; // Nav 컴포넌트를 불러옴
 import Footer from '../../common/footer/Footer.js'; // Footer 컴포넌트를 불러옴
 import {useNavigate} from "react-router-dom";
@@ -80,7 +78,6 @@ const Register = () => {
                console.log('res.status :: ', res.status)
                if(res.status === 200){
                    console.log('======================',res.status);
-                   alert('회원가입 성공');
                    navigate('/done');
                } 
                // 작업 완료 되면 페이지 이동(새로고침)+

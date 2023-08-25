@@ -11,7 +11,7 @@
 #chat_container {
     margin: 20px 0px 30px 0px;
     min-width: 300px;
-    height: 700px;
+    height: 500px;
     display: flex;
     flex-direction: column;
     border: 1px solid #ccc;

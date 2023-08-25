@@ -271,9 +271,8 @@ section{
 }
 
 
-
-
-
-
-
-
+@media (max-width: 450px) {
+    .mainLoginYet::after {
+        top: 20%;
+    }
+}
