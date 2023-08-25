@@ -86,13 +86,16 @@ public class WishCardService {
     }
 
     public boolean checkWishCard(Long cardId, Long userId) {
-
-        User user = userRepository.findById(userId).orElseThrow(() -> new EntityNotFoundException("User not found"));
         Card card = cardRepository.findById(cardId).orElseThrow(() -> new EntityNotFoundException("Card not found"));
+        User user = userRepository.findById(userId).orElseThrow(() -> new EntityNotFoundException("User not found"));
 
-        boolean wishCardExists = wishCardRepository.findByCardIdAndUserId(card, user) != null;
+        WishCard wishCard = wishCardRepository.findByCardIdAndUserId(card, user);
 
-        return wishCardExists;
+        if (wishCard != null) {
+            return true; // 해당 조건을 만족하는 WishCard가 존재하면 true 반환
+        } else {
+            return false; // 해당 조건을 만족하는 WishCard가 없으면 false 반환
+        }
     }
 
 }

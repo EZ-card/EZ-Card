@@ -10,25 +10,30 @@ import java.util.List;
 //gpt의 시스템 role 설정과 채팅 모델의 설정을 관리하는 서비스
 public class GptModel {
 
-    public static JSONObject createJsonBody(String userinput) {
-        String cardInfo = CardInfo.MESSAGE; // CardInfo 클래스의 정보를 가져옴
-        List<String> cardInfoChunks = splitConversationIntoChunks(cardInfo, 400); // CardInfo 정보를 청크로 분할
+    public static JSONObject createJsonBody(String userinput, String previousAssistantResponse) {
         JSONArray messages = new JSONArray();
 
-        // CardInfo 정보를 Assistant에 입력
-        for (String cardInfoChunk : cardInfoChunks) {
-            JSONObject cardInfoMessage = new JSONObject()
+        // 이전 Assistant 응답을 history로 추가
+        if (previousAssistantResponse != null && !previousAssistantResponse.isEmpty()) {
+            JSONObject assistantMessage = new JSONObject()
                     .put("role", "assistant")
-                    .put("content", cardInfoChunk);
-            messages.put(cardInfoMessage);
-
-            // system 메시지 추가
-            JSONObject systemMessage = new JSONObject()
-                    .put("role", "system")
-                    .put("content", "If you get a \"카드추천해줘\"or\"추천\" input, please recommend one of the cards in the Assistant role " +
-                            "The recommended format is \"카드이름: /추천이유: \", and please shorten the reason for the recommendation.");
-            messages.put(systemMessage);
+                    .put("content", previousAssistantResponse);
+            messages.put(assistantMessage);
         }
+
+        JSONObject cardInfoMessage = new JSONObject()
+                .put("role", "assistant")
+                .put("content", CardInfo.MESSAGE);
+        messages.put(cardInfoMessage);
+
+        // system 메시지 추가
+        JSONObject systemMessage = new JSONObject()
+                .put("role", "system")
+                .put("content",
+                        "When printing a sentence with a card name, print it out in this form, \"카드이름: /추천이유:\"." +
+                        "If you try to chat in areas other than card recommendations, you'll say, \"저는 ezbot이에요! 여러분의 이야기를 들려주시면 카드를 추천해 드릴게요.\""+
+                        "If the user asks for the reason for the recommendation, please refer to \"assistant role\" and explain the reason.");
+        messages.put(systemMessage);
 
         // 사용자 입력 추가
         JSONObject userMessage = new JSONObject()
@@ -42,29 +47,5 @@ public class GptModel {
         jsonBody.put("temperature", 0.0);
         jsonBody.put("model", "gpt-3.5-turbo");
         return jsonBody;
-    }
-
-
-    public static List<String> splitConversationIntoChunks(String conversation, int chunkSize) {
-        List<String> chunks = new ArrayList<>();
-        String[] messages = conversation.split("\n"); // 대화를 메시지로 분할
-
-        StringBuilder currentChunk = new StringBuilder();
-        for (String message : messages) {
-            if (currentChunk.length() + message.length() <= chunkSize) {
-                // 현재 청크에 추가 가능한 경우 추가
-                currentChunk.append(message).append("\n");
-            } else {
-                // 새로운 청크를 시작
-                chunks.add(currentChunk.toString());
-                currentChunk = new StringBuilder(message).append("\n");
-            }
-        }
-
-        if (currentChunk.length() > 0) {
-            chunks.add(currentChunk.toString());
-        }
-
-        return chunks;
     }
 }

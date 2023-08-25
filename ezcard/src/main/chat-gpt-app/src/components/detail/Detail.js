@@ -1,4 +1,6 @@
-import React ,{useState,useEffect} from "react";
+import React ,{useState,useEffect } from "react";
+import axios from 'axios'; // axios import
+
 import Nav from '../../common/nav/Nav.js';
 import Footer from '../../common/footer/Footer.js';
 import { useParams } from "react-router-dom";
@@ -72,6 +74,9 @@ const Detail = () => {
     cardBenefitList: []
   });
 
+  const [isHeartActive, setIsHeartActive] = useState(null);
+
+
   useEffect(() => {
     const fetchCardData = async () => {
       try {
@@ -80,8 +85,10 @@ const Detail = () => {
           const data = await response.json();
           setCardData({
             cardDto: data.cardDto,
-            cardBenefitList: data.cardBenefitList
+            cardBenefitList: data.cardBenefitList,
           });
+          // Set the isHeartActive state based on the data.wishCardExists
+          setIsHeartActive(data.wishCardExists); // 문자열 비교를 하지 않고 데이터 그대로 설정
         } else {
           console.error('Failed to fetch card data');
         }
@@ -95,42 +102,74 @@ const Detail = () => {
   const { cardDto, cardBenefitList } = cardData;
 
 
-  return (
-  <main>
-    <Nav/>
-    <section id="sectionCL">
-      <div className="detailIntro">
-        <div className="detailCardImg">
-          <img src={detailImg}></img>
-        </div>
-        <div className="detailCardInfo">
-          <p className="detailCardName">{cardDto.cardName}</p>
-          <br></br>
-          <ul>
-            <li>{cardDto.cardSummary1}</li>
-            <li>{cardDto.cardSummary2}</li>
-            <li>{cardDto.cardSummary3}</li>
-          </ul>
-        </div>
-      </div>
+  function toggleHeart() {
+    setIsHeartActive((prevIsHeartActive) => !prevIsHeartActive);
+    const newWishCardValue = !isHeartActive; // 문자열이 아닌 boolean 값을 사용
+    console.log(isHeartActive);
+    if (!isHeartActive) { // 문자열 비교를 하지 않고 boolean 값을 사용
+      axios.post(`/wish/${cardDto.cardId}`)
+          .then(res => {
+            console.log(res);
+          })
+          .catch(error => {
+            console.error(error);
+          });
+    } else {
+      axios.delete(`/wish/${cardDto.cardId}`)
+          .then(res => {
+            console.log(res);
+          })
+          .catch(error => {
+            console.error(error);
+          });
+    }
+  }
 
-    {/* 주요혜택 */}
-      <p className="mainBenefit">주요혜택</p>
-        <ul>
-          {/* 카드 혜택 출력 */}
-          {cardBenefitList.map((benefit, index) => (
-              <li key={index}>
-                <div className="detailBox">
-                  <img src={require(`../../assets/icon/${benefit.benefitCategory}.png`)} className="detailIcon"></img>
-                  <p className="detailTitle">{benefit.benefitCategory}</p>
-                  <p className="detail">{benefit.benefitSummary}</p>
-                </div>
-              </li>
-          ))}
-        </ul>
-    </section>
-    <Footer/>
-  </main>
-)}
+
+
+
+  return (
+      <main>
+        <Nav/>
+        <section className="sectionCL">
+          <div className="detailIntro">
+            <div className="detailCardImg">
+              <div><img src={cardDto.cardImage} alt="CardImage" /></div>
+            </div>
+            <div className="detailCardInfo">
+              <p className="detailCardName">{cardDto.cardName}</p>
+              <button
+                  className={`detailHeartOn ${isHeartActive ? 'active' : ''}`}
+                  onClick={toggleHeart}
+              >
+                <ion-icon name="heart" className="heartIcon"></ion-icon>
+              </button>
+              <br></br>
+              <ul>
+                <li>{cardDto.cardSummary1}</li>
+                <li>{cardDto.cardSummary2}</li>
+                <li>{cardDto.cardSummary3}</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* 주요혜택 */}
+          <p className="mainBenefit">주요혜택</p>
+          <ul>
+            {/* 카드 혜택 출력 */}
+            {cardBenefitList.map((benefit, index) => (
+                <li key={index}>
+                  <div className="detailBox">
+                    <img src={require(`../../assets/icon/${benefit.benefitCategory}.png`)} className="detailIcon"></img>
+                    <p className="detailTitle">{benefit.benefitCategory}</p>
+                    <p className="detail">{benefit.benefitSummary}</p>
+                  </div>
+                </li>
+            ))}
+          </ul>
+        </section>
+        <Footer/>
+      </main>
+  )}
 
 export default Detail

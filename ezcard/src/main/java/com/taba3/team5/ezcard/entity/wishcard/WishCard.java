@@ -15,7 +15,7 @@ public class WishCard {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "wish_id")
-    private Long wish_card_id;
+    private Long wishId;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -32,5 +32,7 @@ public class WishCard {
     public void setCard(Card card) {
         this.cardId = card;
     }
+
+
 }
 

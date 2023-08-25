@@ -32,7 +32,7 @@ public class CardController {
     public ResponseEntity<CardResponse> cardDetail(@PathVariable Long cardid, HttpSession session) {
         CardResponse cardResponse = cardService.cardDetail(cardid);
 
-        Long userId = (Long) session.getAttribute("userId");
+        Long userId = (Long) session.getAttribute("loginId");
 
         // 사용자 ID가 null이 아니라면
         if (userId != null) {

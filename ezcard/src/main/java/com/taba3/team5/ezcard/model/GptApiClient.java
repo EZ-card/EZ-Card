@@ -9,7 +9,6 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
-
 //OpenAI AIP와 http 통신하는 기능
 @Component
 public class GptApiClient {
@@ -24,6 +23,7 @@ public class GptApiClient {
                     .uri(URI.create("https://api.openai.com/v1/chat/completions"))
                     .header("Content-Type", "application/json")
                     .header("Authorization", "Bearer " + API_KEY)
+                    .header("OpenAI-Model", "gpt-3.5-turbo-16k")
                     .POST(HttpRequest.BodyPublishers.ofString(jsonBody.toString()))
                     .build();
 
