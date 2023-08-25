@@ -23,6 +23,7 @@ const Catalog = () => {
         <main>
             <Nav/>
             <section className="sectionCL">
+                <strong>카드 목록</strong>
                 <div className="catalog-container">
                     {cardCatalog.map(card => (
                         <div key={card.cardId} className="card-item">

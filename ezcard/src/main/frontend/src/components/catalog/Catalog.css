@@ -1,3 +1,8 @@
+section > strong {
+    font-size: 23px;
+    margin-left: 10px;
+}
+
 .catalog-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
