@@ -55,18 +55,23 @@ public class ChatBotService {
             String gptResponse = extractAnswer(responseFrompt);
 
             // "카드추천해줘" 문장이 있는 경우, 카드 추천 작업 수행
-            String cardName = extractCardNames(gptResponse); //카드이름 받아오기
+            if (userinput.contains("카드") && userinput.contains("추천")) {
+                String cardName = extractCardNames(gptResponse); //카드이름 받아오기
 
-            CardDto cardDto = cardService.findCardByName(cardName); //카드 정보를 이름으로 검색하여 저장
+                CardDto cardDto = cardService.findCardByName(cardName); //카드 정보를 이름으로 검색하여 저장
 
-            if (cardDto != null) {
-                // 카드 정보를 사용하여 응답 생성
-                chatBotResponse.setGptResponse(gptResponse); //응답 컨테너에 gpt답변 저장
-                chatBotResponse.setCardDto(cardDto); //응답 컨터이너에 카드정보 저장
+                if (cardDto != null) {
+                    // 카드 정보를 사용하여 응답 생성
+                    chatBotResponse.setGptResponse(gptResponse); //응답 컨테너에 gpt답변 저장
+                    chatBotResponse.setCardDto(cardDto); //응답 컨터이너에 카드정보 저장
+                } else {
+                    // 카드를 찾지 못한 경우 예외 처리
+                    chatBotResponse.setGptResponse(gptResponse);
+                }
+            } else {
+                // 카드 추천이 아닌 다른 응답 생성
+                chatBotResponse.setGptResponse(gptResponse);
             }
-            // 카드 추천이 아닌 다른 응답 생성
-            chatBotResponse.setGptResponse(gptResponse);
-
 
             // 대화 히스토리에 현재 Assistant 응답 추가
             chatHistory.offer("GPT: " + gptResponse);

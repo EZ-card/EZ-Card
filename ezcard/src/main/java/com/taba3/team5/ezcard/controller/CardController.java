@@ -1,8 +1,11 @@
 package com.taba3.team5.ezcard.controller;
+import com.taba3.team5.ezcard.dto.card.CardCatalogDto;
+import com.taba3.team5.ezcard.dto.card.CardCatalogListResponse;
 import com.taba3.team5.ezcard.dto.card.CardDto;
 import com.taba3.team5.ezcard.dto.card.CardResponse;
 import com.taba3.team5.ezcard.entity.card.Card;
 import com.taba3.team5.ezcard.service.CardBenefitService;
+import com.taba3.team5.ezcard.service.CardCatalogService;
 import com.taba3.team5.ezcard.service.CardService;
 import com.taba3.team5.ezcard.service.WishCardService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 
 @RestController
@@ -20,12 +24,14 @@ public class CardController {
     private final CardService cardService;
     private final CardBenefitService cardBenefitService;
     private final WishCardService wishCardService;
+    private final CardCatalogService cardCatalogService;
 
     @Autowired
-    public CardController(CardService cardService, CardBenefitService cardBenefitService, WishCardService wishCardService) {
+    public CardController(CardService cardService, CardBenefitService cardBenefitService, WishCardService wishCardService, CardCatalogService cardCatalogService) {
         this.cardService = cardService;
         this.cardBenefitService = cardBenefitService;
         this.wishCardService = wishCardService;
+        this.cardCatalogService = cardCatalogService;
     }
 
     @GetMapping("/detail/{cardid}")
@@ -46,6 +52,15 @@ public class CardController {
         } else {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
+    }
+
+    @GetMapping("/catalog")
+    public ResponseEntity<CardCatalogListResponse> cardCatalog() {
+        List<CardCatalogDto> cardCatalogDtoList = cardCatalogService.cardCatalogDtoList();
+        CardCatalogListResponse response = new CardCatalogListResponse();
+        response.setCardCatalogDtoList(cardCatalogDtoList);
+
+        return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 }
 

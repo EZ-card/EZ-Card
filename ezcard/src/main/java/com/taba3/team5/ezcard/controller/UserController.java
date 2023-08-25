@@ -42,7 +42,7 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.OK).build();
         } else {
             // login 실패
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
         }
     }
 

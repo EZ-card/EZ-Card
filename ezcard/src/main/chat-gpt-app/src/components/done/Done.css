@@ -1,13 +1,13 @@
-#button {
+#doneButton {
   background-color: #0042EC;
   color: #ffffff;
   border: none;
   border-radius: 9px;
   font-family: 'Noto Sans KR';
-  font-size: 20px;
-  font-style: bold;
-  width: 312px;
-  height: 63px;
+  font-size: 16px;
+  font-weight: bold;
+  width: 250px;
+  height: 55px;
   text-align: center;
   align-items: center;
 }
@@ -15,25 +15,25 @@
 
 .done_img {
   align-items: center;
-  width: 165px;
-  height: 165px;
+  width: 145px;
+  height: 145px;
 }
 
 .done_img img {
-  width: 165px;
-  height: 165px;
+  width: 145px;
+  height: 145px;
 }
 
 #text {
   font-family: 'Noto Sans KR';
-  font-size: 35px;
+  font-size: 25px;
   font-weight:bolder;
   text-align: center;
   align-items: center;
   margin-left: 69px;
   margin-right: 69px;
   margin-top: 48px;
-  margin-bottom: 48px;
+  margin-bottom: 18px;
 }
 
 .done_box {
@@ -48,6 +48,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
 
-
+.done_link {
+  color: #ffffff;
+}

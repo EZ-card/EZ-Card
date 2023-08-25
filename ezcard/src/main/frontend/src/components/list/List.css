@@ -1,0 +1,70 @@
+#myCard > strong {
+    font-size: 23px;
+    margin-left: 10px;
+}
+
+#myCard .blank {
+    height:20px;
+}
+
+#myCard ul li {
+    display: flex;
+    background-color: #f2f4f6;
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+#myCard ul li .myCardImg{
+    display: inline-block;
+    height: 40px;
+    margin-right: 30px;
+    margin-left: 15px;
+}
+#myCard ul li .myCardImg img{
+    width: 70px;
+    margin-top: -2px;
+}
+
+#myCard ul li .myCardInfo{
+    display: inline-block;
+    width: 80%;
+}
+#myCard ul li .myCardInfo p{
+    font-size: 14px;
+}
+
+#myCard ul li .myCardInfo .myCardName {
+    font-weight: 800;
+}
+
+#myCard ul li .myCardInfo .myCardName2 {
+    font-weight: 500;
+}
+
+#myCard ul li .myCardInfo p:nth-child(2){
+    font-size: 12px;
+    color: #585858;
+    margin-top: 3px;
+}
+
+#myCard ul li .myCardHeart{
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #EBEDEF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+}
+
+#myCard ul li .myCardHeart ion-icon{
+    vertical-align: middle;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: 15px;;
+    color: #F9595F;
+}

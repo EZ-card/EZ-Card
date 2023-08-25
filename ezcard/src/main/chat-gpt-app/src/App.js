@@ -13,6 +13,7 @@ import List from "./components/list/List";
 import Mypage from "./components/mypage/Mypage";
 import Detail from "./components/detail/Detail";
 import Splash from "./components/splash/Splash";
+import Catalog from "./components/catalog/Catalog"
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
             <Route path="/mypage" element={<Mypage />}></Route>
             <Route path="/detail/:id" element={<Detail />}></Route>
             <Route path="/splash" element={<Splash />}></Route>
+            <Route path="/catalog" element={<Catalog />}></Route>
           </Routes>
         </BrowserRouter>
       </Fragment>

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 import axios from 'axios';
+
 import Nav from '../../common/nav/Nav.js';
 import Footer from '../../common/footer/Footer.js';
 import cardTestImg from '../../assets/images/card_test_img.png';
@@ -8,23 +10,25 @@ import './Chat.css';
 
 const CardInfoMessage = ({ cardDto }) => {
     return (
-        <div className="gptChat gptChatCr">
-            <div><img src={cardTestImg} alt="CardTestImage" /></div>
-            <div>
-                <strong>{cardDto.cardName}</strong>
-                <p className="cardBank">{cardDto.cardBank}</p>
-                <ul>
-                    <li>{cardDto.cardSummary1}</li>
-                    <li>{cardDto.cardSummary2}</li>
-                    <li>{cardDto.cardSummary3}</li>
-                </ul>
-                <p className="cardRecord">
-                    <span>{cardDto.cardRecord}</span>
-                    <span> / </span>
-                    <span>{cardDto.cardMembership}</span>
-                </p>
+        <Link to={`/detail/${cardDto.cardId}`}>
+            <div className="gptChat gptChatCr">
+                <div><img src={cardDto.cardImage} alt="CardImage" /></div>
+                <div>
+                    <strong>{cardDto.cardName}</strong>
+                    <p className="cardBank">{cardDto.cardBank}</p>
+                    <ul>
+                        <li>{cardDto.cardSummary1}</li>
+                        <li>{cardDto.cardSummary2}</li>
+                        <li>{cardDto.cardSummary3}</li>
+                    </ul>
+                    <p className="cardRecord">
+                        <span>{cardDto.cardRecord}</span>
+                        <span> / </span>
+                        <span>{cardDto.cardMembership}</span>
+                    </p>
+                </div>
             </div>
-        </div>
+        </Link>
     );
 };
 
@@ -76,7 +80,7 @@ const Chat = () => {
             <Nav />
 
             <section className="sectionCL">
-                <p>원하시는 정보 입력 후 마지막에 <strong className="chatSt">"카드 추천"</strong>이라고 입력해보세요 !</p>
+                <p>원하시는 정보 입력 후 마지막에<strong className="chatSt">"카드 추천"</strong>이라고 입력해보세요 !</p>
                 <div id="chat_container">
                     <div id="chat_messages" className="chatContainer">
                         {chatMessages.slice().reverse().map((message, index) => {

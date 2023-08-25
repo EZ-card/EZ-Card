@@ -22,17 +22,12 @@ nav > ul li:nth-child(1) img{
     vertical-align: middle;
 }
 nav > ul li p {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
 }
-nav > ul.loginSuccess li p strong{ /*ezcard*/
-    font-size: 22px;
-    padding: 0 0px;
-    color: #005EEC;
-}
-nav > ul.loginSuccess li p span{ /*userName*/
-    font-size: 22px;
-    padding: 0 0px;
+nav > ul.loginSuccess li p strong{
+    font-size: 20px;
+    padding: 0 10px;
     color: #005EEC;
 }
 nav > ul li.menuBar{
@@ -174,6 +169,11 @@ li.openMenu .sideMenu > ul li a{
     transform: rotate(180deg);
 }
 
+nav > ul.loginSuccess li p span.userName {
+    font-size: 22px;
+    padding: 0 0px;
+    color: #005EEC;
+}
 
 
 /* logout */

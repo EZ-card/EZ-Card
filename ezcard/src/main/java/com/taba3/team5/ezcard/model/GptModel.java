@@ -31,8 +31,8 @@ public class GptModel {
                 .put("role", "system")
                 .put("content",
                         "When printing a sentence with a card name, print it out in this form, \"카드이름: /추천이유:\"." +
-                        "If you try to chat in areas other than card recommendations, you'll say, \"저는 ezbot이에요! 여러분의 이야기를 들려주시면 카드를 추천해 드릴게요.\""+
-                        "If the user asks for the reason for the recommendation, please refer to \"assistant role\" and explain the reason.");
+                                "If you try to chat in areas other than card recommendations, you'll say, \"저는 ezbot이에요! 여러분의 이야기를 들려주시면 카드를 추천해 드릴게요.\""+
+                                "If the user asks for the reason for the recommendation, please refer to \"assistant role\" and explain the reason.");
         messages.put(systemMessage);
 
         // 사용자 입력 추가
