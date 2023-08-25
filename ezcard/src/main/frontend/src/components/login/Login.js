@@ -2,7 +2,8 @@ import React from "react";
 import axios from 'axios'; // axios import
 
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react'; 
+import { useState, useEffect } from 'react';
+import {useNavigate} from "react-router-dom";
 
 import Nav from '../../common/nav/Nav.js'; // Nav 컴포넌트를 불러옴
 import Footer from '../../common/footer/Footer.js'; // Footer 컴포넌트를 불러옴
@@ -13,8 +14,8 @@ const Login = () => {
     const [inputId, setInputId] = useState('')
     const [inputPw, setInputPw] = useState('')
     const [isEmailValid, setIsEmailValid] = useState(true); // 이메일 형식 검증 상태
+    const navigate = useNavigate();
 
- 
     const handleInputId = (e) => {
         const emailValue = e.target.value;
         setInputId(emailValue);
@@ -47,11 +48,11 @@ const Login = () => {
                 if(res.status === 200){
                     console.log('======================',res.status);
                     alert('로그인 성공');
-                    document.location.href = '/';
+                    navigate('/');
                 } else if(res.status  === 204){
                     console.log('======================',res.status);
                     alert('아이디 또는 패스워드를 확인해주세요');
-                    document.location.href = '/login';
+                    navigate('/login');
                 }
                 // 작업 완료 되면 페이지 이동(새로고침)
                 // document.location.href = '/main'

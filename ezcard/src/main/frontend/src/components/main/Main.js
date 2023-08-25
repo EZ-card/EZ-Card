@@ -86,7 +86,6 @@ const Main = () => {
     return (
         <main>
             <Nav/>
-
             <section className="sectionCL">
                 <div id="mainTop">
                     {isLoggedIn ? (
