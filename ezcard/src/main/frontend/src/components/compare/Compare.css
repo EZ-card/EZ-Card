@@ -51,9 +51,3 @@ section > strong {
     margin-top: 10px;
     display: inline-flex;
 }
-
-/*.compare-area {*/
-/*    display: grid;*/
-/*    grid-template-columns: repeat(2, 1fr); !* 2개의 열로 나누기 *!*/
-/*    gap: 10px; !* 열 간격 조절 (원하는 크기로 조정 가능) *!*/
-/*}*/

@@ -4,6 +4,15 @@ import Footer from '../../common/footer/Footer.js';
 import './Compare.css';
 import card_test_img from '../../assets/images/card_test_img.png';
 
+const SelectedCard = ({ card, onClear }) => (
+    <div>
+        <button className="clear-button" onClick={onClear}>X</button>
+        <h2>{card.cardName}</h2>
+        <img src={card.imageUrl} alt={card.cardName} />
+        <p>은행: {card.cardBank}</p>
+    </div>
+);
+
 const ComparePage = () => {
     const [cardList, setCardList] = useState([]);
     const [selectedFirstCard, setSelectedFirstCard] = useState(null);
@@ -32,8 +41,11 @@ const ComparePage = () => {
         setIsModalOpen(false); // 모달 닫기
     };
 
-    const clearSelectedCards = () => {
+    const clearSelectedFirstCard = () => {
         setSelectedFirstCard(null);
+    };
+
+    const clearSelectedSecondCard = () => {
         setSelectedSecondCard(null);
     };
 
@@ -44,29 +56,17 @@ const ComparePage = () => {
                 <strong>카드 비교하기</strong>
                 <div className="card-selection">
                     {selectedFirstCard ? (
-                        <div>
-                            <button className="clear-button" onClick={clearSelectedCards}>X</button>
-                            <h2>{selectedFirstCard.cardName}</h2>
-                            <img src={selectedFirstCard.imageUrl} alt={selectedFirstCard.cardName} />
-                            <p>은행: {selectedFirstCard.cardBank}</p>
-                        </div>
+                        <SelectedCard card={selectedFirstCard} onClear={clearSelectedFirstCard} />
                     ) : (
                         <button onClick={() => setIsModalOpen(true)}>첫 번째 카드 선택</button>
                     )}
 
                     {selectedSecondCard ? (
-                        <div>
-                            <button className="clear-button" onClick={clearSelectedCards}>X</button>
-                            <h2>{selectedSecondCard.cardName}</h2>
-                            <img src={selectedSecondCard.imageUrl} alt={selectedSecondCard.cardName} />
-                            <p>은행: {selectedSecondCard.cardBank}</p>
-                        </div>
+                        <SelectedCard card={selectedSecondCard} onClear={clearSelectedSecondCard} />
                     ) : (
                         <button onClick={() => setIsModalOpen(true)}>두 번째 카드 선택</button>
                     )}
                 </div>
-
-                {/* 선택된 카드 정보 표시 */}
 
                 {isModalOpen && (
                     <div className="cards">
