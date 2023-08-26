@@ -134,7 +134,7 @@ const Detail = () => {
         <section className="sectionCL">
           <div className="detailIntro">
             <div className="detailCardImg">
-              <div><img src={cardDto.cardImage} alt="CardImage" /></div>
+              <img src={cardDto.cardImage} alt="CardImage" className="fullWidthImage" />
             </div>
             <div className="detailCardInfo">
               <p className="detailCardName">{cardDto.cardName}</p>

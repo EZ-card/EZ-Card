@@ -23,11 +23,7 @@ function openMenuFun() {
     const appHeight = document.getElementById('app').clientHeight;
     showMenu.style.height = appHeight-"250"+"px";
 }
-// 상세메뉴 열기
-function openMenuDetailFun() {
-    const menuDetail = document.querySelector('.menuDetail');
-    menuDetail.classList.toggle('clicked');
-}
+
 // 메뉴 닫기
 function closeMenuFun() {
     const sectionCL = document.querySelector('.sectionCL');
@@ -103,15 +99,8 @@ const Nav = () => {
                                 <li><Link to="/">HOME</Link></li>
                                 <li><Link to="/chat">EZ:BOT 카드상담</Link></li>
                                 <li><Link to="/catalog">카드 목록</Link></li>
-                                <li className="menuDetail">
-                                    <p>MY PAGE <span onClick={openMenuDetailFun}><ion-icon name="chevron-down-outline"></ion-icon></span></p>
-                                    <div id="detailDiv1">
-                                        <ul>
-                                            <li><Link to="/list">찜 목록</Link></li>
-                                            <li><Link to="/mypage">회원정보 수정</Link></li>
-                                        </ul>
-                                    </div>
-                                </li>
+                                <li><Link to="/list">찜 목록</Link></li>
+                                <li><Link to="/mypage">회원정보 수정</Link></li>
                                 <li className="logout" onClick={handleLogout}>로그아웃</li>
                             </ul>
                         </div>

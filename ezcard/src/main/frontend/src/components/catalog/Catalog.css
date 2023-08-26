@@ -1,3 +1,7 @@
+* {
+    font-family: "noto7";
+}
+
 section > strong {
     font-size: 23px;
     margin-left: 10px;
