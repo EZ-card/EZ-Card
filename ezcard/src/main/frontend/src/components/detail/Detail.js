@@ -133,23 +133,29 @@ const Detail = () => {
         <Nav/>
         <section className="sectionCL">
           <div className="detailIntro">
-            <div className="detailCardImg">
-              <img src={cardDto.cardImage} alt="CardImage" className="fullWidthImage" />
-            </div>
+            {/*<div className="detailCardImg">*/}
+            {/*  <img src={cardDto.cardImage} alt="CardImage" className="detailCardImg" />*/}
+            {/*</div>*/}
             <div className="detailCardInfo">
-              <p className="detailCardName">{cardDto.cardName}</p>
+              <div><img src={cardDto.cardImage} alt="detailCardName" /></div>
+              <div>
+                <strong>{cardDto.cardName}</strong>
+                <p className="cardBank">{cardDto.cardBank} / {cardDto.cardType}</p>
+                <ul>
+                  <li>️▫ {cardDto.cardSummary1}</li>
+                  <li>▫ {cardDto.cardSummary2}</li>
+                  <li>▫ {cardDto.cardSummary3}</li>
+                </ul>
+                <p className="cardRecord">
+                  <span>{cardDto.cardMembership}</span>
+                </p>
+              </div>
               <button
                   className={`detailHeartOn ${isHeartActive ? 'active' : ''}`}
                   onClick={toggleHeart}
               >
                 <ion-icon name="heart" className="heartIcon"></ion-icon>
               </button>
-              <br></br>
-              <ul>
-                <li>{cardDto.cardSummary1}</li>
-                <li>{cardDto.cardSummary2}</li>
-                <li>{cardDto.cardSummary3}</li>
-              </ul>
             </div>
           </div>
 
@@ -172,4 +178,4 @@ const Detail = () => {
       </main>
   )}
 
-export default Detail
+export default Detail;

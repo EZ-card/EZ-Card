@@ -15,15 +15,13 @@ const CardInfoMessage = ({ cardDto }) => {
                 <div><img src={cardDto.cardImage} alt="CardImage" /></div>
                 <div>
                     <strong>{cardDto.cardName}</strong>
-                    <p className="cardBank">{cardDto.cardBank}</p>
+                    <p className="cardBank">{cardDto.cardBank} / {cardDto.cardType}</p>
                     <ul>
-                        <li>{cardDto.cardSummary1}</li>
-                        <li>{cardDto.cardSummary2}</li>
-                        <li>{cardDto.cardSummary3}</li>
+                        <li>️▫ {cardDto.cardSummary1}</li>
+                        <li>▫ {cardDto.cardSummary2}</li>
+                        <li>▫ {cardDto.cardSummary3}</li>
                     </ul>
                     <p className="cardRecord">
-                        <span>{cardDto.cardRecord}</span>
-                        <span> / </span>
                         <span>{cardDto.cardMembership}</span>
                     </p>
                 </div>

@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.8339ca7f.css",
-    "main.js": "/static/js/main.84d925a9.js",
+    "main.css": "/static/css/main.2d808b6f.css",
+    "main.js": "/static/js/main.2c20435a.js",
     "static/media/NotoSansKR-Black.otf": "/static/media/NotoSansKR-Black.dba005b6b1bed712b472.otf",
     "static/media/NotoSansKR-Bold.otf": "/static/media/NotoSansKR-Bold.c252383c4f70753be0e7.otf",
     "static/media/NotoSansKR-Medium.otf": "/static/media/NotoSansKR-Medium.56207b5e52841342a21b.otf",
@@ -67,11 +67,11 @@
     "static/media/무실적.png": "/static/media/무실적.eeed41c0aa8bed968cde.png",
     "static/media/대형마트.png": "/static/media/대형마트.d1bf2c95779421da988a.png",
     "index.html": "/index.html",
-    "main.8339ca7f.css.map": "/static/css/main.8339ca7f.css.map",
-    "main.84d925a9.js.map": "/static/js/main.84d925a9.js.map"
+    "main.2d808b6f.css.map": "/static/css/main.2d808b6f.css.map",
+    "main.2c20435a.js.map": "/static/js/main.2c20435a.js.map"
   },
   "entrypoints": [
-    "static/css/main.8339ca7f.css",
-    "static/js/main.84d925a9.js"
+    "static/css/main.2d808b6f.css",
+    "static/js/main.2c20435a.js"
   ]
 }

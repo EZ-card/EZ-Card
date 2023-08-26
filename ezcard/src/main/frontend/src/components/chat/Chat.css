@@ -117,8 +117,10 @@
 
 /* gpt card recommand */
 .gptChatCr{
-    padding: 15px;
+    padding: 10px;
     display: flex;
+    line-height: 150%;
+    margin-left: 0;
 }
 .gptChatCr div:nth-child(1){
     margin-left: 0;
@@ -135,11 +137,11 @@
     color: #0042EC;
 }
 .gptChatCr div li{
-    font-size: 13px;
+    font-size: 12px;
     font-weight: bold;
 }
 .cardBank{
-    font-size: 12px;
+    font-size: 11px;
     color: #706F6F;
     margin-bottom: 5px;
 }

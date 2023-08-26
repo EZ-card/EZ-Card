@@ -1,56 +1,42 @@
 /* 카드 상세 페이지 - 카드 정보 */
-.detailCardImg img{
-  width: 100px;
-  height: 140px;
-  float: left;
-}
-.detailCardImg{
-  width:100px;
-}
-.detailIntro {
-  display:flex;
-  align-items: center;
-  margin-top: 15px;
-  margin-bottom: 25px;
-  padding:0px 30px
-}
-.sectionCL > ul li:last-child{
-  margin-bottom:50px;
-}
-
-.detailCardName {
-  padding-top: 7px;
-  font-size: 18px;
-  font-weight: 800;
-  float: left;
-  margin-left: 0px;
-  margin-bottom: 15px;
-}
-
-.cardHeader {
+.detailCardInfo{
+  padding: 10px;
   display: flex;
-  align-items: right;
-  justify-content: space-between;
+  line-height: 150%;
+  margin-left: 0;
 }
-
-.detailCardInfo {
-  flex-grow: 0.5;
+.detailCardInfo div:nth-child(1){
+  margin-left: 0;
+  width: 100px;
 }
-
-.detailCardInfo li {
-  margin-bottom: 5px;
-  margin-bottom: 5px;
-}
-
 .detailCardInfo img{
-  width: 15px;
-  height: 15px;
+  width: 125px;
+  position: relative;
+  top: 20%; left: -20px;
+  transform: rotate( 90deg );
+}
+.detailCardInfo div strong{
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.84);
+}
+.detailCardInfo div li{
+  font-size: 12px;
+  font-weight: bold;
+}
+.cardBank{
+  font-size: 11px;
+  color: #706F6F;
+  margin-bottom: 5px;
+}
+.cardRecord{
+  margin-top: 5px;
+  font-size: 10px;
 }
 
 .mainBenefit {
   font-size: 20px;
   font-weight: 800;
-  margin-top: 60px;
+  margin-top: 10px;
   margin-bottom: 30px;
 }
 
@@ -110,7 +96,7 @@
 
 @media (max-width: 450px) {
   .detailIntro{
-    padding:10px;
+    padding:5px;
   }
   .detailCardInfo {
     font-size:14px;
@@ -123,7 +109,7 @@
     height:auto;
   }
   .mainBenefit{
-    margin-top:50px;
+    margin-top:10px;
   }
   .detailBox p:last-child{
     flex: 0.6 1;

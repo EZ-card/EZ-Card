@@ -107,7 +107,7 @@ section{
 .cardImg img{
     position: relative;
     left: 50%;
-    top: 25%;
+    top: 50px;
     /* width: 135px; */
     height: 85px;
     transform: translate(-50%) rotate( 90deg );
