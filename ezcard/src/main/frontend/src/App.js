@@ -14,6 +14,7 @@ import Mypage from "./components/mypage/Mypage";
 import Detail from "./components/detail/Detail";
 import Splash from "./components/splash/Splash";
 import Catalog from "./components/catalog/Catalog"
+import Compare from "./components/compare/Compare";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
             <Route path="/detail/:id" element={<Detail />}></Route>
             <Route path="/splash" element={<Splash />}></Route>
             <Route path="/catalog" element={<Catalog />}></Route>
+            <Route path="/compare" element={<Compare />}></Route>
           </Routes>
         </BrowserRouter>
       </Fragment>
