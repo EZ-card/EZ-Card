@@ -7,11 +7,10 @@ import './Catalog.css';
 
 const Catalog = () => {
     const [cardCatalog, setCardCatalog] = useState([]);
-    const [selectedCardType, setSelectedCardType] = useState('');
-
+    const [selectedCardType, setSelectedCardType] = useState('전체'); // 초기 상태를 '전체'로 설정
 
     const filteredCards = cardCatalog.filter(
-        card => selectedCardType === '' || card.cardType === selectedCardType
+        card => selectedCardType === '전체' || card.cardType === selectedCardType
     );
 
 
@@ -32,19 +31,32 @@ const Catalog = () => {
             <section className="sectionCL">
                 <strong>카드 목록</strong>
                 <div className="button-container">
+                    <button onClick={() => setSelectedCardType('전체')}>전체</button>
                     <button onClick={() => setSelectedCardType('신용')}>신용</button>
                     <button onClick={() => setSelectedCardType('체크')}>체크</button>
                     <button onClick={() => setSelectedCardType('복지')}>복지</button>
                 </div>
                 <div className="catalog-container">
                     {filteredCards.map(card => (
-                        <div key={card.cardId} className="card-item">
-                            <Link to={`/detail/${card.cardId}`}>
-                                <img src={card.cardImage} alt={card.cardName} />
-                                <h3>{card.cardName}</h3>
-                                <p>{card.cardBank}</p>
-                            </Link>
-                        </div>
+                        <Link key={card.cardId} to={`/detail/${card.cardId}`} className="card-item-link">
+                            <div className="detailIntro">
+                                <div className="catalogCardInfo">
+                                    <div className="catalogImage"><img src={card.cardImage} alt="catalogCardName" /></div>
+                                    <div className="catalogDeatil">
+                                        <strong>{card.cardName}</strong>
+                                        <p className="catalogcardBank">{card.cardBank}</p>
+                                        <ul>
+                                            <li>️▫ {card.cardSummary1}</li>
+                                            <li>▫ {card.cardSummary2}</li>
+                                            <li>▫ {card.cardSummary3}</li>
+                                        </ul>
+                                        <p className="catalogcardRecord">
+                                            <span>{card.cardMembership}</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </Link>
                     ))}
                 </div>
             </section>

@@ -3,35 +3,52 @@ section > strong {
     margin-left: 10px;
 }
 
-.catalog-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 200px);
-    gap: 20px;
-    padding: 20px;
-}
-
-.card-item {
+.catalogCardInfo{
+    padding: 10px 10px 10px 0px;
+    display: flex;
+    line-height: 150%;
+    margin-left: 0;
     background-color: #f2f4f6;
-    border-radius: 10px;
-    padding: 15px;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+.catalogCardInfo div:nth-child(1){
+    margin-left: 15px;
+    margin-right: 0px;
+    width: 100px;
+}
+.catalogCardInfo img{
+    width: 125px;
+    position: relative;
+    top: 20%; left: -20px;
+    transform: rotate( 90deg );
+}
+.catalogCardInfo div strong{
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.84);
+}
+.catalogCardInfo div li{
+    font-size: 11px;
+    font-weight: bold;
+}
+.catalogcardBank{
+    font-size: 11px;
+    color: #706F6F;
+    margin-bottom: 5px;
+}
+.catalogcardRecord{
+    margin-top: 5px;
+    font-size: 10px;
 }
 
-.card-item img {
-    max-width: 100px;
-    margin: 0 auto 10px;
+.mainBenefit {
+    font-size: 20px;
+    font-weight: 800;
+    margin-top: 10px;
+    margin-bottom: 30px;
 }
-
-.card-item h3 {
-    font-size: 15px;
-    font-weight: 600;
-    margin: 0;
-}
-
-.card-item p {
-    color: #666;
-    margin: 5px 0 0;
+.catalogDeatil {
+    margin-left: 10px;
+    width: 200px;
 }
 
 /* Catalog.css */
@@ -58,5 +75,7 @@ section > strong {
 }
 
 .button-container button:hover {
-    background-color: rgb(233, 235, 238); /* 호버 시 배경색 변경 */
+    background-color: rgb(2, 67, 236); /* 호버 시 배경색 변경 */
+    color: white;
+    font-weight: bold;
 }

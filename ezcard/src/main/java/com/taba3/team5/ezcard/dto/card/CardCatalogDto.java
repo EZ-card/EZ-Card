@@ -13,4 +13,7 @@ public class CardCatalogDto {
     private String cardBank;
     private String cardImage;
     private String cardType;
+    private String cardSummary1;
+    private String cardSummary2;
+    private String cardSummary3;
 }
