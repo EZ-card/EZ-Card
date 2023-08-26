@@ -2,17 +2,17 @@
 nav{
     max-width: 500px;
     width: 100%;
-    height: 100px;
-    padding: 20px;
-    /* background-color: pink; */
+    height: 60px;
+    padding: 10px;
+    /*background-color: pink;*/
 }
 nav > ul{
     margin: auto;
     display: flex;
 }
 nav > ul li{
-    height: 80px;
-    line-height: 80px;
+    height: 50px;
+    line-height: 50px;
 }
 nav > ul li:nth-child(1) {
     width: 10%;
