@@ -4,10 +4,10 @@ import axios from 'axios';
 
 import Nav from '../../common/nav/Nav.js';
 import Footer from '../../common/footer/Footer.js';
-import cardTestImg from '../../assets/images/card_test_img.png';
 
 import './Chat.css';
 
+// 이 컴포넌트는 카드 정보를 표시합니다
 const CardInfoMessage = ({ cardDto }) => {
     return (
         <Link to={`/detail/${cardDto.cardId}`}>
@@ -32,10 +32,14 @@ const CardInfoMessage = ({ cardDto }) => {
     );
 };
 
+// 메인 Chat
 const Chat = () => {
+    // 사용자 입력 메시지, 채팅 이력 및 로딩 상태를 위한 상태 관리
     const [userMessage, setUserMessage] = useState('');
     const [chatMessages, setChatMessages] = useState([]);
+    const [loading, setLoading] = useState(false);
 
+    // 사용자 입력 메시지 변경 처리
     const handleUserMessageChange = (e) => {
         setUserMessage(e.target.value);
     }
@@ -43,6 +47,9 @@ const Chat = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        setLoading(true); // 로딩 상태 시작
+
+        // 사용자 메시지 객체 생성 및 채팅 이력 업데이트
         const userMessageObj = { type: 'user', text: userMessage };
         setChatMessages((prevChatMessages) => [...prevChatMessages, userMessageObj]);
         setUserMessage('');
@@ -71,7 +78,9 @@ const Chat = () => {
                 setChatMessages((prevChatMessages) => [...prevChatMessages, { type: 'card', cardDto }]);
             }
         } catch {
-            // error handling
+            // 에러 처리
+        } finally {
+            setLoading(false); // 로딩 상태 종료
         }
     }
 
@@ -83,6 +92,14 @@ const Chat = () => {
                 <p>원하시는 정보 입력 후 마지막에<strong className="chatSt">"카드 추천"</strong>이라고 입력해보세요 !</p>
                 <div id="chat_container">
                     <div id="chat_messages" className="chatContainer">
+                        {/* 로딩 상태가 true인 경우 로딩 스피너 표시 */}
+                        {loading && (
+                            <div className="loddingSpinner">
+                                <p>EZ는 생각 중...</p>
+                            </div>
+                        )}
+                        
+                        {/* 채팅 메시지 표시 */}
                         {chatMessages.slice().reverse().map((message, index) => {
                             if (message.type === 'user') {
                                 return (
