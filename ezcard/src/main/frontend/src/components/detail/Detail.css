@@ -1,12 +1,15 @@
 /* 카드 상세 페이지 - 카드 정보 */
 .detailCardInfo{
-  padding: 10px;
+  padding: 25px 0px 25px 0px;
   display: flex;
   line-height: 150%;
   margin-left: 0;
+  background-color: #f2f4f6;
+  border-radius: 8px;
 }
 .detailCardInfo div:nth-child(1){
-  margin-left: 0;
+  margin-left: 15px;
+  margin-right: 0px;
   width: 100px;
 }
 .detailCardInfo img{
@@ -44,9 +47,29 @@
   display: flex;
   background-color: #f2f4f6;
   padding: 10px 0px;
-  border-radius: 10px;
-  margin-bottom: 15px;
+  border-radius: 5px;
+  margin-bottom: 0px;
   align-items: center;
+}
+
+.additionalInfo {
+  display: flex;
+  background-color: #ffffff;
+  padding: 10px 15px;
+  margin: 10px 10px 10px 10px;
+  border-radius: 10px;
+  align-items: center;
+  word-wrap: break-word; /* 하이픈(-)이 나오면 단어를 줄바꿈합니다. */
+  white-space: pre-line; /* 하이픈(-)이 나오면 줄바꿈합니다. */
+  font-size: 12px;
+}
+
+.detailContainer {
+  background-color: rgb(242, 244, 246); /* 조금 더 연한 회색 색상 */
+  padding-bottom: 2px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+
 }
 
 .detailIcon {
@@ -57,12 +80,14 @@
 .detailTitle {
   font-weight: 800;
   flex: 0.2;
+  font-size: 13px;
 }
 
 .detail {
   flex: 1;
   margin: 0;
   padding-right: 10px;
+  font-size: 12px;
 }
 
 .detailBox p:last-child {
@@ -81,17 +106,19 @@
   align-items: center;
   display: flex;
   margin-top: 0px;
-  margin-right:0px;
+  margin-right:10px;
   cursor: pointer;
 }
 
 .detailHeartOn ion-icon{
   font-size: 24px;
   color: #B6B6B6;
+  /*margin-right: 10px;*/
 }
 
 .active ion-icon {
   color: #F9595F;
+  /*margin-right: 10px;*/
 }
 
 @media (max-width: 450px) {

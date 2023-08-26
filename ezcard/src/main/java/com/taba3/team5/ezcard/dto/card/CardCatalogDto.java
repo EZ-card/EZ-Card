@@ -12,4 +12,5 @@ public class CardCatalogDto {
     private String cardName;
     private String cardBank;
     private String cardImage;
+    private String cardType;
 }

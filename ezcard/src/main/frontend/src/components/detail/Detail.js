@@ -75,7 +75,7 @@ const Detail = () => {
   });
 
   const [isHeartActive, setIsHeartActive] = useState(null);
-
+  const [openDetailBox, setOpenDetailBox] = useState(null);
 
   useEffect(() => {
     const fetchCardData = async () => {
@@ -125,7 +125,13 @@ const Detail = () => {
     }
   }
 
-
+  function toggleDetail(index) {
+    if (openDetailBox === index) {
+      setOpenDetailBox(null);
+    } else {
+      setOpenDetailBox(index);
+    }
+  }
 
 
   return (
@@ -133,9 +139,6 @@ const Detail = () => {
         <Nav/>
         <section className="sectionCL">
           <div className="detailIntro">
-            {/*<div className="detailCardImg">*/}
-            {/*  <img src={cardDto.cardImage} alt="CardImage" className="detailCardImg" />*/}
-            {/*</div>*/}
             <div className="detailCardInfo">
               <div><img src={cardDto.cardImage} alt="detailCardName" /></div>
               <div>
@@ -164,14 +167,21 @@ const Detail = () => {
           <ul>
             {/* 카드 혜택 출력 */}
             {cardBenefitList.map((benefit, index) => (
-                <li key={index}>
-                  <div className="detailBox">
-                    <img src={require(`../../assets/icon/${benefit.benefitCategory}.png`)} className="detailIcon"></img>
+                <li key={index} className="detailContainer">
+                  <div className="detailBox" onClick={() => toggleDetail(index)}>
+                    <img src={require(`../../assets/icon/${benefit.benefitCategory}.png`)} className="detailIcon" alt="Detail Icon" />
                     <p className="detailTitle">{benefit.benefitCategory}</p>
                     <p className="detail">{benefit.benefitSummary}</p>
                   </div>
+                  {openDetailBox === index && (
+                      <div className="additionalInfo">
+                        {benefit.benefitDetail}
+                        <p>{benefit.additionalInfo}</p>
+                      </div>
+                  )}
                 </li>
             ))}
+
           </ul>
         </section>
         <Footer/>

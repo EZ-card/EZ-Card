@@ -28,7 +28,7 @@ public class CardCatalogService {
             cardCatalogDto.setCardName(card.getCardName());
             cardCatalogDto.setCardBank(card.getCardBank());
             cardCatalogDto.setCardImage(card.getCardImage());
-
+            cardCatalogDto.setCardType(card.getCardType());
             cardCatalogDtoList.add(cardCatalogDto);
         }
 
