@@ -3,7 +3,7 @@ import axios from 'axios'; // axios import
 
 import Nav from '../../common/nav/Nav.js';
 import Footer from '../../common/footer/Footer.js';
-import { useParams } from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 
 import './Detail.css';
 
@@ -162,6 +162,11 @@ const Detail = () => {
             </div>
           </div>
 
+
+          <div className="cardCompanyLink">
+            <button><Link to={cardDto.cardLink} className="company_Link">신청하러 가기</Link></button>
+          </div>
+
           {/* 주요혜택 */}
           <p className="mainBenefit">주요혜택</p>
           <ul>
@@ -169,7 +174,8 @@ const Detail = () => {
             {cardBenefitList.map((benefit, index) => (
                 <li key={index} className="detailContainer">
                   <div className="detailBox" onClick={() => toggleDetail(index)}>
-                    <img src={require(`../../assets/icon/${benefit.benefitCategory}.png`)} className="detailIcon" alt="Detail Icon" />
+                    {/*<img src={require(`../../assets/icon/${benefit.benefitCategory}.png`)} className="detailIcon" alt="Detail Icon" />*/}
+                    <img src={benefit1} className="detailIcon" alt="Detail Icon" />
                     <p className="detailTitle">{benefit.benefitCategory}</p>
                     <p className="detail">{benefit.benefitSummary}</p>
                   </div>
