@@ -8,6 +8,7 @@ section > strong {
     display: flex;
     line-height: 150%;
     margin-left: 0;
+    margin-bottom: 8px;
     background-color: #f2f4f6;
     border-radius: 8px;
 }
@@ -72,6 +73,10 @@ section > strong {
 
 .button-container button:last-child {
     margin-right: 0; /* 마지막 버튼의 오른쪽 여백 제거 */
+}
+
+.button-container button:hover {
+    background-color: rgb(233, 235, 238); /* 호버 시 배경색 변경 */
 }
 
 .button-container button:hover {

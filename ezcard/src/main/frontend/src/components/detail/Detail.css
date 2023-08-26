@@ -61,7 +61,7 @@
   align-items: center;
   word-wrap: break-word; /* 하이픈(-)이 나오면 단어를 줄바꿈합니다. */
   white-space: pre-line; /* 하이픈(-)이 나오면 줄바꿈합니다. */
-  font-size: 13px;
+  font-size: 12px;
 }
 
 .detailContainer {
@@ -80,14 +80,14 @@
 .detailTitle {
   font-weight: 800;
   flex: 0.2;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .detail {
   flex: 1;
   margin: 0;
   padding-right: 10px;
-  font-size: 13px;
+  font-size: 12px;
 }
 
 .detailBox p:last-child {
@@ -119,16 +119,6 @@
 .active ion-icon {
   color: #F9595F;
   /*margin-right: 10px;*/
-}
-
-.cardCompanyLink{
-  margin-bottom: 20px;
-}
-
-.company_Link {
-  color: white;
-  font-weight: bold;
-  font-size: 15px;
 }
 
 @media (max-width: 450px) {
