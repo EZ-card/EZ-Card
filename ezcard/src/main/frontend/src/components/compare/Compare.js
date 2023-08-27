@@ -23,69 +23,122 @@ const ComparePage = () => {
     }, []);
 
     const handleCardSelect = (cardId) => {
-        const selectedCard = cardList.find(card => card.cardId === cardId);
-
-        if (selectedSide === 'left') {
-            setSelectedFirstCard(selectedCard);
-        } else if (selectedSide === 'right') {
-            setSelectedSecondCard(selectedCard);
-        }
-
-        setIsModalOpen(false); // 모달 닫기
+        // 카드 선택 시 /cards/detail/{cardid} API를 호출하여 카드 정보를 받아옴
+        fetch(`/cards/detail/${cardId}`, {
+            method: "GET",
+            credentials: "include",
+        })
+            .then(response => response.json())
+            .then(data => {
+                const selectedCard = data; // API로부터 받아온 데이터를 사용
+                if (selectedSide === 'left') {
+                    setSelectedFirstCard(selectedCard);
+                } else if (selectedSide === 'right') {
+                    setSelectedSecondCard(selectedCard);
+                }
+                setIsModalOpen(false); // 모달 닫기
+            })
+            .catch(error => console.error('Error fetching card details:', error));
     };
+
+
 
     const handleSelectSide = (side) => {
         setSelectedSide(side);
         setIsModalOpen(true);
     };
 
+    // 모달 표시 함수
+    const openModal = () => {
+        setIsModalOpen(true);
+    }
+
+// 모달 닫기 함수
+    const closeModal = () => {
+        setIsModalOpen(false);
+    }
+
+
     return (
         <main>
             <Nav />
             <section className="sectionCL">
                 <strong>카드 비교하기</strong>
-                <div className="card-selection">
-                    {/* 왼쪽 카드 선택 버튼 */}
-                    <button onClick={() => handleSelectSide('left')}>왼쪽 카드 선택</button>
-                    {/* 오른쪽 카드 선택 버튼 */}
-                    <button onClick={() => handleSelectSide('right')}>오른쪽 카드 선택</button>
-                </div>
-
                 <div className="compare-area">
-                    {/* 왼쪽 선택된 카드 정보 */}
+                    {/*첫번째 카드*/}
                     <div className="selected-cards">
-                        {selectedFirstCard && (
+                        {selectedFirstCard ? (
+                            <div className="card-container">
+                                <img src={selectedFirstCard.cardDto.cardImage} alt={selectedFirstCard.cardDto.cardName} />
+                                <h3>{selectedFirstCard.cardDto.cardName}</h3>
+                                <hr className="hr-line" /> {/* 가로선 */}
+                                <div className="comparedetail">
+                                    <div className="comparedetail-label">카드사</div>
+                                    <div className="comparedetail-value">{selectedFirstCard.cardDto.cardBank}</div>
+                                </div>
+                                <hr className="hr-line" /> {/* 가로선 */}
+                                <div className="comparedetail">
+                                    <div className="comparedetail-label">연회비</div>
+                                    <div className="comparedetailmember-value">{selectedFirstCard.cardDto.cardMembership}</div>
+                                </div>
+                                <hr className="hr-line" /> {/* 가로선 */}
+                                <div className="comparedetail">
+                                    <div className="comparedetail-label">상세혜택</div>
+                                    <div className="comparedetailbenefit-value">
+                                        {selectedFirstCard.cardBenefitList.map((benefit, index) => (
+                                            <div key={index}>{benefit.benefitSummary}</div>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                <button className="circle-button x-button" onClick={() => setSelectedFirstCard(null)}>❌</button>
+                            </div>
+                        ) : (
                             <div>
-                                <img src={selectedFirstCard.cardImage} alt={selectedFirstCard.cardName} />
-                                <h2>{selectedFirstCard.cardName}</h2>
-                                <p>카드사 {selectedFirstCard.cardBank}</p>
-                                <p>- {selectedFirstCard.cardSummary1}</p>
-                                <p>- {selectedFirstCard.cardSummary2}</p>
-                                <p>- {selectedFirstCard.cardSummary3}</p>
+                                <button className="circle-button plus-button" onClick={() => handleSelectSide('left')}>+</button>
                             </div>
                         )}
                     </div>
 
-                    {/* 오른쪽 선택된 카드 정보 */}
+                    {/*두번째 카드*/}
                     <div className="selected-cards">
-                        {selectedSecondCard && (
+                        {selectedSecondCard ? (
+                            <div className="card-container">
+                                <img src={selectedSecondCard.cardDto.cardImage} alt={selectedSecondCard.cardDto.cardName} />
+                                <h3>{selectedSecondCard.cardDto.cardName}</h3>
+                                <hr className="hr-line" /> {/* 가로선 */}
+                                <div className="comparedetail">
+                                    <div className="comparedetail-label">카드사</div>
+                                    <div className="comparedetail-value">{selectedSecondCard.cardDto.cardBank}</div>
+                                </div>
+                                <hr className="hr-line" /> {/* 가로선 */}
+                                <div className="comparedetail">
+                                    <div className="comparedetail-label">연회비</div>
+                                    <div className="comparedetailmember-value">{selectedSecondCard.cardDto.cardMembership}</div>
+                                </div>
+                                <hr className="hr-line" /> {/* 가로선 */}
+                                <div className="comparedetail">
+                                    <div className="comparedetail-label">상세혜택</div>
+                                    <div className="comparedetailbenefit-value">
+                                        {selectedSecondCard.cardBenefitList.map((benefit, index) => (
+                                            <div key={index}>{benefit.benefitSummary}</div>
+                                        ))}
+                                    </div>
+                                </div>
+                                <button className="circle-button x-button" onClick={() => setSelectedSecondCard(null)}>❌</button>
+                            </div>
+                        ) : (
                             <div>
-                                <img src={selectedSecondCard.cardImage} alt={selectedSecondCard.cardName} />
-                                <h2>{selectedSecondCard.cardName}</h2>
-                                <p>카드사: {selectedSecondCard.cardBank}</p>
-                                <p>- {selectedSecondCard.cardSummary1}</p>
-                                <p>- {selectedSecondCard.cardSummary2}</p>
-                                <p>- {selectedSecondCard.cardSummary3}</p>
+                                <button className="circle-button plus-button" onClick={() => handleSelectSide('right')}>+</button>
                             </div>
                         )}
                     </div>
                 </div>
 
-                {/* 모달 */}
+
                 {isModalOpen && (
                     <div className="modal">
                         <div className="modal-content">
-                            <p>카드 선택</p>
                             <ul>
                                 {cardList.map(card => (
                                     <li className="cardListModal" key={card.cardId} onClick={() => handleCardSelect(card.cardId)}>
@@ -95,7 +148,7 @@ const ComparePage = () => {
                                     </li>
                                 ))}
                             </ul>
-                            <button onClick={() => setIsModalOpen(false)}>닫기</button>
+                            <button onClick={closeModal}>닫기</button>
                         </div>
                     </div>
                 )}

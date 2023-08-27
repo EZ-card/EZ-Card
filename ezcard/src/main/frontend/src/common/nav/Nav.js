@@ -10,6 +10,7 @@ import Main from '../../components/main/Main'; // Main 컴포넌트를 가져옴
 import Chat from '../../components/chat/Chat'; // Chat 컴포넌트를 가져옴
 import Login from '../../components/login/Login'; // Login 컴포넌트를 가져옴
 import Catalog from '../../components/catalog/Catalog'; // Catalog 컴포넌트를 가져옴
+import Compare from "../../components/compare/Compare";
 
 // 메뉴 열기
 function openMenuFun() {
@@ -97,8 +98,10 @@ const Nav = () => {
                             <p><strong>EZ:card</strong> <span onClick={closeMenuFun}><ion-icon name="close-outline"></ion-icon></span></p>
                             <ul>
                                 <li><Link to="/">HOME</Link></li>
+
                                 <li><Link to="/chat">EZ:BOT 카드상담</Link></li>
                                 <li><Link to="/catalog">카드 목록</Link></li>
+                                <li><Link to="/compare">카드 비교하기</Link></li>
                                 <li><Link to="/list">찜 목록</Link></li>
                                 <li><Link to="/mypage">회원정보 수정</Link></li>
                                 <li className="logout" onClick={handleLogout}>로그아웃</li>
@@ -122,12 +125,14 @@ const Nav = () => {
                                 <li><Link to="/">HOME</Link></li>
                                 <li><Link to="/chat">EZ:BOT 카드상담</Link></li>
                                 <li><Link to="/catalog">카드 목록</Link></li>
+                                <li><Link to="/compare">카드 비교하기</Link></li>
                                 <li><Link to="/login">로그인</Link></li>
                                 <Routes>
                                     <Route path="/main" element={<Main />} />
                                     <Route path="/chat" element={<Chat />} />
                                     <Route path="/login" element={<Login />} />
                                     <Route path="/catalog" element={<Catalog />} />
+                                    <Route path="/compare" element={<Compare />} />
                                 </Routes>
                             </ul>
                         </div>
