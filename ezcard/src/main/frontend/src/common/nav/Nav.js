@@ -81,14 +81,14 @@ const Nav = () => {
         <nav>
             {isLoggedIn ? (
                 <ul className="loginSuccess">
-                    <li>
-                        <img src={profileImage} alt="Profile"></img>
-                        {/*<img src={logoImage} alt="Profile" width={150}></img>*/}
-                    </li>
+                    <li><Link to="/main">
+                        <img src={logoImage} alt="logoImage" width={150}></img>
+                        {/*<img src={profileImage2} alt="Profile2"></img>*/}
+                    </Link></li>
 
-                    <li>
-                        <p><span className="userName">{nickname}</span> 님을 위한 <strong className="ezcard"> EZ:card</strong></p>
-                    </li>
+                    {/*<li>*/}
+                    {/*    <p><span className="userName">{nickname}</span> 님을 위한 <strong className="ezcard"> EZ:card</strong></p>*/}
+                    {/*</li>*/}
 
                     <li className="menuBar">
                         <span onClick={openMenuFun}><ion-icon name="menu-outline"></ion-icon></span>
@@ -111,11 +111,11 @@ const Nav = () => {
                 </ul>
             ) : (
                 <ul className="loginYet">
-                    <li>
-                        {/*<img src={logoImage} alt="logoImage" width={150}></img>*/}
-                        <img src={profileImage2} alt="Profile2"></img>
-                    </li>
-                    <li className="loginYet"><p>맞춤 카드 추천</p></li>
+                    <li><Link to="/main">
+                        <img src={logoImage} alt="logoImage" width={150}></img>
+                        {/*<img src={profileImage2} alt="Profile2"></img>*/}
+                    </Link></li>
+                    {/*<li className="loginYet"><p>맞춤 카드 추천</p></li>*/}
                     <li className="menuBar">
                         <span onClick={openMenuFun}><ion-icon name="menu-outline"></ion-icon></span>
                     </li>

@@ -62,6 +62,7 @@ function topOn(event) {
 const Main = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [homeCardDtoList, setHomeCardDtoList] = useState([]);
+    const [nickname, setNickname] = useState('이지카드'); // nickname 상태 추가
 
     useEffect(() => {
         // 백엔드로부터 로그인 상태와 카드 데이터를 가져오는 함수
@@ -80,6 +81,7 @@ const Main = () => {
                 if (data) {
                     setIsLoggedIn(true);
                     setHomeCardDtoList(data.homeCardDtoList);
+                    setNickname(data.nickname); // 닉네임 설정
                 }
             });
     }, []);
@@ -89,143 +91,158 @@ const Main = () => {
         <main>
             <Nav/>
             <section className="sectionCL">
-                <div id="mainTop">
-                    {isLoggedIn ? (
-                        <Swiper
-                            modules={[Autoplay, Navigation]}
-                            initialSlide={0}
-                            autoHeight={false}
-                            direction='horizontal'
-                            loop={true}
-                            navigation={true}
-                            effect='slide'
-                            spaceBetween={-30}
-                            slidesPerView={2}
-                            centeredSlides={true}
-                            slidesOffsetBefore={0}
-                            grabCursor={true}
-                            autoplay={{
-                                delay: 3000,
-                                disableOnInteraction: false,
-                            }}
-                        >
-                            {/* 카드 데이터 표시 */}
-                            {homeCardDtoList.map((card, index) => (
-                                <SwiperSlide key={index}>
-                                    <Link to={`/detail/${card.cardId}`}>
-                                        <div className="cardImg cardImg1">
-                                            <div><img src={card.cardImage} alt="CardImage" /></div>
-                                        </div>
-                                        <div className="cardInfo">
-                                            <strong>{card.cardName}</strong>
-                                            <p>{card.cardBank}</p>
-                                            <ul>
-                                                <li><span>1.&nbsp;</span>{card.cardSummary1}</li>
-                                                <li><span>2.&nbsp;</span>{card.cardSummary2}</li>
-                                                <li><span>3.&nbsp;</span>{card.cardSummary3}</li>
-                                            </ul>
-                                        </div>
-                                    </Link>
-                                </SwiperSlide>
-                            ))}
-                        </Swiper>
-                    ) : (
-                        // 로그인 상태가 아니면 로그인 메시지 표시
-                        <div className="mainLoginYet">
+                {/* 맞춤 카드상담 */}
+                <div className="cardRecMain">
+                    <strong>맞춤 카드 상담, EZ:bot</strong>
+                    <Link to="/chat">
+                        <div className="chatting">
+                            <div className="gptChatMain">
+                                <p><span>안녕하세요. Ez:bot이에요!</span></p>
+                            </div>
+                            <div className="gptChatMain">
+                                <p><span>여러분의 이야기를 들려주시면 딱 맞는 카드를 추천해 드릴게요. </span></p>
+                            </div>
+                            <div className="userChat">
+                                <p><span>여기 눌러서 카드 추천 받으러 가기 🔗</span></p>
+                            </div>
+                        </div>
+                    </Link>
+                </div>
+
+                <div>
+                    {isLoggedIn ? (<strong>{nickname} 님을 위한 추천 카드</strong>)
+                        : (<strong>로그인하고 맞춤 카드 추천을 받아보세요</strong>)}
+                    <div id="mainTop">
+                        {isLoggedIn ? (
                             <Swiper
+                                modules={[Autoplay, Navigation]}
                                 initialSlide={0}
                                 autoHeight={false}
                                 direction='horizontal'
                                 loop={true}
                                 navigation={true}
-                                modules={[Pagination, Navigation]}
                                 effect='slide'
                                 spaceBetween={-30}
                                 slidesPerView={2}
                                 centeredSlides={true}
                                 slidesOffsetBefore={0}
                                 grabCursor={true}
+                                autoplay={{
+                                    delay: 3000,
+                                    disableOnInteraction: false,
+                                }}
                             >
                                 {/* 카드 데이터 표시 */}
-                                {/*-------------------- 맞춤 카드 목록 */}
-                                {/* 카드 1 */}
-                                <SwiperSlide>
-                                    <div className="cardImg cardImg1">
-                                        <img src={card_test_img}></img>
-                                    </div>
-                                    <div className="cardInfo">
-                                        <strong>KB국민 My WE:SH 카드</strong>
-                                        <p>현대카드</p>
-                                        <ul>
-                                            <li><span>1.&nbsp;</span>아파트관리비, 공과금10%할인</li>
-                                            <li><span>2.&nbsp;</span>교통, 통신, 배달앱10%할인</li>
-                                            <li><span>3.&nbsp;</span>스트리밍1,500원할인</li>
-                                        </ul>
-                                    </div>
-                                </SwiperSlide>
-
-                                {/* 카드 2 */}
-                                <SwiperSlide>
-                                    <div className="cardImg cardImg1">
-                                        <img src={card_test_img}></img>
-                                    </div>
-                                    <div className="cardInfo">
-                                        <strong>American Exrpess</strong>
-                                        <p>현대카드</p>
-                                        <ul>
-                                            <li><span>1.&nbsp;</span>아파트관리비, 공과금10%할인</li>
-                                            <li><span>2.&nbsp;</span>교통, 통신, 배달앱10%할인</li>
-                                            <li><span>3.&nbsp;</span>스트리밍1,500원할인</li>
-                                        </ul>
-                                    </div>
-                                </SwiperSlide>
-
-                                {/* 카드 3 */}
-                                <SwiperSlide>
-                                    <div className="cardImg cardImg1">
-                                        <img src={card_test_img}></img>
-                                    </div>
-                                    <div className="cardInfo">
-                                        <strong>American Exrpess</strong>
-                                        <p>현대카드</p>
-                                        <ul>
-                                            <li><span>1.&nbsp;</span>아파트관리비, 공과금10%할인</li>
-                                            <li><span>2.&nbsp;</span>교통, 통신, 배달앱10%할인</li>
-                                            <li><span>3.&nbsp;</span>스트리밍1,500원할인</li>
-                                        </ul>
-                                    </div>
-                                </SwiperSlide>
-
-                                {/* 카드 4 */}
-                                <SwiperSlide>
-                                    <div className="cardImg cardImg1">
-                                        <img src={card_test_img}></img>
-                                    </div>
-                                    <div className="cardInfo">
-                                        <strong>American Exrpess</strong>
-                                        <p>현대카드</p>
-                                        <ul>
-                                            <li><span>1.&nbsp;</span>아파트관리비, 공과금10%할인</li>
-                                            <li><span>2.&nbsp;</span>교통, 통신, 배달앱10%할인</li>
-                                            <li><span>3.&nbsp;</span>스트리밍1,500원할인</li>
-                                        </ul>
-                                    </div>
-                                </SwiperSlide>
+                                {homeCardDtoList.map((card, index) => (
+                                    <SwiperSlide key={index}>
+                                        <Link to={`/detail/${card.cardId}`}>
+                                            <div className="cardImg cardImg1">
+                                                <div><img src={card.cardImage} alt="CardImage" /></div>
+                                            </div>
+                                            <div className="cardInfo">
+                                                <strong>{card.cardName}</strong>
+                                                <p>{card.cardBank}</p>
+                                                <ul>
+                                                    <li><span>1.&nbsp;</span>{card.cardSummary1}</li>
+                                                    <li><span>2.&nbsp;</span>{card.cardSummary2}</li>
+                                                    <li><span>3.&nbsp;</span>{card.cardSummary3}</li>
+                                                </ul>
+                                            </div>
+                                        </Link>
+                                    </SwiperSlide>
+                                ))}
                             </Swiper>
-                            <div className="nextLogin">
-                                <Link to="/login">로그인 하러가기</Link>
+                        ) : (
+                            // 로그인 상태가 아니면 로그인 메시지 표시
+                            <div className="mainLoginYet">
+                                <Swiper
+                                    initialSlide={0}
+                                    autoHeight={false}
+                                    direction='horizontal'
+                                    loop={true}
+                                    navigation={true}
+                                    modules={[Pagination, Navigation]}
+                                    effect='slide'
+                                    spaceBetween={-30}
+                                    slidesPerView={2}
+                                    centeredSlides={true}
+                                    slidesOffsetBefore={0}
+                                    grabCursor={true}
+                                >
+                                    {/* 카드 데이터 표시 */}
+                                    {/*-------------------- 맞춤 카드 목록 */}
+                                    {/* 카드 1 */}
+                                    <SwiperSlide>
+                                        <div className="cardImg cardImg1">
+                                            <img src={card_test_img}></img>
+                                        </div>
+                                        <div className="cardInfo">
+                                            <strong>KB국민 My WE:SH 카드</strong>
+                                            <p>현대카드</p>
+                                            <ul>
+                                                <li><span>1.&nbsp;</span>아파트관리비, 공과금10%할인</li>
+                                                <li><span>2.&nbsp;</span>교통, 통신, 배달앱10%할인</li>
+                                                <li><span>3.&nbsp;</span>스트리밍1,500원할인</li>
+                                            </ul>
+                                        </div>
+                                    </SwiperSlide>
+
+                                    {/* 카드 2 */}
+                                    <SwiperSlide>
+                                        <div className="cardImg cardImg1">
+                                            <img src={card_test_img}></img>
+                                        </div>
+                                        <div className="cardInfo">
+                                            <strong>American Exrpess</strong>
+                                            <p>현대카드</p>
+                                            <ul>
+                                                <li><span>1.&nbsp;</span>아파트관리비, 공과금10%할인</li>
+                                                <li><span>2.&nbsp;</span>교통, 통신, 배달앱10%할인</li>
+                                                <li><span>3.&nbsp;</span>스트리밍1,500원할인</li>
+                                            </ul>
+                                        </div>
+                                    </SwiperSlide>
+
+                                    {/* 카드 3 */}
+                                    <SwiperSlide>
+                                        <div className="cardImg cardImg1">
+                                            <img src={card_test_img}></img>
+                                        </div>
+                                        <div className="cardInfo">
+                                            <strong>American Exrpess</strong>
+                                            <p>현대카드</p>
+                                            <ul>
+                                                <li><span>1.&nbsp;</span>아파트관리비, 공과금10%할인</li>
+                                                <li><span>2.&nbsp;</span>교통, 통신, 배달앱10%할인</li>
+                                                <li><span>3.&nbsp;</span>스트리밍1,500원할인</li>
+                                            </ul>
+                                        </div>
+                                    </SwiperSlide>
+
+                                    {/* 카드 4 */}
+                                    <SwiperSlide>
+                                        <div className="cardImg cardImg1">
+                                            <img src={card_test_img}></img>
+                                        </div>
+                                        <div className="cardInfo">
+                                            <strong>American Exrpess</strong>
+                                            <p>현대카드</p>
+                                            <ul>
+                                                <li><span>1.&nbsp;</span>아파트관리비, 공과금10%할인</li>
+                                                <li><span>2.&nbsp;</span>교통, 통신, 배달앱10%할인</li>
+                                                <li><span>3.&nbsp;</span>스트리밍1,500원할인</li>
+                                            </ul>
+                                        </div>
+                                    </SwiperSlide>
+                                </Swiper>
+                                <div className="nextLogin">
+                                    <Link to="/login">로그인 하러가기</Link>
+                                </div>
                             </div>
-                        </div>
-                    )}
+                        )}
+                    </div>
                 </div>
 
-                {/* 맞춤 카드상담 */}
-                <div className="cardRecMain">
-                    <strong>맞춤 카드상담</strong>
-                    <Link to="/chat">
-                        <img src={cardRecMain}></img>
-                    </Link>
-                </div>
 
                 {/* 오늘의 TOP 3 */}
                 <div id="todayTop">

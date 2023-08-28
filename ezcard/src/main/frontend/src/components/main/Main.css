@@ -95,7 +95,7 @@ section{
     width: 100%;
     max-height: 390px;
     z-index: 99999;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    box-shadow: rgb(252, 252, 252) 0px 50px 100px -20px, rgb(252, 252, 252) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
     filter: none;
 }
 
@@ -166,10 +166,16 @@ section{
 /* ----------맞춤 카드 end */
 
 /* ---------- 카드상담바로가기 */
+.chatting {
+    background: #f2f4f6;
+    padding: 10px 10px 10px 10px;
+    border-radius: 10px;
+}
+
 .cardRecMain{
     width: 100%;
     background-color: #fff;
-    margin: 50px 0px;
+    margin: 0px 0px;
 }
 
 .cardRecMain a{
@@ -185,23 +191,36 @@ section{
 }
 
 
-.cardRecMain > strong {
+strong {
     font-size: 18px;
 }
 .cardRecMain a{
     display: block;
-    text-align: center;
-    height: 100px;
-    /* box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px; */
+    text-align: left;
+    height: auto;
+     /*box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;*/
     border-radius: 15px;
     margin-top: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
 }
+
+.cardRecMain strong {
+    margin-top: 30px;
+
+}
+
 .cardRecMain a img{
     margin-top: 25px;
 }
+
+#mainTop{
+    margin: 20px 0;
+}
+
 /* ----------오늘의 카드 */
 #todayTop{
-    margin: 50px 0;
+    margin: 20px 0;
 }
 #todayTop > strong{
     font-size: 18px;
@@ -282,4 +301,33 @@ section{
     .mainLoginYet::after {
         top: 20%;
     }
+}
+
+.cardRecMain {
+    background: #ffffff;
+}
+
+.gptChatMain {
+    position:relative;
+    margin: 10px;
+    width: fit-content;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 10px;
+
+    word-wrap: break-word;      /* IE 5.5-7 */
+    white-space: -moz-pre-wrap; /* Firefox 1.0-2.0 */
+    white-space: pre-wrap;      /* current browsers */
+    /* 우로 밀착 ! */
+    margin-right: auto;
+}
+.gptChatMain:after {
+    border-top: 0px solid transparent;
+    border-left: 15px solid transparent;
+    border-right: 0px solid transparent;
+    border-bottom: 15px solid #ffffff;
+    content:"";
+    position:absolute;
+    top:10px;
+    left:-10px;
 }

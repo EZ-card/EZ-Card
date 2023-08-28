@@ -99,7 +99,7 @@ const Chat = () => {
             <Nav />
 
             <section className="sectionCL">
-                <p>원하시는 정보 입력 후 마지막에 <strong className="chatSt">"카드 추천"</strong>이라고 입력해보세요 !</p>
+                {/*<p>원하시는 정보 입력 후 마지막에 <strong className="chatSt">"카드 추천"</strong>이라고 입력해보세요 !</p>*/}
                 <div id="chat_container">
                     <div id="chat_messages" className="chatContainer">
                         {/* 로딩 상태가 true인 경우 로딩 스피너 표시 */}
