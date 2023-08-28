@@ -4,21 +4,25 @@
 @font-face { font-family: "noto5"; src: url("./assets/fonts/Noto_Sans_KR/NotoSansKR-Medium.otf"); }
 @font-face { font-family: "noto7"; src: url("./assets/fonts/Noto_Sans_KR/NotoSansKR-Bold.otf"); }
 @font-face { font-family: "noto9"; src: url("./assets/fonts/Noto_Sans_KR/NotoSansKR-Black.otf"); }
+
+@font-face { font-family: "kakao1"; src: url("./assets/fonts/kakao/KakaoRegular.ttf"); }
+@font-face { font-family: "kakao2"; src: url("./assets/fonts/kakao/KakaoBold.ttf"); }
+
 * {
   margin: 0 auto;
   padding: 0;
   box-sizing: border-box;
   list-style: none;
-  font-family: "noto4";
+  font-family: "kakao1";
   letter-spacing: -.02em;
-
+  /*font-weight:bold;*/
   -webkit-user-select:none;
   -moz-user-select:none;
   -ms-user-select:none;
   user-select:none
 }
 body{
-    background: #f2f4f6;
+  background: #f2f4f6;
 }
 
 a {

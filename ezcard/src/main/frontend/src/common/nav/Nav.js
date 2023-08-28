@@ -4,8 +4,9 @@ import { Route, Routes, Link, useNavigate } from 'react-router-dom';
 import profileImage from '../../assets/images/profile.png';
 import profileImage2 from '../../assets/images/profile2.png';
 
-import './Nav.css';
+import logoImage from "../../assets/images/logoImage2.png"
 
+import './Nav.css';
 import Main from '../../components/main/Main'; // Main 컴포넌트를 가져옴
 import Chat from '../../components/chat/Chat'; // Chat 컴포넌트를 가져옴
 import Login from '../../components/login/Login'; // Login 컴포넌트를 가져옴
@@ -88,7 +89,6 @@ const Nav = () => {
                     <li>
                         <p><span className="userName">{nickname}</span> 님을 위한 <strong className="ezcard"> EZ:card</strong></p>
                     </li>
-                    {/*<li><img src={logoImage} alt="Profile" width={150}></img></li>*/}
 
                     <li className="menuBar">
                         <span onClick={openMenuFun}><ion-icon name="menu-outline"></ion-icon></span>
@@ -97,7 +97,7 @@ const Nav = () => {
                         <div className="sideMenu">
                             <p><strong>EZ:card</strong> <span onClick={closeMenuFun}><ion-icon name="close-outline"></ion-icon></span></p>
                             <ul>
-                                <li><Link to="/">HOME</Link></li>
+                                <li><Link to="/main">HOME</Link></li>
 
                                 <li><Link to="/chat">EZ:BOT 카드상담</Link></li>
                                 <li><Link to="/catalog">카드 목록</Link></li>
@@ -112,6 +112,7 @@ const Nav = () => {
             ) : (
                 <ul className="loginYet">
                     <li>
+                        {/*<img src={logoImage} alt="logoImage" width={150}></img>*/}
                         <img src={profileImage2} alt="Profile2"></img>
                     </li>
                     <li className="loginYet"><p>맞춤 카드 추천</p></li>
@@ -122,7 +123,7 @@ const Nav = () => {
                         <div className="sideMenu">
                             <p><strong>EZ:card</strong> <span onClick={closeMenuFun}><ion-icon name="close-outline"></ion-icon></span></p>
                             <ul>
-                                <li><Link to="/">HOME</Link></li>
+                                <li><Link to="/main">HOME</Link></li>
                                 <li><Link to="/chat">EZ:BOT 카드상담</Link></li>
                                 <li><Link to="/catalog">카드 목록</Link></li>
                                 <li><Link to="/compare">카드 비교하기</Link></li>

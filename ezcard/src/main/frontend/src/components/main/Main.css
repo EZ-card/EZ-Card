@@ -78,7 +78,7 @@ section{
     width: 100%;
     width: 300px;
     max-height: 330px;
-    border-radius: 15px;
+    border-radius: 18px;
     background-color: rgb(242, 244, 246);
     overflow: hidden;
     /* border: 1px solid; */
@@ -269,7 +269,14 @@ section{
     cursor: pointer;
     color: #005EEC;
 }
-
+.swiper-button-prev:after, .swiper-rtl .swiper-button-next:after{
+    color : #005EEC;
+    font-size : 20px;
+}
+.swiper-button-next:after, .swiper-rtl .swiper-button-next:after{
+    color : #005EEC;
+    font-size : 20px;
+}
 
 @media (max-width: 450px) {
     .mainLoginYet::after {

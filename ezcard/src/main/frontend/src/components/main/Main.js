@@ -19,16 +19,17 @@ import cardRecMain from '../../assets/images/cardRecMain.png';
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
+// import required modules
+import { Pagination, Navigation, Autoplay } from 'swiper/modules';
 
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import 'swiper/css/autoplay';
 
 import './Main.css';
 
-// import required modules
-import { Pagination, Navigation } from 'swiper/modules';
 
 // 오늘의 TOP 3
 function topList(){
@@ -84,24 +85,29 @@ const Main = () => {
     }, []);
 
     return (
+        // Swiper 모듈 등록
         <main>
             <Nav/>
             <section className="sectionCL">
                 <div id="mainTop">
                     {isLoggedIn ? (
                         <Swiper
+                            modules={[Autoplay, Navigation]}
                             initialSlide={0}
                             autoHeight={false}
                             direction='horizontal'
                             loop={true}
                             navigation={true}
-                            modules={[Pagination, Navigation]}
                             effect='slide'
                             spaceBetween={-30}
                             slidesPerView={2}
                             centeredSlides={true}
                             slidesOffsetBefore={0}
                             grabCursor={true}
+                            autoplay={{
+                                delay: 3000,
+                                disableOnInteraction: false,
+                            }}
                         >
                             {/* 카드 데이터 표시 */}
                             {homeCardDtoList.map((card, index) => (

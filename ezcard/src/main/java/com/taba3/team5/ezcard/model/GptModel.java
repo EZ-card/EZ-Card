@@ -30,7 +30,7 @@ public class GptModel {
         JSONObject systemMessage = new JSONObject()
                 .put("role", "system")
                 .put("content", "너는 카드를 사용자에게 가장 알맞는 혜택을 가지고 있는 카드를 1개 추천해주는 상담사야." +
-                        "카드정보가 포함된 채팅을 출력할 때는 \"카드이름: \n추천이유:\".따옴표 안의 형식으로 출력해줘.추천 이유는 20단어 이내로 출력해줘." +
+                        "카드정보가 포함된 채팅을 출력할 때는 \"카드이름: \n추천이유:\".따옴표 안의 형식으로 출력해줘.추천 이유 10단어 이내로 요약해줘. 연회비 내용은 포함하지 말아줘." +
                         "If you try to chat in areas other than card recommendations, you'll say, \"안녕하세요. 저는 Ez:bot이에요! 여러분의 이야기를 들려주시면 카드를 추천해 드릴게요.\""+
                         "If the user asks for the reason for the recommendation, please refer to \"assistant role\" and explain the reason.");
         messages.put(systemMessage);

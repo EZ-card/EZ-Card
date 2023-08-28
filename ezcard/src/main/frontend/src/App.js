@@ -22,7 +22,7 @@ function App() {
       <Fragment>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Main />} />
+            <Route path="/main" element={<Main />} />
             <Route path="/login" element={<Login />}></Route>
             <Route path="/register" element={<Register />}></Route>
             <Route path="/done" element={<Done />}></Route>
@@ -30,7 +30,7 @@ function App() {
             <Route path="/list" element={<List />}></Route>
             <Route path="/mypage" element={<Mypage />}></Route>
             <Route path="/detail/:id" element={<Detail />}></Route>
-            <Route path="/splash" element={<Splash />}></Route>
+            <Route path="/" element={<Splash />}></Route>
             <Route path="/catalog" element={<Catalog />}></Route>
             <Route path="/compare" element={<Compare />}></Route>
           </Routes>

@@ -22,7 +22,7 @@ public class ChatBotService {
     private final CardService cardService;
     private final GptApiClient gptApiClient;
     private final Queue<String> chatHistory; // 대화 히스토리를 관리하기 위한 큐
-    private static final int MAX_HISTORY_SIZE = 2; // 대화 히스토리 크기 제한
+    private static final int MAX_HISTORY_SIZE = 3; // 대화 히스토리 크기 제한
 
     @Autowired
     public ChatBotService(CardService cardService, GptApiClient gptApiClient) {
