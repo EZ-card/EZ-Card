@@ -1,19 +1,19 @@
 .mypageSec{
-  padding: 0px 10px;
+  padding: 10px 10px;
 }
-/* .registerSec:nth-child(2){
-  margin-bottom: 150px;
-} */
 
-
-
-.mypageSec h2{
-  font-size: 28px;
-  font-weight: bold;
-  color: #0042EC;
-  margin-top: 20px;
-  margin-bottom: 50px;
+.mypageTitle {
+  font-size: 23px;
+  margin-left: 10px;
 }
+
+/*.mypageSec h2{*/
+/*  font-size: 28px;*/
+/*  font-weight: bold;*/
+/*  color: #0042EC;*/
+/*  margin-top: 20px;*/
+/*  margin-bottom: 50px;*/
+/*}*/
 
 .category {
   color: #191D23;

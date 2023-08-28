@@ -34,12 +34,12 @@ import 영화 from '../../assets/icon/영화.png';
 import 피트니스 from '../../assets/icon/피트니스.png';
 import 테마파크 from '../../assets/icon/테마파크.png';
 import 골프 from '../../assets/icon/골프.png';
-import 헤어뷰티 from '../../assets/icon/헤어뷰티.png';
+import 뷰티 from '../../assets/icon/뷰티.png';
 
 import 항공 from '../../assets/icon/항공.png';
 import 면세점 from '../../assets/icon/면세점.png';
 import 렌탈 from '../../assets/icon/렌탈.png';
-import 해외 from '../../assets/icon/해왜.png';
+import 해외 from '../../assets/icon/해외.png';
 import 여행숙박 from '../../assets/icon/여행숙박.png';
 import 호텔 from '../../assets/icon/호텔.png';
 
@@ -58,7 +58,7 @@ import 무이자 from '../../assets/icon/무이자.png';
 import 프리미엄 from '../../assets/icon/프리미엄.png';
 import 무실적 from '../../assets/icon/무실적.png';
 import 할인 from '../../assets/icon/할인.png';
-import 적포 from '../../assets/icon/적립.png';
+import 적립 from '../../assets/icon/적립.png';
 import 바우처 from '../../assets/icon/바우처.png';
 import 연회비지원 from '../../assets/icon/연회비지원.png';
 import 국민행복 from '../../assets/icon/국민행복.png';
@@ -66,6 +66,15 @@ import 금융 from '../../assets/icon/금융.png';
 import 혜택프로모션 from '../../assets/icon/혜택 프로모션.png';
 import 캐시백 from '../../assets/icon/캐시백.png';
 import 수수료우대 from '../../assets/icon/수수료우대.png';
+
+import 서점 from '../../assets/icon/서점.png';
+import 쇼핑 from '../../assets/icon/쇼핑.png'
+import 백화점 from '../../assets/icon/백화점.png'
+import 게임 from '../../assets/icon/게임.png'
+import 기타 from '../../assets/icon/기타.png'
+import 교육 from '../../assets/icon/교육.png'
+import 직장인 from '../../assets/icon/직장인.png'
+import 장애인 from '../../assets/icon/장애인.png'
 
 const Detail = () => {
   const { id } = useParams();
@@ -174,8 +183,8 @@ const Detail = () => {
             {cardBenefitList.map((benefit, index) => (
                 <li key={index} className="detailContainer">
                   <div className="detailBox" onClick={() => toggleDetail(index)}>
-                    {/*<img src={require(`../../assets/icon/${benefit.benefitCategory}.png`)} className="detailIcon" alt="Detail Icon" />*/}
-                    <img src={benefit1} className="detailIcon" alt="Detail Icon" />
+                    <img src={require(`../../assets/icon/${benefit.benefitCategory}.png`)} className="detailIcon" alt="Detail Icon" />
+                    {/*<img src={benefit1} className="detailIcon" alt="Detail Icon" />*/}
                     <p className="detailTitle">{benefit.benefitCategory}</p>
                     <p className="detail">{benefit.benefitSummary}</p>
                   </div>

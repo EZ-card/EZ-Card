@@ -42,18 +42,14 @@ const Mypage = () => {
     return (
         <main>
             <Nav />
-
             <section className="sectionCL">
+                <strong className="mypageTitle">마이페이지</strong>
+
                 <div className="mypageSec">
-                    <h2>마이페이지</h2>
                     <form method="GET">
                         <div id="email">
                             <div className="category">이메일</div>
                             <div className="box">{userData.email}</div>
-                        </div>
-                        <div id="password">
-                            <div className="category">비밀번호</div>
-                            <div className="box">{userData.password}</div>
                         </div>
                         <div id="nickname">
                             <div className="category">닉네임</div>
@@ -71,7 +67,6 @@ const Mypage = () => {
                             <div className="category">닉네임</div>
                             <div className="box">{userData.age}</div>
                         </div>
-                        <button id="editMypage">회원정보 수정하기</button>
                     </form>
                 </div>
             </section>

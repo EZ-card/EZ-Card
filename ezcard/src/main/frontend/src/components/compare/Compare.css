@@ -234,8 +234,8 @@ section > strong {
 .fixed-button-container-first {
     position: fixed;
     bottom: 20px; /* Adjust as needed */
-    left: 50%;
-    transform: translateX(-120%);
+    left: 40%; /* 2/5 of the screen width */
+    transform: translateX(-50%);
     z-index: 999; /* Place above the modal */
 
 }
@@ -243,8 +243,8 @@ section > strong {
 .fixed-button-container-second {
     position: fixed;
     bottom: 20px; /* Adjust as needed */
-    right: 50%;
-    transform: translateX(120%);
+    right: 40%; /* 4/5 of the screen width */
+    transform: translateX(50%);
     z-index: 999; /* Place above the modal */
 }
 
@@ -263,3 +263,23 @@ section > strong {
 .detailLink {
     color: white;
 }
+
+@media (max-width: 600px) {
+    .fixed-button-container-first {
+        position: fixed;
+        bottom: 20px; /* Adjust as needed */
+        left: 25%; /* 2/5 of the screen width */
+        transform: translateX(-50%);
+        z-index: 999; /* Place above the modal */
+
+    }
+
+    .fixed-button-container-second {
+        position: fixed;
+        bottom: 20px; /* Adjust as needed */
+        right: 25%; /* 4/5 of the screen width */
+        transform: translateX(50%);
+        z-index: 999; /* Place above the modal */
+    }
+}
+

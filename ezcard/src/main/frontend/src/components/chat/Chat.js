@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
@@ -36,6 +36,18 @@ const Chat = () => {
     const [userMessage, setUserMessage] = useState('');
     const [chatMessages, setChatMessages] = useState([]);
     const [loading, setLoading] = useState(false);
+
+    const [showInitialMessage, setShowInitialMessage] = useState(false);
+
+    useEffect(() => {
+        const initialMessageTimeout = setTimeout(() => {
+            setShowInitialMessage(true);
+        }, 350); // 0.5초
+
+        return () => {
+            clearTimeout(initialMessageTimeout);
+        };
+    }, []);
 
     // 사용자 입력 메시지 변경 처리
     const handleUserMessageChange = (e) => {
@@ -87,7 +99,7 @@ const Chat = () => {
             <Nav />
 
             <section className="sectionCL">
-                <p>원하시는 정보 입력 후 마지막에<strong className="chatSt">"카드 추천"</strong>이라고 입력해보세요 !</p>
+                <p>원하시는 정보 입력 후 마지막에 <strong className="chatSt">"카드 추천"</strong>이라고 입력해보세요 !</p>
                 <div id="chat_container">
                     <div id="chat_messages" className="chatContainer">
                         {/* 로딩 상태가 true인 경우 로딩 스피너 표시 */}
@@ -120,6 +132,18 @@ const Chat = () => {
                             }
                             return null;
                         })}
+
+                        {/* 초기 메시지가 보이는 경우에만 표시 */}
+                        {showInitialMessage && (
+                            <React.Fragment>
+                                <div className="gptChat">
+                                    <p><span>여러분의 이야기를 들려주시면 카드를 추천해 드릴게요. 카드 관련 정보를 말씀해주세요. 예를 들어, 연회비, 할인 혜택, 결제 수단 등을 알려주시면 더 정확한 추천을 드릴 수 있어요. 어떤 카드를 찾고 계신가요?</span></p>
+                                </div>
+                                <div className="gptChat">
+                                    <p><span>안녕하세요! 저는 Ez:bot이에요!</span></p>
+                                </div>
+                            </React.Fragment>
+                        )}
                     </div>
 
                     <div id="user_input">

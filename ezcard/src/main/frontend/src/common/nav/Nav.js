@@ -103,7 +103,7 @@ const Nav = () => {
                                 <li><Link to="/catalog">카드 목록</Link></li>
                                 <li><Link to="/compare">카드 비교하기</Link></li>
                                 <li><Link to="/list">찜 목록</Link></li>
-                                <li><Link to="/mypage">회원정보 수정</Link></li>
+                                <li><Link to="/mypage">마이페이지</Link></li>
                                 <li className="logout" onClick={handleLogout}>로그아웃</li>
                             </ul>
                         </div>
