@@ -164,7 +164,7 @@ const Detail = () => {
 
 
           <div className="cardCompanyLink">
-            <button><Link to={cardDto.cardLink} className="company_Link">신청하러 가기</Link></button>
+            <button><Link to={cardDto.cardLink} className="company_Link" target="_blank">신청하러 가기</Link></button>
           </div>
 
           {/* 주요혜택 */}
