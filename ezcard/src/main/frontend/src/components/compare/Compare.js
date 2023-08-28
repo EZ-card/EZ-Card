@@ -3,6 +3,7 @@ import Nav from '../../common/nav/Nav.js';
 import Footer from '../../common/footer/Footer.js';
 import './Compare.css';
 import card_test_img from '../../assets/images/card_test_img.png';
+import {Link} from "react-router-dom";
 
 const ComparePage = () => {
     const [cardList, setCardList] = useState([]);
@@ -64,6 +65,7 @@ const ComparePage = () => {
             <Nav />
             <section className="sectionCL">
                 <strong>카드 비교하기</strong>
+                <div> 원하는 카드를 선택해 혜택을 비교해보세요!</div>
                 <div className="compare-area">
                     {/*첫번째 카드*/}
                     <div className="selected-cards">
@@ -71,10 +73,11 @@ const ComparePage = () => {
                             <div className="card-container">
                                 <img src={selectedFirstCard.cardDto.cardImage} alt={selectedFirstCard.cardDto.cardName} />
                                 <h3>{selectedFirstCard.cardDto.cardName}</h3>
+                                <div className="comparedetailbank-value">{selectedFirstCard.cardDto.cardBank}</div>
                                 <hr className="hr-line" /> {/* 가로선 */}
                                 <div className="comparedetail">
-                                    <div className="comparedetail-label">카드사</div>
-                                    <div className="comparedetail-value">{selectedFirstCard.cardDto.cardBank}</div>
+                                    <div className="comparedetail-label">카드종류</div>
+                                    <div className="comparedetail-value">{selectedFirstCard.cardDto.cardType}카드</div>
                                 </div>
                                 <hr className="hr-line" /> {/* 가로선 */}
                                 <div className="comparedetail">
@@ -83,12 +86,28 @@ const ComparePage = () => {
                                 </div>
                                 <hr className="hr-line" /> {/* 가로선 */}
                                 <div className="comparedetail">
+                                    <div className="comparedetail-label">전월실적제한</div>
+                                    <div className="comparedetailRecord-value">{selectedFirstCard.cardDto.cardRecord}</div>
+                                </div>
+                                <hr className="hr-line" /> {/* 가로선 */}
+                                <div className="comparedetail">
                                     <div className="comparedetail-label">상세혜택</div>
                                     <div className="comparedetailbenefit-value">
                                         {selectedFirstCard.cardBenefitList.map((benefit, index) => (
-                                            <div key={index}>{benefit.benefitSummary}</div>
+                                            <div key={index}>
+                                                <div className="detailCategory">{benefit.benefitCategory}</div>
+                                                <div className="detailContents">{benefit.benefitSummary}</div>
+
+                                            </div>
                                         ))}
                                     </div>
+                                </div>
+                                <div className="fixed-button-container-first">
+                                    <button>
+                                        <Link to={`/detail/${selectedFirstCard.cardDto.cardId}`} target="_blank" className="detailLink">
+                                            상세 페이지 바로가기
+                                        </Link>
+                                    </button>
                                 </div>
 
                                 <button className="circle-button x-button" onClick={() => setSelectedFirstCard(null)}>❌</button>
@@ -106,10 +125,11 @@ const ComparePage = () => {
                             <div className="card-container">
                                 <img src={selectedSecondCard.cardDto.cardImage} alt={selectedSecondCard.cardDto.cardName} />
                                 <h3>{selectedSecondCard.cardDto.cardName}</h3>
+                                <div className="comparedetailbank-value">{selectedSecondCard.cardDto.cardBank}</div>
                                 <hr className="hr-line" /> {/* 가로선 */}
                                 <div className="comparedetail">
-                                    <div className="comparedetail-label">카드사</div>
-                                    <div className="comparedetail-value">{selectedSecondCard.cardDto.cardBank}</div>
+                                    <div className="comparedetail-label">카드종류</div>
+                                    <div className="comparedetail-value">{selectedSecondCard.cardDto.cardType}카드</div>
                                 </div>
                                 <hr className="hr-line" /> {/* 가로선 */}
                                 <div className="comparedetail">
@@ -118,13 +138,29 @@ const ComparePage = () => {
                                 </div>
                                 <hr className="hr-line" /> {/* 가로선 */}
                                 <div className="comparedetail">
+                                    <div className="comparedetail-label">전월실적제한</div>
+                                    <div className="comparedetailRecord-value">{selectedSecondCard.cardDto.cardRecord}</div>
+                                </div>
+                                <hr className="hr-line" /> {/* 가로선 */}
+                                <div className="comparedetail">
                                     <div className="comparedetail-label">상세혜택</div>
                                     <div className="comparedetailbenefit-value">
                                         {selectedSecondCard.cardBenefitList.map((benefit, index) => (
-                                            <div key={index}>{benefit.benefitSummary}</div>
+                                            <div key={index}>
+                                                <div className="detailCategory">{benefit.benefitCategory}</div>
+                                                <div className="detailContents">{benefit.benefitSummary}</div>
+                                            </div>
                                         ))}
                                     </div>
                                 </div>
+                                <div className="fixed-button-container-second">
+                                    <button>
+                                        <Link to={`/detail/${selectedSecondCard.cardDto.cardId}`} target="_blank" className="detailLink">
+                                            상세 페이지 바로가기
+                                        </Link>
+                                    </button>
+                                </div>
+
                                 <button className="circle-button x-button" onClick={() => setSelectedSecondCard(null)}>❌</button>
                             </div>
                         ) : (
