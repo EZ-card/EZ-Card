@@ -283,3 +283,9 @@ section > strong {
     }
 }
 
+.cardImage {
+    width: 24px; /* 원하는 크기로 조절하세요 */
+    height: 18px; /* 원하는 크기로 조절하세요 */
+    margin-right: 0px; /* 이미지와 텍스트 사이의 간격 조절 */
+    margin-left: 0px;
+}

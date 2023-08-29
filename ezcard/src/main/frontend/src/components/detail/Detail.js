@@ -75,6 +75,8 @@ import 기타 from '../../assets/icon/기타.png'
 import 교육 from '../../assets/icon/교육.png'
 import 직장인 from '../../assets/icon/직장인.png'
 import 장애인 from '../../assets/icon/장애인.png'
+import 관리비 from '../../assets/icon/관리비.png'
+import 스포츠 from '../../assets/icon/스포츠.png'
 
 const Detail = () => {
   const { id } = useParams();
@@ -158,8 +160,11 @@ const Detail = () => {
                   <li>▫ {cardDto.cardSummary2}</li>
                   <li>▫ {cardDto.cardSummary3}</li>
                 </ul>
-                <p className="cardRecord">
+                <p className="cardMembership">
                   <span>{cardDto.cardMembership}</span>
+                </p>
+                <p className="cardRecord">
+                  <span>{cardDto.cardRecord}</span>
                 </p>
               </div>
               <button
@@ -183,6 +188,14 @@ const Detail = () => {
             {cardBenefitList.map((benefit, index) => (
                 <li key={index} className="detailContainer">
                   <div className="detailBox" onClick={() => toggleDetail(index)}>
+                    <div className="iconContainer">
+                      {/* 아이콘을 오른쪽에 표시 */}
+                      {openDetailBox === index ? (
+                          <ion-icon name="chevron-up-outline"></ion-icon>
+                      ) : (
+                          <ion-icon name="chevron-down-outline"></ion-icon>
+                      )}
+                    </div>
                     <img src={require(`../../assets/icon/${benefit.benefitCategory}.png`)} className="detailIcon" alt="Detail Icon" />
                     {/*<img src={benefit1} className="detailIcon" alt="Detail Icon" />*/}
                     <p className="detailTitle">{benefit.benefitCategory}</p>

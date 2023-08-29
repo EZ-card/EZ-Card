@@ -74,7 +74,7 @@ const Login = () => {
             
             <section className="sectionCL">
                 <div className="loginSec">
-                    <h2>로그인</h2>
+                    <h3>로그인</h3>
                     <form method="POST" action="서버의url" id="loginForm">
                         <label htmlFor="userId">이메일</label>
                         <input id="userId" type="email" name="userId" placeholder="EZcard@gamil.com" value={inputId} onChange={handleInputId}/> 

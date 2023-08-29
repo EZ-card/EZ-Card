@@ -4,7 +4,7 @@ import { Route, Routes, Link, useNavigate } from 'react-router-dom';
 import profileImage from '../../assets/images/profile.png';
 import profileImage2 from '../../assets/images/profile2.png';
 
-import logoImage from "../../assets/images/logoImage2.png"
+import logoImage from "../../assets/images/logoImage.png"
 
 import './Nav.css';
 import Main from '../../components/main/Main'; // Main 컴포넌트를 가져옴

@@ -104,7 +104,7 @@ const ComparePage = () => {
                                 </div>
                                 <div className="fixed-button-container-first">
                                     <button>
-                                        <Link to={`/detail/${selectedFirstCard.cardDto.cardId}`} target="_blank" className="detailLink">
+                                        <Link to={`/detail/${selectedFirstCard.cardDto.cardId}`} className="detailLink">
                                             상세 페이지 바로가기
                                         </Link>
                                     </button>
@@ -155,7 +155,7 @@ const ComparePage = () => {
                                 </div>
                                 <div className="fixed-button-container-second">
                                     <button>
-                                        <Link to={`/detail/${selectedSecondCard.cardDto.cardId}`} target="_blank" className="detailLink">
+                                        <Link to={`/detail/${selectedSecondCard.cardDto.cardId}`} className="detailLink">
                                             상세 페이지 바로가기
                                         </Link>
                                     </button>
@@ -178,9 +178,10 @@ const ComparePage = () => {
                             <ul>
                                 {cardList.map(card => (
                                     <li className="cardListModal" key={card.cardId} onClick={() => handleCardSelect(card.cardId)}>
-                                        <p className="cardNames">
-                                            {card.cardName}
-                                        </p>
+                                        <div className="cardInfoContainer">
+                                            <img src={card.cardImage} alt={card.cardName} className="cardImage" />
+                                            <p className="cardNames">{card.cardName}</p>
+                                        </div>
                                     </li>
                                 ))}
                             </ul>

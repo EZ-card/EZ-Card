@@ -94,6 +94,7 @@ const Main = () => {
                 {/* 맞춤 카드상담 */}
                 <div className="cardRecMain">
                     <strong>맞춤 카드 상담, EZ:bot</strong>
+                    {/*<div className="mainText">빠르고 쉽게 맞춤 카드 상담받기</div>*/}
                     <Link to="/chat">
                         <div className="chatting">
                             <div className="gptChatMain">
@@ -109,9 +110,10 @@ const Main = () => {
                     </Link>
                 </div>
 
-                <div>
+                <div className="reco">
                     {isLoggedIn ? (<strong>{nickname} 님을 위한 추천 카드</strong>)
-                        : (<strong>로그인하고 맞춤 카드 추천을 받아보세요</strong>)}
+                        : (<strong>맞춤 카드 추천</strong>)}
+                    <div className="mainText">로그인하고 맞춤 카드 추천을 받아보세요!</div>
                     <div id="mainTop">
                         {isLoggedIn ? (
                             <Swiper
@@ -260,7 +262,7 @@ const Main = () => {
                                 <p className="TDcardName2">KB국민카드</p>
                             </div>
                             <div className="TDcardLast">
-                                <a href="#"><ion-icon name="arrow-forward-outline"></ion-icon></a>
+                                <a href="/detail/2"><ion-icon name="arrow-forward-outline"></ion-icon></a>
                             </div>
                         </li>
                         {/* 카드 2 */}
@@ -273,7 +275,7 @@ const Main = () => {
                                 <p className="TDcardName2">롯데카드</p>
                             </div>
                             <div className="TDcardLast">
-                                <a href="#"><ion-icon name="arrow-forward-outline"></ion-icon></a>
+                                <a href="/detail/6"><ion-icon name="arrow-forward-outline"></ion-icon></a>
                             </div>
                         </li>
                         {/* 카드 3 */}
@@ -286,7 +288,7 @@ const Main = () => {
                                 <p className="TDcardName2">삼성카드</p>
                             </div>
                             <div className="TDcardLast">
-                                <a href="#"><ion-icon name="arrow-forward-outline"></ion-icon></a>
+                                <a href="/detail/38"><ion-icon name="arrow-forward-outline"></ion-icon></a>
                             </div>
                         </li>
                     </ul>
@@ -305,7 +307,7 @@ const Main = () => {
                                 <p className="TDcardName2">우리카드</p>
                             </div>
                             <div className="TDcardLast">
-                                <a href="#"><ion-icon name="arrow-forward-outline"></ion-icon></a>
+                                <a href="/detail/42"><ion-icon name="arrow-forward-outline"></ion-icon></a>
                             </div>
                         </li>
                         {/* 카드 2 */}
@@ -318,7 +320,7 @@ const Main = () => {
                                 <p className="TDcardName2">KB국민카드</p>
                             </div>
                             <div className="TDcardLast">
-                                <a href="#"><ion-icon name="arrow-forward-outline"></ion-icon></a>
+                                <a href="/detail/20"><ion-icon name="arrow-forward-outline"></ion-icon></a>
                             </div>
                         </li>
                         {/* 카드 3 */}
@@ -331,7 +333,7 @@ const Main = () => {
                                 <p className="TDcardName2">신한카드</p>
                             </div>
                             <div className="TDcardLast">
-                                <a href="#"><ion-icon name="arrow-forward-outline"></ion-icon></a>
+                                <a href="/detail/43"><ion-icon name="arrow-forward-outline"></ion-icon></a>
                             </div>
                         </li>
                     </ul>
@@ -352,7 +354,7 @@ const Main = () => {
                                 <p className="TDcardName2">신한카드 </p>
                             </div>
                             <div className="TDcardLast">
-                                <a href="#"><ion-icon name="arrow-forward-outline"></ion-icon></a>
+                                <a href="/detail/36"><ion-icon name="arrow-forward-outline"></ion-icon></a>
                             </div>
                         </li>
                         {/* 카드 2 */}
@@ -361,11 +363,11 @@ const Main = () => {
                                 <img src={topWelfare2}></img>
                             </div>
                             <div className="TDcardInfo">
-                                <p className="TDcardName"><span>2.</span>임산부 국민행복카드</p>
+                                <p className="TDcardName"><span>2.</span>롯데 국민행복카드</p>
                                 <p className="TDcardName2">롯데카드</p>
                             </div>
                             <div className="TDcardLast">
-                                <a href="#"><ion-icon name="arrow-forward-outline"></ion-icon></a>
+                                <a href="/detail/14"><ion-icon name="arrow-forward-outline"></ion-icon></a>
                             </div>
                         </li>
                         {/* 카드 3 */}
@@ -378,7 +380,7 @@ const Main = () => {
                                 <p className="TDcardName2">NH농협카드</p>
                             </div>
                             <div className="TDcardLast">
-                                <a href="#"><ion-icon name="arrow-forward-outline"></ion-icon></a>
+                                <a href="/detail/37"><ion-icon name="arrow-forward-outline"></ion-icon></a>
                             </div>
                         </li>
                     </ul>

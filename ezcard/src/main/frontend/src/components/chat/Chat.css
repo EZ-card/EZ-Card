@@ -176,3 +176,18 @@
     color: #333; /* GPT 메시지 텍스트 색상 */
     align-self: flex-start; /* 왼쪽 정렬 (GPT 메시지) */
 }
+
+.cardclick {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-bottom: -15px;
+    margin-right: 5px;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+.reco {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}

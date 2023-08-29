@@ -54,7 +54,7 @@ const Splash = () => {
         <main className="mainSp">
             <section className="sectionSp">
                 <div>
-                    <video muted autoPlay loop preload="auto">
+                    <video muted loop autoPlay playsInline preload="auto">
                         <source src={creditCard} type="video/mp4" />
                     </video>
                     <div className="videoFt">

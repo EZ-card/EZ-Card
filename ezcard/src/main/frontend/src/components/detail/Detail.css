@@ -31,8 +31,12 @@
   color: #706F6F;
   margin-bottom: 5px;
 }
-.cardRecord{
+.cardMembership{
   margin-top: 5px;
+  font-size: 10px;
+}
+.cardRecord{
+  margin-top: -5px;
   font-size: 10px;
 }
 
@@ -145,4 +149,11 @@
 
 .company_Link {
   color: white;
+}
+
+.iconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  order: 1;
 }
