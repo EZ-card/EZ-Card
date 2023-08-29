@@ -95,15 +95,15 @@ const Nav = () => {
                     </li>
                     <li className="openMenu">
                         <div className="sideMenu">
-                            <p><strong>EZ:card</strong> <span onClick={closeMenuFun}><ion-icon name="close-outline"></ion-icon></span></p>
+                            <p><img src={logoImage} alt="logoImage" width={150}></img> <span onClick={closeMenuFun}><ion-icon name="close-outline"></ion-icon></span></p>
                             <ul>
                                 <li><Link to="/main">HOME</Link></li>
 
-                                <li><Link to="/chat">EZ:BOT 카드상담</Link></li>
-                                <li><Link to="/catalog">카드 목록</Link></li>
-                                <li><Link to="/compare">카드 비교하기</Link></li>
-                                <li><Link to="/list">찜 목록</Link></li>
-                                <li><Link to="/mypage">마이페이지</Link></li>
+                                <li><Link to="/chat" onClick={closeMenuFun}>EZ:BOT 카드상담</Link></li>
+                                <li><Link to="/catalog" onClick={closeMenuFun}>카드 목록</Link></li>
+                                <li><Link to="/compare" onClick={closeMenuFun}>카드 비교하기</Link></li>
+                                <li><Link to="/list" onClick={closeMenuFun}>찜 목록</Link></li>
+                                <li><Link to="/mypage" onClick={closeMenuFun}>마이페이지</Link></li>
                                 <li className="logout" onClick={handleLogout}>로그아웃</li>
                             </ul>
                         </div>
@@ -121,7 +121,7 @@ const Nav = () => {
                     </li>
                     <li className="openMenu">
                         <div className="sideMenu">
-                            <p><strong>EZ:card</strong> <span onClick={closeMenuFun}><ion-icon name="close-outline"></ion-icon></span></p>
+                            <p><img src={logoImage} alt="logoImage" width={150}></img> <span onClick={closeMenuFun}><ion-icon name="close-outline"></ion-icon></span></p>
                             <ul>
                                 <li><Link to="/main">HOME</Link></li>
                                 <li><Link to="/chat">EZ:BOT 카드상담</Link></li>

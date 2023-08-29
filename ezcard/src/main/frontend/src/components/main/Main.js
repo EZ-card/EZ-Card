@@ -111,7 +111,7 @@ const Main = () => {
                 </div>
 
                 <div className="reco">
-                    {isLoggedIn ? (<strong>{nickname} 님을 위한 추천 카드</strong>)
+                    {isLoggedIn ? (<strong><span>{nickname}</span> 님을 위한 추천 카드</strong>)
                         : (<strong>맞춤 카드 추천</strong>)}
                     <div className="mainText">로그인하고 맞춤 카드 추천을 받아보세요!</div>
                     <div id="mainTop">

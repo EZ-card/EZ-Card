@@ -23,7 +23,7 @@
   color: rgba(0, 0, 0, 0.84);
 }
 .detailCardInfo div li{
-  font-size: 12px;
+  font-size: 14px;
   font-weight: bold;
 }
 .cardBank{
@@ -33,11 +33,11 @@
 }
 .cardMembership{
   margin-top: 5px;
-  font-size: 10px;
+  font-size: 12px;
 }
 .cardRecord{
   margin-top: -5px;
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .mainBenefit {
@@ -65,7 +65,7 @@
   align-items: center;
   word-wrap: break-word; /* 하이픈(-)이 나오면 단어를 줄바꿈합니다. */
   white-space: pre-line; /* 하이픈(-)이 나오면 줄바꿈합니다. */
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .detailContainer {
@@ -91,9 +91,11 @@
   flex: 1;
   margin: 0;
   padding-right: 10px;
-  font-size: 12px;
+  font-size: 14px;
 }
-
+.detailBox{
+    cursor:pointer;
+}
 .detailBox p:last-child {
   flex: 0.6;
   margin-left: 0px;
@@ -124,6 +126,35 @@
   color: #F9595F;
   /*margin-right: 10px;*/
 }
+
+.cardCompanyLink button{
+    background-color: rgb(2, 67, 236); /* 호버 시 배경색 변경 */
+    color: white;
+    width: 100%;
+    margin:20px 0px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+.cardCompanyLink button a{
+    display:inline-block;
+    width:100%;
+    height:100%;
+    padding:20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media (max-width: 450px) {
   .detailIntro{

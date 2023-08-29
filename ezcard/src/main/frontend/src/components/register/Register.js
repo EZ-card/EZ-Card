@@ -93,8 +93,8 @@ const Register = () => {
         
         <section className="sectionCL">
             <div className="registerSec">
-                <h2>회원가입</h2>
-                <form method="POST" action="서버의url" id="registerForm">
+                <strong>회원가입</strong>
+                <form method="POST" id="registerForm">
                     <label htmlFor="rsId">이메일</label>
                     <input id="rsId" type="email" name="rsId" placeholder="EZcard@gamil.com" value={rsId} onChange={handleRsId} /> 
                     {!isEmailValid && <p className="error-text">올바른 이메일 형식이 아닙니다.</p>}
@@ -119,6 +119,8 @@ const Register = () => {
                             <li className={selectedJob === '청소년' ? 'on' : ''} onClick={onJobClick}>청소년</li>
                             <li className={selectedJob === '대학생' ? 'on' : ''} onClick={onJobClick}>대학생</li>
                             <li className={selectedJob === '직장인' ? 'on' : ''} onClick={onJobClick}>직장인</li>
+                            <li className={selectedJob === '가정주부' ? 'on' : ''} onClick={onJobClick}>가정주부</li>
+                            <li className={selectedJob === '자영업자' ? 'on' : ''} onClick={onJobClick}>자영업자</li>
                             <li className={selectedJob === '기타' ? 'on' : ''} onClick={onJobClick}>기타</li>
                         </ul>
                     </div>

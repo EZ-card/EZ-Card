@@ -5,14 +5,10 @@
     margin-bottom: 100px;
 }
 
-
-
-.sectionCL h2{
-    font-size: 28px;
-    font-weight: bold;
-    color: #0042EC;
-    margin-top: 100px;
-    margin-bottom: 50px;
+.loginSec strong{
+    margin-top:50px;
+    margin-bottom:20px;
+    display:block;
 }
 
 #loginForm input{

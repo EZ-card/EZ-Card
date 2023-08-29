@@ -2,8 +2,8 @@
 nav{
     max-width: 500px;
     width: 100%;
-    height: 60px;
-    padding: 10px;
+    height: auto;
+    padding: 10px 20px;
     /*background-color: pink;*/
 }
 nav > ul{
@@ -41,6 +41,7 @@ nav > ul li.menuBar span{
 }
 nav > ul li.menuBar span ion-icon{
     cursor: pointer;
+    padding-top: 10px;
 }
 /* 사용자 로그인 시 end */
 
@@ -84,15 +85,16 @@ li.openMenu .sideMenu > p{
     display: flex;
 }
 
-li.openMenu .sideMenu > p strong{
-    font-size: 20px;
+li.openMenu .sideMenu > p img{
+    width:150px;
+    height:36px;
     margin-left: 0px;
     padding: 0px;
     color: #005EEC;
 }
 li.openMenu .sideMenu > p span{
     font-size: 32px;
-    line-height: 65px;
+    line-height: 35px;
     margin-right: 0;
     cursor: pointer;
 }
@@ -100,7 +102,7 @@ li.openMenu .sideMenu > p span{
 li.openMenu .sideMenu > ul li{
     width: 100%;
     height: auto;
-    line-height: 75px;
+    line-height: 55px;
     font-size: 24px;
     /* border: 1px solid red; */
 }

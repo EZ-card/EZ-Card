@@ -14,8 +14,7 @@
   top: 0px;
   left: 0px;
   z-index: 999;
-  border: 1px solid red;
-  background: #000;
+  background: #fff;
 }
 .sectionSp video{
   position: fixed; right: 0; bottom: 0;
@@ -39,7 +38,6 @@
 
 .sectionSp .videoFt p {
   /*font-size: 17vw;*/
-  font-size: max((15vw), 40px);
   text-transform: uppercase;
   font-weight: 700;
   color: #f5f5f5;
@@ -62,6 +60,9 @@
   padding-top:5vh;
 }
 
+.sectionSp .videoFt p strong{
+  font-size: max((15vw), 40px);
+}
 
 
 .hidden {
@@ -70,6 +71,7 @@
 
 .console-container {
   font-size:5vw;
+  font-weight:bold;
   text-align:center;
   height:100px;
   width:auto;
@@ -91,6 +93,7 @@
 .sectionSp .videoFt a{
   margin: 0 auto;
   font-size: 1.6vw;
+  font-weight:bold;
   color: #fff;
   background: #0042EC;
   padding: 20px;
@@ -98,7 +101,11 @@
   position:absolute;
   top:50%; left:50%;
   transform: translate(-50%, 250%);
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
+
+
+
 
 
 @media (max-width: 500px) {

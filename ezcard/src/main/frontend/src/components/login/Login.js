@@ -48,7 +48,7 @@ const Login = () => {
                 if(res.status === 200){
                     console.log('======================',res.status);
                     alert('로그인 성공');
-                    navigate('/');
+                    navigate('/main');
                 } else if(res.status  === 204){
                     console.log('======================',res.status);
                     alert('아이디 또는 패스워드를 확인해주세요');
@@ -74,7 +74,7 @@ const Login = () => {
             
             <section className="sectionCL">
                 <div className="loginSec">
-                    <h3>로그인</h3>
+                    <strong>로그인</strong>
                     <form method="POST" action="서버의url" id="loginForm">
                         <label htmlFor="userId">이메일</label>
                         <input id="userId" type="email" name="userId" placeholder="EZcard@gamil.com" value={inputId} onChange={handleInputId}/> 

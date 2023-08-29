@@ -5,15 +5,12 @@
     margin-bottom: 150px;
 } */
 
-
-
-.sectionCL h2{
-    font-size: 28px;
-    font-weight: bold;
-    color: #0042EC;
-    margin-top: 20px;
-    margin-bottom: 50px;
+.registerSec strong{
+    margin-top:50px;
+    margin-bottom:20px;
+    display:block;
 }
+
 
 #registerForm input{
     width: 100%;
@@ -91,29 +88,27 @@
 }
 
 
-.registerSec #rsJob ul li{
-    width: 22%;
+
+
+.registerSec #rsJob{
+    margin-bottom:20px;
 }
-
-.registerSec #rsJob ul li:nth-child(4){
-    margin-right: 0px;
-}
-
-
-.registerSec #rsAge ul{
+.registerSec #rsAge ul, .registerSec #rsJob ul{
     display: grid;
     width: 100%;
     grid-template-columns: repeat(3, 1fr); /* 3개의 열을 가진 그리드 */
     gap: 4%; /* 열 사이의 간격 조절 */
 }
-.registerSec #rsAge ul li{
+.registerSec #rsAge ul li, .registerSec #rsJob ul li{
     width: 100%;
 }
 
-.registerSec #rsAge ul li:nth-child(4){
+.registerSec #rsAge ul li:nth-child(4), .registerSec #rsJob ul li:nth-child(4){
     margin-left: 0;
 }
 .registerSec #rsAge ul li:nth-child(3), li:nth-child(6){
     margin-right: 0;
 }
-
+.registerSec #rsJob ul li:nth-child(3), li:nth-child(6){
+    margin-right: 0;
+}
