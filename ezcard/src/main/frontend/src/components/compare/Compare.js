@@ -104,7 +104,7 @@ const ComparePage = () => {
                                 </div>
                                 <div className="fixed-button-container-first">
                                     <button>
-                                        <Link to={`/detail/${selectedFirstCard.cardDto.cardId}`} className="detailLink">
+                                        <Link to={`/detail/${selectedFirstCard.cardDto.cardId}`} className="detailLink" target="_blank">
                                             상세 페이지 바로가기
                                         </Link>
                                     </button>
@@ -155,7 +155,7 @@ const ComparePage = () => {
                                 </div>
                                 <div className="fixed-button-container-second">
                                     <button>
-                                        <Link to={`/detail/${selectedSecondCard.cardDto.cardId}`} className="detailLink">
+                                        <Link to={`/detail/${selectedSecondCard.cardDto.cardId}`} className="detailLink" target="_blank">
                                             상세 페이지 바로가기
                                         </Link>
                                     </button>
@@ -185,7 +185,7 @@ const ComparePage = () => {
                                     </li>
                                 ))}
                             </ul>
-                            <button onClick={closeModal}>닫기</button>
+                            <button onClick={closeModal} className="closebutton">닫기</button>
                         </div>
                     </div>
                 )}

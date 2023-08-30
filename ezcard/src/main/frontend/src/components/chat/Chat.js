@@ -10,7 +10,7 @@ import './Chat.css';
 // 이 컴포넌트는 카드 정보를 표시합니다
 const CardInfoMessage = ({ cardDto }) => {
     return (
-        <Link to={`/detail/${cardDto.cardId}`}>
+        <Link to={`/detail/${cardDto.cardId}`} target="_blank"> {/*새창으로 띄우기*/}
             <div className="gptChat gptChatCr">
                 <div><img src={cardDto.cardImage} alt="CardImage" /></div>
                 <div>

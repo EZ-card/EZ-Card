@@ -172,7 +172,7 @@
 }
 
 .gptChat {
-    background-color: #f0f0f0; /* GPT 메시지 배경 색상 */
+    background-color: #EDEDED; /* GPT 메시지 배경 색상 */
     color: #333; /* GPT 메시지 텍스트 색상 */
     align-self: flex-start; /* 왼쪽 정렬 (GPT 메시지) */
 }
