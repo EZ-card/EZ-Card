@@ -1,12 +1,7 @@
 {
   "files": {
-<<<<<<< HEAD
     "main.css": "/static/css/main.78aed091.css",
     "main.js": "/static/js/main.bf9931bc.js",
-=======
-    "main.css": "/static/css/main.da601dcd.css",
-    "main.js": "/static/js/main.92882c8f.js",
->>>>>>> 9fa1c8e74abc3faedcf57c3725cabdba6021334a
     "static/media/creditCard.mov": "/static/media/creditCard.7cd86acd4bd26b963e73.mov",
     "static/media/NotoSansKR-Black.otf": "/static/media/NotoSansKR-Black.dba005b6b1bed712b472.otf",
     "static/media/NotoSansKR-Bold.otf": "/static/media/NotoSansKR-Bold.c252383c4f70753be0e7.otf",
@@ -85,20 +80,11 @@
     "static/media/무실적.png": "/static/media/무실적.eeed41c0aa8bed968cde.png",
     "static/media/대형마트.png": "/static/media/대형마트.d1bf2c95779421da988a.png",
     "index.html": "/index.html",
-<<<<<<< HEAD
     "main.78aed091.css.map": "/static/css/main.78aed091.css.map",
     "main.bf9931bc.js.map": "/static/js/main.bf9931bc.js.map"
   },
   "entrypoints": [
     "static/css/main.78aed091.css",
     "static/js/main.bf9931bc.js"
-=======
-    "main.da601dcd.css.map": "/static/css/main.da601dcd.css.map",
-    "main.92882c8f.js.map": "/static/js/main.92882c8f.js.map"
-  },
-  "entrypoints": [
-    "static/css/main.da601dcd.css",
-    "static/js/main.92882c8f.js"
->>>>>>> 9fa1c8e74abc3faedcf57c3725cabdba6021334a
   ]
 }

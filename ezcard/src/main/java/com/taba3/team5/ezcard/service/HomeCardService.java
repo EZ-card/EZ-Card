@@ -20,7 +20,7 @@ public class HomeCardService {
     public HomeCardService() {
         // 나이대별로 카드 ID 리스트를 초기화
         ageToCardIdsMap.put("10대", Arrays.asList(9L, 18L, 19L, 20L));
-        ageToCardIdsMap.put("20대", Arrays.asList(4L, 10L, 21L, 22L));
+        ageToCardIdsMap.put("20대", Arrays.asList(4L, 9L, 21L, 22L));
         ageToCardIdsMap.put("30대", Arrays.asList(1L, 2L, 3L, 8L));
         ageToCardIdsMap.put("40대", Arrays.asList(5L, 6L, 26L, 27L));
         ageToCardIdsMap.put("50대", Arrays.asList(28L, 29L, 30L, 31L));

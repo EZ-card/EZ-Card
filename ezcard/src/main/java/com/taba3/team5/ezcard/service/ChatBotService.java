@@ -22,7 +22,7 @@ public class ChatBotService {
     private final CardService cardService;
     private final GptApiClient gptApiClient;
     private final Queue<String> chatHistory; // 대화 히스토리를 관리하기 위한 큐
-    private static final int MAX_HISTORY_SIZE = 3; // 대화 히스토리 크기 제한
+    private static final int MAX_HISTORY_SIZE = 2; // 대화 히스토리 크기 제한
 
     @Autowired
     public ChatBotService(CardService cardService, GptApiClient gptApiClient) {
@@ -60,8 +60,8 @@ public class ChatBotService {
 
             if (cardDto != null) {
                 // 카드 정보를 사용하여 응답 생성
-                chatBotResponse.setGptResponse(gptResponse); //응답 컨테너에 gpt답변 저장
-                chatBotResponse.setCardDto(cardDto); //응답 컨터이너에 카드정보 저장
+                chatBotResponse.setGptResponse(gptResponse); //응답 컨테이너에 gpt답변 저장
+                chatBotResponse.setCardDto(cardDto); //응답 컨테이너에 카드정보 저장
             }
             // 카드 추천이 아닌 다른 응답 생성
             chatBotResponse.setGptResponse(gptResponse);
@@ -98,16 +98,25 @@ public class ChatBotService {
     //gpt답변에서 카드이름 추출
     private String extractCardNames(String gptResponse) {
         // 정규 표현식 패턴 설정
-        String pattern = "카드이름:\\s*(.*?)(?:\\s*,|\\s*/|\\n)";
-        Pattern r = Pattern.compile(pattern);
+        String pattern1 = "카드이름:\\s*(.*?)(?:\\s*,|\\s*/|\\n)";
+        Pattern r1 = Pattern.compile(pattern1);
 
-        Matcher matcher = r.matcher(gptResponse);
-        if (matcher.find()) {
-            String cardName = matcher.group(1);
-            return cardName;
-        } else {
-            return "카드 이름을 추출할 수 없습니다.";
+        Matcher matcher1 = r1.matcher(gptResponse);
+        if (matcher1.find()) {
+            String cardName1 = matcher1.group(1);
+            return cardName1;
         }
+
+        String pattern2 = "\"(.*?)\"";
+        Pattern r2 = Pattern.compile(pattern2);
+
+        Matcher matcher2 = r2.matcher(gptResponse);
+        if (matcher2.find()) {
+            String cardName2 = matcher2.group(1);
+            return cardName2;
+        }
+
+        return "카드 이름을 추출할 수 없습니다.";
     }
 
     //gpt와 통신 후 결과에서 gpt답변만 추출
