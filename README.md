@@ -1,5 +1,5 @@
 # 나만을 위한 카드 추천 챗봇 서비스, EZ:card
-<p align="center"><img width="1470" alt="로고" src="https://github.com/EZ-card/EZ-Backend/assets/77954741/a8017f06-f820-4624-a4cf-2b38086ae14f"></p>
+<p align="center"><img width="1470" alt="로고" src="https://github.com/EZ-card/EZ-Card/assets/77954741/6d645b12-4c87-4748-8509-415159cad6c9"></p>
 
 ## 프로젝트 소개
 ### 진행 기간
