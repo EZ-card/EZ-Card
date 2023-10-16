@@ -58,6 +58,11 @@ GPT를 연동한 챗봇 서비스인 EZ:bot은 사용자의 상황에 맞는 카
 ### 1. 회원가입 및 로그인
 - 이메일, 비밀번호, 닉네임 입력
 - 개인 맞춤 카드 추천을 위한 성별, 직업, 나이대 관련 정보 수집
+<div style="display: flex; justify-content: space-between;">
+    <img width="300" alt="회원가입" src="https://github.com/EZ-card/EZ-Card/assets/77954741/e2e51199-1b9a-4a18-88ff-1ff18d9ccad8">
+    <img width="300" alt="회원가입완료" src="https://github.com/EZ-card/EZ-Card/assets/77954741/bcfffa73-4dd1-4cf5-989c-aa87ff50f385">
+    <img width="300" alt="로그인" src="https://github.com/EZ-card/EZ-Card/assets/77954741/9fd05098-5b2a-473b-a7e8-362df0df9239">
+</div>
 
 
 ### 2. 메인 페이지
@@ -65,6 +70,11 @@ GPT를 연동한 챗봇 서비스인 EZ:bot은 사용자의 상황에 맞는 카
 - 회원가입 시 입력한 필수 정보 중 나이대를 기반으로 한 맞춤 카드 추천
 - 오늘의 TOP 3
     - 사용자들이 많이 찜한 카드와 실제 카드사로 이동해서 발급받은 수를 기준으로 TOP3 선정
+<div style="display: flex; justify-content: space-between;">
+    <img width="300" alt="메인1" src="https://github.com/EZ-card/EZ-Card/assets/77954741/6b0216dc-63e8-4f85-ae86-5548ad69b0f3">
+    <img width="300" alt="메인2" src="https://github.com/EZ-card/EZ-Card/assets/77954741/2bca28fc-9e90-428a-8657-8dc9e2a68f5b">
+    <img width="300" alt="메인3" src="https://github.com/EZ-card/EZ-Card/assets/77954741/895daa69-36ac-41f0-8209-6d07779ffef4">
+</div>
 
 ### 3. EZ:bot (챗봇)
 - 사용자의 자유로운 채팅 입력
@@ -89,3 +99,4 @@ GPT를 연동한 챗봇 서비스인 EZ:bot은 사용자의 상황에 맞는 카
 - 전체 카드 목록 확인
 - 카드 종류별(신용, 체크, 복지)로 확인 가능
 - 원하는 카드를 클릭하면 상세 페이지로 이동
+
