@@ -1,7 +1,7 @@
 # 나만을 위한 카드 추천 챗봇 서비스, EZ:card
 <p align="center"><img width="1470" alt="로고" src="https://github.com/EZ-card/EZ-Card/assets/77954741/6d645b12-4c87-4748-8509-415159cad6c9"></p>
 
-# 💻 프로젝트 소개
+# 프로젝트 소개
 ## 진행 기간
 23.08.01 - 23.08.31 (4주) <br>
 
@@ -104,6 +104,8 @@ GPT를 연동한 챗봇 서비스인 EZ:bot은 사용자의 상황에 맞는 카
 <br>
 
 # 기능 소개
+<img width="840" alt="기능" src="https://github.com/EZ-card/EZ-Card/assets/77954741/b8c0dbf1-f30b-4b39-aa39-d2d2b8e987b4">
+
 ### 1. 회원가입 및 로그인
 - 이메일, 비밀번호, 닉네임 입력
 - 개인 맞춤 카드 추천을 위한 성별, 직업, 나이대 관련 정보 수집
