@@ -1,48 +1,19 @@
 # 나만을 위한 카드 추천 챗봇 서비스, EZ:card
 <p align="center"><img width="1470" alt="로고" src="https://github.com/EZ-card/EZ-Card/assets/77954741/6d645b12-4c87-4748-8509-415159cad6c9"></p>
 
-- [나만을 위한 카드 추천 챗봇 서비스, EZ:card](#---------------------ez-card)
-  * [프로젝트 소개](#-------)
-    + [진행 기간](#-----)
-    + [팀원 소개](#-----)
-    + [기획 배경](#-----)
-      - [이런한 배경 속에서, 기존의 카드 추천 서비스들은?](#----------------------------)
-      - [EZ:card는!](#ez-card--)
-    + [화면 설계 (레이아웃)](#------------)
-    + [API 명세서](#api----)
-    + [ERD](#erd)
-    + [기술 스택](#-----)
-      - [UI](#ui)
-      - [활용 언어](#-----)
-      - [활용 프레임워크](#--------)
-      - [데이터베이스](#------)
-      - [배포](#--)
-    + [Server-Architecture](#server-architecture)
-  * [기능 소개](#-----)
-    + [1. 회원가입 및 로그인](#1-----------)
-    + [2. 메인 페이지](#2-------)
-    + [3. EZ:bot (챗봇)](#3-ez-bot-----)
-    + [4. 카드 상세 페이지](#4----------)
-    + [5. 찜 목록](#5-----)
-    + [6. 카드 비교](#6------)
-    + [7. 카드 목록](#7------)
-
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
-
-
-## 프로젝트 소개
-### 진행 기간
+# 💻 프로젝트 소개
+## 진행 기간
 23.08.01 - 23.08.31 (4주) <br>
 
-### 팀원 소개
+## 팀원 소개
 
-**이명준 (Front-end, Team-Leader)**
+**[이명준](https://github.com/myje0319) (Front-end, Team-Leader)**
 
 - 메인 페이지 제작
 - 채팅 페이지 제작
 - 네비게이션 메뉴바 제작
 
-**이건우 (Back-end, Front-end)**
+**[이건우](https://github.com/gunnu3226) (Back-end, Front-end)**
 
 - 챗봇 기능 구현
 - 위시 카드 기능 구현
@@ -50,7 +21,7 @@
 - 카드 비교 기능 구현
 - 카드 비교 페이지 제작
 
-**김민지 (Back-end, Front-end)**
+**[김민지](https://github.com/ghi512) (Back-end, Front-end)**
 
 - 회원가입 기능 구현
 - 로그인/로그아웃 기능 구현
@@ -58,17 +29,18 @@
 - 카드목록 페이지 제작
 - 배포 - AWS RDS, AWS EC2
 
-**안정민 (Front-end)**
+**[안정민](https://github.com/jungmin0514) (Front-end)**
 
 - 회원가입 페이지 제작
 - 위시 카드 페이지 제작
 
-**김다은** 
+**김다은 (기획)** 
 
 - 카드 정보 수집
 - 카드 정보 가공
+<br>
 
-### 기획 배경
+## 기획 배경
 <strong>카드의 사용률 증가 </strong>
 - 현금의 사용률이 감소하고, 신용카드・체크카드의 사용률이 증가하면서 사람들에게 점차 카드의 중요성이 증가하고 있다. <br>
 
@@ -94,17 +66,17 @@ GPT를 연동한 챗봇 서비스인 EZ:bot은 사용자의 상황에 맞는 카
 
 → <strong> 챗봇 + 카드추천 + 개인 맞춤화 </strong>의 장점을 모두 잡은 서비스!! <br><br>
 
-### 화면 설계 (레이아웃)
+## 화면 설계 (레이아웃)
 <img width="823" alt="API 명세서" src="https://github.com/EZ-card/EZ-Card/assets/77954741/25eb26ba-c4e9-4e13-a91d-b2b3dc904350">
 
-### API 명세서
+## API 명세서
 [API 명세서 보러가기](https://www.notion.so/04e0aa1e7c1a47c8a774a484014f399e?pvs=21)
 
-### ERD
+## ERD
 [ERD 보러가기](https://www.erdcloud.com/p/JafoPJhhR2SBF6XpS)
 ![ERD](https://github.com/EZ-card/EZ-Card/assets/77954741/6813415f-fbac-47a0-a5bc-17392b24cab4)
 
-### 기술 스택
+## 기술 스택
 > #### UI
 <!-- figma -->
 <img src="https://img.shields.io/badge/figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white"> 
@@ -126,10 +98,12 @@ GPT를 연동한 챗봇 서비스인 EZ:bot은 사용자의 상황에 맞는 카
 <!-- ec2, rds -->
 <img src="https://img.shields.io/badge/amazonec2-FF9900?style=for-the-badge&logo=amazonec2&logoColor=white" /> <img src="https://img.shields.io/badge/amazonrds-527FFF?style=for-the-badge&logo=amazonrds&logoColor=white" />
 
-### Server-Architecture
+## Server-Architecture
 <img width="779" alt="서버" src="https://github.com/EZ-card/EZ-Card/assets/77954741/a535bc8b-7320-4d52-80ad-9fe513a139c9">
 
-## 기능 소개
+<br>
+
+# 기능 소개
 ### 1. 회원가입 및 로그인
 - 이메일, 비밀번호, 닉네임 입력
 - 개인 맞춤 카드 추천을 위한 성별, 직업, 나이대 관련 정보 수집
