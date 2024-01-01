@@ -55,10 +55,11 @@ GPT를 연동한 챗봇 서비스인 EZ:bot은 사용자의 상황에 맞는 카
 <br><br>
 
 ## 화면 설계 (레이아웃)
-<img width="823" alt="API 명세서" src="https://github.com/EZ-card/EZ-Card/assets/77954741/25eb26ba-c4e9-4e13-a91d-b2b3dc904350">
+<img width="823" alt="화면 레이아웃" src="https://github.com/EZ-card/EZ-Card/assets/77954741/25eb26ba-c4e9-4e13-a91d-b2b3dc904350">
 
 ## API 명세서
 [API 명세서 보러가기](https://www.notion.so/04e0aa1e7c1a47c8a774a484014f399e?pvs=21)
+![api 명세서](https://github.com/EZ-card/EZ-Card/assets/77954741/3ea1f126-edb4-47b1-b122-78fd243939c4)
 
 ## ERD
 [ERD 보러가기](https://www.erdcloud.com/p/JafoPJhhR2SBF6XpS)
