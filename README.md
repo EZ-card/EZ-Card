@@ -31,6 +31,7 @@
 
 **[안정민](https://github.com/jungmin0514) (Front-end)**
 
+- 전체 UI 디자인 
 - 회원가입 페이지 제작
 - 위시 카드 페이지 제작
 
